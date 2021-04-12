@@ -1,0 +1,125 @@
+<ion-header>
+  <header></header>
+</ion-header>
+
+<ion-content>
+  <!-- Page Image -->
+  <div class="page-title">{{'TRACKING.Tracking' | translate}}</div>
+
+  <!-- Search Fields -->
+  <div class="tracking-content">
+    <form #trackingForm="ngForm">
+      <ion-label class="app-label required"
+        >{{'TRACKING.WhatDoYouNeedToTrack' | translate}}</ion-label
+      >
+
+      <ion-row align-items-center>
+        <ion-col>
+          <input
+            type="text"
+            name="referenceNumber"
+            placeholder="{{'TRACKING.ReferenceNumber' | translate}}"
+            class="input"
+            required
+            [(ngModel)]="referenceNumber"
+          />
+        </ion-col>
+        <ion-col col-auto>
+          <button
+            ion-button
+            outline
+            item-end
+            (click)="navigateToDetailsForRequestNumber()"
+            [disabled]="(referenceNumber|| '').trim().length === 0"
+          >
+            {{"TRACKING.ٍGetStatus" | translate}}
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-list radio-group [(ngModel)]="serviceType" name="serviceType">
+        <ion-item *ngIf="authenticate.isAuthenticated()">
+          <ion-label>{{'TRACKING.Service' | translate}}</ion-label>
+          <ion-radio
+            value="CaseRequest"
+            (ionSelect)="onServiceTypeChange('CaseRequest')"
+          ></ion-radio>
+        </ion-item>
+
+        <ion-item *ngIf="authenticate.isAuthenticated()">
+          <ion-label>{{'TRACKING.Contract' | translate}}</ion-label>
+          <ion-radio
+            value="ContractRequest"
+            (ionSelect)="onServiceTypeChange('ContractRequest')"
+          ></ion-radio>
+        </ion-item>
+
+        <ion-item *ngIf="authenticate.isAuthenticated()">
+          <ion-label>{{'TRACKING.Order' | translate}}</ion-label>
+          <ion-radio
+            value="Order"
+            (ionSelect)="onServiceTypeChange('Order')"
+          ></ion-radio>
+        </ion-item>
+
+        <ion-item *ngIf="authenticate.isAuthenticated()">
+          <ion-label>{{'TRACKING.Complaint' | translate}}</ion-label>
+          <ion-radio
+            value="ComplainRequest"
+            (ionSelect)="onServiceTypeChange('ComplainRequest')"
+          ></ion-radio>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-list *ngIf="authenticate.isAuthenticated()">
+      <ion-list-header *ngIf="!customerOrders || customerOrders.length == 0">
+        {{"TRACKING.NoResultFound" | translate}}
+      </ion-list-header>
+
+      <ion-list-header
+        *ngIf="( !customerOrders || customerOrders.length == 0) && !authenticate.isAuthenticated()"
+      >
+        {{"TRACKING.PleaseLoginToShowResult" | translate}}
+      </ion-list-header>
+
+      <ion-item [hidden]="!customerOrders" *ngFor="let order of customerOrders">
+        <ion-label class="search-details">
+          <ion-row>
+            <b>#{{order?.jci_name || order?.CustomOrderNumber}}</b>
+          </ion-row>
+          <ion-row *ngIf="order?.OrderStatus">
+            <div>{{"TRACKING.Status" | translate}}:</div>
+            &nbsp;
+            <div>{{order?.OrderStatus}}</div>
+          </ion-row>
+          <ion-row>
+            <div>{{"TRACKING.Date" | translate}}:</div>
+            &nbsp;
+            <div>
+              {{helper.formatDateByAppConfig( order?.createdon ||
+              order?.CreatedOn)}}
+            </div>
+          </ion-row>
+          <ion-row *ngIf="order?.OrderTotal">
+            <div>{{"TRACKING.Total" | translate}}:</div>
+            &nbsp;
+            <div>{{order?.OrderTotal}}</div>
+          </ion-row>
+        </ion-label>
+
+        <button
+          ion-button
+          outline
+          item-end
+          (click)="navigateToDetailsPage(order?.jci_requestid, order?.Id)"
+        >
+          {{"TRACKING.Details" | translate}}
+        </button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

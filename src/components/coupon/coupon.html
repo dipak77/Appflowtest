@@ -1,0 +1,39 @@
+<button ion-button block color="secondary"
+        (click)="showCouponInput = !showCouponInput;coupon=''">
+  <img src="./assets/coupon.svg" class="coupon-img" />
+  {{"COUPON.DoYouHaveACoupon" | translate}}
+</button>
+
+<div *ngIf="showCouponInput">
+  <div>
+    <input type="text" placeholder="{{'COUPON.Coupon' | translate}}" [(ngModel)]="coupon" (ngModelChange)="checkIsNCBPromocode($event)" />
+  </div>
+  <div *ngIf="showcardInput">
+    <div>
+      <input type="number" min="6" max="25" placeholder="{{'COUPON.Card' | translate}}" required  [(ngModel)]="card" (ngModelChange)="ValidatedCard($event)" />
+    </div>
+    <div *ngIf="!isValidCard && card > 1">
+    <p color="danger"  style="color: rgb(248, 0, 0); font-size: 80%;"><b>{{"COUPON.CardValidationMsg" | translate}} </b></p>
+    </div>
+  </div>
+  <div>
+    <button ion-button block color="primary"
+            *ngIf="showCouponInput"
+            (click)="applyCoupon()" [disabled]="!coupon">
+      {{"COUPON.ApplyCoupon" | translate}}
+    </button>
+  </div>
+</div>
+
+<div *ngIf="couponInfo?.AppliedDiscountsWithCodes && couponInfo?.AppliedDiscountsWithCodes.length > 0">
+    <div class="padding-8"></div>
+
+    <ion-list>
+        <ion-item *ngFor="let item of couponInfo?.AppliedDiscountsWithCodes">
+          <p>{{"COUPON.EnteredCouponCode" | translate}} • <b>{{item.CouponCode}}</b></p>
+         
+          
+          <button ion-button clear item-end (click)="removeCoupon(item.Id)">{{"COUPON.Delete" | translate}}</button>
+        </ion-item>
+    </ion-list>
+</div>

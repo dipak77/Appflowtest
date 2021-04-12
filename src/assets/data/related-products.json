@@ -1,0 +1,76 @@
+﻿{
+  "Data": [
+    {
+      "Name": "Printer",
+      "ShortDescription": "Nokia Lumia 1020 4G Cell Phone (Unlocked)",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": "$349.00"
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000113_printer_400.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 5,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 1
+      },
+      "Id": 20,
+      "CustomProperties": {}
+    },
+    {
+      "Name": "Digital Camera",
+      "ShortDescription": "<b>Pill 2.0 Portable Bluetooth Speaker (1-Piece):</b> Watch your favorite movies and listen to music with striking sound quality. This lightweight, portable speaker is easy to take with you as you travel to any destination, keeping you entertained wherever you are. ",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": "From $15.00"
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000112_digital-camera_400.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 5,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 1
+      },
+      "Id": 21,
+      "CustomProperties": {}
+    },
+    {
+      "Name": "Fridge",
+      "ShortDescription": "Universall portable sound speakers",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": "$37.00"
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000110_fridge_400.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 5,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 1
+      },
+      "Id": 23,
+      "CustomProperties": {}
+    }
+  ],
+  "SuccessMessage": null,
+  "StatusCode": 200,
+  "ErrorList": []
+}

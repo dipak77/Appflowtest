@@ -1,0 +1,79 @@
+<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+  
+  <div class="page-title no-margin">{{"SERVICES.SERVICE-REQUEST.ServiceRequest" | translate}}</div>
+
+  <form #serviceForm="ngForm">
+
+    <!-- USER INFO -->
+    <userInfo [valueModel]="data" (isValid)="isUserInfoValid = $event"></userInfo>
+    <div class="padding-8"></div>
+    <!-- OTHER DETAILS -->
+    <ion-row align-items-center>
+      <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.UnitWarranty" | translate}}</ion-label>
+      <ion-checkbox name="isUnderWarranty" [(ngModel)]="data.jci_isunderwarranty"></ion-checkbox>
+    </ion-row>
+    <div class="padding-8"></div>
+
+    <div class="page-subTitle">{{"SERVICES.SERVICE-REQUEST.InquiryInfo" | translate}}</div>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.ACType" | translate}}</ion-label>
+        <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACType"
+          [(ngModel)]="data.jci_actype" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectACType' | translate}}" required>
+          <ion-option *ngFor="let type of ACTypes" [value]="type?.id">{{type?.name}}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <div class="padding-4"></div>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.Units" | translate}}</ion-label>
+        <input type="number" name="NumberOfUnits" min="1" class="input" required [(ngModel)]="data.jci_unitscount">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.InvoiceDate" | translate}}</ion-label>
+        <ion-datetime doneText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" displayFormat="DD/MM/YYYY"
+          name="InvoiceDate" [(ngModel)]="data.jci_purchasedate"></ion-datetime>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.issue" | translate}}</ion-label>
+        <ion-select required okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="issue"
+          [(ngModel)]="data.jci_issue" placeholder="{{'SERVICES.selectIssue' | translate}}">
+          <ion-option *ngFor="let issue of acIssues" [value]="issue">{{translate.currentLang == 'ar' ? issue?.name : issue?.nameEn}}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-label [ngClass]="{'required': data.jci_issue?.id == '01087876-aee5-e911-a81b-000d3a2419f0'}" class="app-label">{{"SERVICES.SERVICE-REQUEST.Description"
+        | translate}}</ion-label>
+      <textarea name="comments" class="comments" [(ngModel)]="data.jci_comments" required="{{data.jci_issue?.id == '01087876-aee5-e911-a81b-000d3a2419f0' ? true : false}}"></textarea>
+    </ion-row>
+
+    <div class="padding-4"></div>
+    <div *ngIf="serviceForm.invalid || !isUserInfoValid" class="required-msg">
+    </div>
+
+    <div>
+      <button ion-button block color="third" [disabled]="serviceForm.invalid || !isUserInfoValid" (click)="onSubmit()">
+        {{"SERVICES.SERVICE-REQUEST.Submit" | translate}}
+      </button>
+    </div>
+  </form>
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

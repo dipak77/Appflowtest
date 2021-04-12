@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="19px" viewBox="0 0 18 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>Home</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="BottomMenu" transform="translate(-72.000000, -18.000000)" stroke="#5C6979" stroke-width="2">
+            <g id="Home" transform="translate(73.000000, 19.000000)">
+                <path d="M8,0 L7.47657143,0.460214286 L0,9.26257143 L0,15.7857143 C0,16.456 0.512,17 1.14285714,17 L4.57142857,17 C5.20228571,17 5.71428571,16.456 5.71428571,15.7857143 L5.71428571,10.9285714 C5.71428571,10.2582857 6.22628571,9.71428571 6.85714286,9.71428571 L9.14285714,9.71428571 C9.77371429,9.71428571 10.2857143,10.2582857 10.2857143,10.9285714 L10.2857143,15.7857143 C10.2857143,16.456 10.7977143,17 11.4285714,17 L14.8571429,17 C15.488,17 16,16.456 16,15.7857143 L16,9.26257143 L8.52342857,0.460214286 L8,0 Z" id="Stroke-1"></path>
+            </g>
+        </g>
+    </g>
+</svg>

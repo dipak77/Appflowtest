@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="228px" height="99px" viewBox="0 0 228 99" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>@2xVisual</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="74.2004097%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#0068A9" offset="0%"></stop>
+            <stop stop-color="#029EC1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="JC-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="NOTE" transform="translate(-61.000000, -147.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="360" height="758"></rect>
+            <g id="Visual" transform="translate(61.000000, 147.000000)">
+                <circle id="Oval-15" stroke="#8954BA" stroke-width="2" cx="73" cy="46" r="8"></circle>
+                <circle id="Oval-15-Copy-2" stroke="#8954BA" cx="81.5" cy="92.5" r="5.5"></circle>
+                <circle id="Oval-15-Copy-3" stroke="#8954BA" cx="181.5" cy="73.5" r="5.5"></circle>
+                <circle id="Oval-15-Copy-6" stroke="#8954BA" stroke-width="2" cx="209.5" cy="31.5" r="3.5"></circle>
+                <circle id="Oval-15-Copy-5" stroke="#F13B9A" stroke-width="2" cx="157" cy="87" r="7"></circle>
+                <circle id="Oval-15-Copy-4" stroke="#8954BA" cx="168" cy="50" r="2"></circle>
+                <circle id="Oval-15-Copy" stroke="#FC41B6" stroke-width="2" cx="39" cy="71" r="3"></circle>
+                <path d="M0.5,60.5 L16.3113883,44.6886117" id="Line-20" stroke="#EF2596" stroke-linecap="square"></path>
+                <path d="M215.5,74.5 L226.68034,63.3196601" id="Line-21" stroke="#FC8E2F" stroke-linecap="square"></path>
+                <path d="M52.5,91.5 L58.0226805,85.9773195" id="Line-22" stroke="#979797" stroke-linecap="square"></path>
+                <path d="M97.5,14.5 L111.642136,0.357864376" id="Line-23" stroke="#C5C5C5" stroke-linecap="square"></path>
+                <path d="M104.333333,53 L153,53 C154.104569,53 155,53.8954305 155,55 L155,64.3333333 C155,65.4379028 154.104569,66.3333333 153,66.3333333 L102.333333,66.3333333 L93,66.3333333 C91.8954305,66.3333333 91,65.4379028 91,64.3333333 L91,35 C91,33.8954305 91.8954305,33 93,33 L102.333333,33 C103.437903,33 104.333333,33.8954305 104.333333,35 L104.333333,53 Z" id="Combined-Shape" fill="url(#linearGradient-1)" transform="translate(123.000000, 49.666667) rotate(-45.000000) translate(-123.000000, -49.666667) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

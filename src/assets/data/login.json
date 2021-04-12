@@ -1,0 +1,17 @@
+﻿{
+  "FirstName": "Chris",
+  "LastName": "P. Bacon",
+  "Email": "chris.p.bacon@nopstation.com",
+  "Username": "chris.p.bacon@nopstation.com",
+  "StreetAddress": null,
+  "StreetAddress2": null,
+  "City": null,
+  "Phone": null,
+  "CountryId": null,
+  "StateProvinceId": 0,
+  "CustomerId": 104658,
+  "Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJDdXN0b21lcklkIjoxMDQ2NTgsImV4cCI6MTUzNDA2NjA0Nn0.ZUiTd7saylHkFg4Y0A3t8PcOTnYFZKoH7YNnuhS-PuQ",
+  "SuccessMessage": null,
+  "StatusCode": 200,
+  "ErrorList": []
+}

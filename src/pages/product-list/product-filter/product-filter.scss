@@ -1,0 +1,31 @@
+﻿product-filter {
+
+  .main-content {
+    @include horizontal-space();
+    @include vertical-space();
+    background-color: color($colors, background);
+
+    ion-range {
+      ion-label {
+        &[range-left] {
+          html[dir='rtl'] & {
+            margin: 0 20px 0 0px !important;
+          }
+        }
+
+        &[range-right] {
+          html[dir='rtl'] & {
+            margin: 0 0px 0 20px !important;
+          }
+        }
+      }
+    }
+
+    .reset-filters {
+      color: color($colors, danger);
+      width: 100%;
+      background-color: white;
+      border: 1px solid lightgray;
+    }
+  }
+}

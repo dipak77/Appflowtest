@@ -1,0 +1,54 @@
+<ion-header>
+  <header
+    [showCart]="false"
+    [showExtraMenuButton]="false"
+    (onLanguageChange)="onLanguageChange()"
+  ></header>
+</ion-header>
+
+<ion-content>
+  <div style="height: 0; overflow: hidden;">
+    <img
+      style="opacity: 0.001; width: 1px; height: 1px;"
+      src="{{ remoteProperties.onlineStoreImageUrl }}"
+    />
+    <img
+      style="opacity: 0.001; width: 1px; height: 1px;"
+      src="{{ remoteProperties.ourServicesImageUrl }}"
+    />
+  </div>
+  <div
+    class="imgContainer store"
+    [ngStyle]="{ 'background-image': 'url('+remoteProperties.onlineStoreImageUrl+')'}"
+    (click)="loadStorePage()"
+  >
+    <div class="imgText">
+      {{"HOME.store" | translate}}
+      <div class="plus-icon"><img src="./assets/plus-icon.svg" /></div>
+    </div>
+  </div>
+  <div
+    class="imgContainer service"
+    [ngStyle]="{ 'background-image': 'url('+remoteProperties.ourServicesImageUrl+')'}"
+    (click)="loadOurServices()"
+  >
+    <div class="imgText">
+      {{"HOME.services" | translate}}
+      <div class="plus-icon"><img src="./assets/plus-icon.svg" /></div>
+    </div>
+  </div>
+</ion-content>
+<div *ngIf="remoteProperties.homepagePopupUrls[translate.currentLang]">
+  <div class="promot-alert" id="popup">
+    <div class="promot-alert-close" (click)="closePromotPopup()">
+      <div class="close-icon">X</div>
+    </div>
+    <div class="promot-image">
+      <img src="{{remoteProperties.homepagePopupUrls[translate.currentLang]}}"
+      />
+    </div>
+  </div>
+  <div id="cover"></div>
+</div>
+<!-- footer -->
+<app-footer></app-footer>

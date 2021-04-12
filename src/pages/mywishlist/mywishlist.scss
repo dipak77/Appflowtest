@@ -1,0 +1,7 @@
+﻿mywishlist {
+  .scroll-content {
+    @include horizontal-space();
+    @include vertical-space();
+  }
+
+}

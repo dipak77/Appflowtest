@@ -1,0 +1,38 @@
+<div [hidden]="products.length == 0">
+  <ion-row justify-content-between align-items-center class="header">
+    <div class="header-title">{{"RELATEDPRODUCTS.RelatedProducts" | translate}}</div>
+    <div class="header-buttons">
+      <button ion-button class="header-button" (click)="onClickSliderButton(-1)" [disabled]="(currentIndex == 0 || isLoading)">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+      <button ion-button class="header-button" (click)="onClickSliderButton(1)" [disabled]="(!totalSlidesCount || (currentIndex == totalSlidesCount - 1)  || isLoading)">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </div>
+  </ion-row>
+
+  <div class="padding-8"></div>
+
+  <!-- Loader -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <ion-spinner name="dots"></ion-spinner>
+  </div>
+
+  <div *ngIf="!isLoading">
+
+    <!--<ion-list-header [hidden]="products.length > 0">
+      {{"RELATEDPRODUCTS.NORELATEDPRODUCTSFOUND" | translate}}
+    </ion-list-header>-->
+    <ion-slides *ngIf="products.length > 0"
+    pager="false"
+    slidesPerView="2"
+    spaceBetween="10"
+    (ionSlideNextStart)="onSlideDrag(1, 'slider')"
+    (ionSlidePrevStart)="onSlideDrag(-1, 'slider')">
+
+    <ion-slide *ngFor="let product of products">
+    <product-card [product]="product"></product-card>
+    </ion-slide>
+    </ion-slides>
+  </div>
+</div>

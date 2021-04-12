@@ -1,0 +1,158 @@
+<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+  <div class="page-title no-margin">{{"SERVICES.ContractRequest" | translate}}</div>
+
+  <form #serviceForm="ngForm">
+
+    <!-- USER INFO -->
+    <userInfo [valueModel]="data" (isValid)="isUserInfoValid = $event" [showCityAndRegion]="false"></userInfo>
+    <div class="padding-8"></div>
+    <!-- OTHER DETAILS -->
+    <div class="page-subTitle">{{"SERVICES.SERVICE-REQUEST.InquiryInfo" | translate}}</div>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.ACType" | translate}}</ion-label>
+        <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACType"
+                    [(ngModel)]="data.jci_actype" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectACType' | translate}}" required>
+          <ion-option *ngFor="let type of ACTypes" [value]="type?.id">{{type?.name}}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <div class="padding-4"></div>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.Units" | translate}}</ion-label>
+        <input type="number" name="NumberOfUnits" min="1" class="input" required [(ngModel)]="data.jci_unitscount">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.ProjectCode" | translate}}</ion-label>
+        <input type="text" name="ProjectCode" class="input" required [(ngModel)]="data.jci_projectcode" (blur)="getProjectDetails()">
+      </ion-col>
+    </ion-row>
+    <div *ngIf="data.jci_projectcode" class="alert-small-red">
+      <span *ngIf="projectDetails && projectDetails.ProjectCode && data.isProjectCanceled ">{{"SERVICES.SERVICE-REQUEST.ProjectCanceled" | translate}}</span>
+      <span *ngIf="projectDetails && projectDetails.ProjectCode && !data.isProjectCanceled && data.projectEndBeforeSixtyDays">{{"SERVICES.SERVICE-REQUEST.ProjectEndBeforeSixtyDays" | translate}}</span>
+      <span *ngIf="data.hasProjectDetailsData === 'no' ">{{"SERVICES.SERVICE-REQUEST.ProjectCodeNotValid" | translate}}</span>
+    </div>
+
+
+    <div class="padding-4"></div>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"USERINFO.Region" | translate}}</ion-label>
+      <input type="text" name="region" class="input" disabled [(ngModel)]="data.jci_region">
+    </ion-row>
+
+    <div class="padding-4"></div>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"USERINFO.City" | translate}}</ion-label>
+      <input type="text" name="city" class="input" disabled [(ngModel)]="data.jci_city">
+    </ion-row>
+
+    <div class="padding-4"></div>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.Location" | translate}}</ion-label>
+        <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="Location"
+                    [(ngModel)]="data.jci_customerlocation" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectLocation' | translate}}" required>
+          <ion-option *ngFor="let location of projectDetails.Locations" [value]="location?.jci_customerlocationid">{{location.name || location.jci_locationname || location.jci_locationcode }}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <div class="padding-4"></div>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.ProblemCode" | translate}}</ion-label>
+        <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ProblemCode"
+                    [(ngModel)]="data.jci_problem" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectProblemCode' | translate}}" required>
+          <ion-option *ngFor="let problem of problems" [value]="problem?.jci_serviceproblemid">{{translate.currentLang == "ar" ? problem.jci_titlear : problem.jci_titleen }}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <div class="padding-4"></div>
+
+    <ion-row>
+      <ion-label class="app-label required">
+        {{"SERVICES.SERVICE-REQUEST.AccountName" | translate}}
+      </ion-label>
+      <input required type="text" disabled name="accountname" class="input" [(ngModel)]="projectDetails.AccountName">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">
+        {{"SERVICES.accountNumber" | translate}}
+      </ion-label>
+      <input required type="text" disabled name="accountNumber" class="input" [(ngModel)]="data.jci_contractaccountnumber">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">
+        {{"SERVICES.SERVICE-REQUEST.ContractNumber" | translate}}
+      </ion-label>
+      <input required type="text" disabled name="contractnumber" class="input" [(ngModel)]="data.jci_contractnumber">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">
+        {{"SERVICES.SERVICE-REQUEST.Product" | translate}}
+      </ion-label>
+      <input required type="text" disabled name="product" class="input" [(ngModel)]="projectDetails.Product">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">
+        {{"SERVICES.SERVICE-REQUEST.ProjectName" | translate}}
+      </ion-label>
+      <input required type="text" disabled name="projectname" class="input" [(ngModel)]="projectDetails.ProjectName">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">
+        {{"SERVICES.SERVICE-REQUEST.ProjectStartDate" | translate}}
+      </ion-label>
+      <input required type="text" disabled name="projectstart" class="input" [(ngModel)]="projectDetails.ProjectEstStartDate">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">
+        {{"SERVICES.SERVICE-REQUEST.ProjectEndDate" | translate}}
+      </ion-label>
+      <input required type="text" disabled name="projectend" class="input" [(ngModel)]="projectDetails.ProjectEstEndDate">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label">
+        {{"SERVICES.SERVICE-REQUEST.Description" | translate }}
+      </ion-label>
+      <textarea name="comments" class="comments" [(ngModel)]="data.jci_comments"></textarea>
+    </ion-row>
+    <div class="padding-4"></div>
+
+
+    <div class="padding-4"></div>
+    <div *ngIf="serviceForm.invalid || !isUserInfoValid" class="required-msg">
+    </div>
+
+    <div>
+      <button ion-button block color="third" [disabled]="serviceForm.invalid || !isUserInfoValid || data.isProjectCanceled || data.hasProjectDetailsData === 'no' " (click)="onSubmit()">
+        {{"SERVICES.SERVICE-REQUEST.Submit" | translate}}
+      </button>
+    </div>
+  </form>
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

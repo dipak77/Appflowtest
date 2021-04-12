@@ -1,0 +1,54 @@
+﻿<div>
+  <div class="page-subTitle">{{"USERINFO.PersonalInfo" | translate}}</div>
+
+  <form #userInfoForm="ngForm">
+    <ion-row>
+      <ion-label class="app-label required">{{"USERINFO.Fname" | translate}}</ion-label>
+      <input type="text" name="fname" class="input" required [(ngModel)]="valueModel.FirstName"
+        [disabled]="disableUserInfo">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"USERINFO.Lname" | translate}}</ion-label>
+      <input type="text" name="lname" class="input" required [(ngModel)]="valueModel.LastName"
+        [disabled]="disableUserInfo">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label">{{"USERINFO.Email" | translate}}</ion-label>
+      <input type="email" name="email" class="input" [(ngModel)]="valueModel.Email" [disabled]="disableUserInfo">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"USERINFO.Mobile" | translate}}</ion-label>
+      <input type="tel" name="mobile" class="input" required [(ngModel)]="valueModel.Mobile">
+    </ion-row>
+
+    <ion-row *ngIf="showCityAndRegion">
+      <ion-col class="state">
+        <ion-label class="app-label required">{{"USERINFO.Region" | translate}}</ion-label>
+        <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}"
+          (ionChange)="onRegionChange(valueModel.Region)" placeholder="{{'USERINFO.RegionPlaceholder' | translate}}"
+          multiple="false" name="region" required [(ngModel)]="valueModel.Region">
+          <ion-option *ngFor="let region of regions" [value]="region.id">
+            {{translate.currentLang == 'ar' ? region.name : region.nameEn}}
+          </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="showCityAndRegion">
+      <ion-col class="state">
+        <ion-label class="app-label required">{{"USERINFO.City" | translate}}</ion-label>
+        <ion-select [disabled]="!valueModel.Region" okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}"
+          placeholder="{{'USERINFO.CityPlaceholder' | translate}}" multiple="false" name="city" required
+          [(ngModel)]="valueModel.City">
+          <ion-option *ngFor="let city of cities" [value]="city.id">
+            {{translate.currentLang == 'ar' ? city.name : city.nameEn}}
+          </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</div>

@@ -1,0 +1,56 @@
+﻿<div class="main-content">
+
+  <!-- SubTotal -->
+  <div class="total-row sub-total">
+    <div class="price">
+      {{ "CARTTOTAL.Subtotal" | translate }}
+    </div>
+    <div class="price">
+      {{ SubTotal || totalProperties?.SubTotal || '-' }}
+    </div>
+  </div>
+
+  <!-- Shipping -->
+  <div class="total-row sub-total">
+    <div>
+      {{ "CARTTOTAL.deliveryAndInstallation" | translate }}
+    </div>
+    <div *ngIf="RequiresShipping || totalProperties?.RequiresShipping">
+      {{ Shipping || totalProperties?.Shipping || ("CARTTOTAL.Unknown" | translate) }}
+    </div>
+    <div *ngIf="!RequiresShipping && !totalProperties?.RequiresShipping">
+      {{ Shipping || totalProperties?.Shipping || ("CARTTOTAL.ShippingIncluded" | translate) }}
+    </div>
+  </div>
+
+  <!-- Discount -->
+  <div class="total-row sub-total"
+    *ngIf="OrderTotalDiscount || SubTotalDiscount || totalProperties?.OrderTotalDiscount || totalProperties?.SubTotalDiscount">
+    <div class="price">
+      {{ "CARTTOTAL.Discount" | translate }}
+    </div>
+    <div class="price">
+      {{ OrderTotalDiscount || SubTotalDiscount || totalProperties?.OrderTotalDiscount || totalProperties?.SubTotalDiscount }}
+    </div>
+  </div>
+
+  <!-- VAT -->
+  <div class="total-row sub-total" *ngIf="Tax || totalProperties?.Tax">
+    <div class="price">
+      {{ "CARTTOTAL.VAT" | translate }}
+    </div>
+    <div class="price">
+      {{ Tax || totalProperties?.Tax || '-' }}
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="total-row">
+    <div>
+      {{ "CARTTOTAL.Total" | translate }}
+    </div>
+    <div>
+      {{ OrderTotal || totalProperties?.OrderTotal || SubTotal || totalProperties?.SubTotal || '-' }}
+    </div>
+  </div>
+</div>

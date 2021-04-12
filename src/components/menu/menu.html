@@ -1,0 +1,68 @@
+<!-- LTR -->
+<ion-menu [content]="content" persistent side="left" *ngIf="translate.currentLang == 'en'">
+  <ion-content>
+    
+    <ion-row class="sidemenu-header" *ngIf="auth.isAuthenticated()" menuClose (click)="openPage(customerPage)">
+      <ion-col col-3 align-self-center>
+        <img src="./assets/imgs/no-image.jpg" class="profile-img" />
+      </ion-col>
+      <ion-col align-self-center>
+        <div class="user-welcome"> {{"MENU.Welcome" | translate}}</div>
+        <div class="user-name">{{auth.getToken()?.FirstName}} {{auth.getToken()?.LastName}}</div>
+      </ion-col>
+    </ion-row>
+
+    <div class="divider" *ngIf="auth.isAuthenticated()"></div>
+
+    <div *ngFor="let p of pages">
+      <div *ngIf="showItem(p)">
+        <div class="menu-item" menuClose (click)="openPage(p)">
+          <div>
+            <ion-icon *ngIf="p.icon" name="{{p.icon}}"></ion-icon>
+          </div>  
+          
+          <div *ngIf="p.icon"  class="padding-4"></div>
+
+          <div class="title">{{ p.title | translate }}</div>
+        </div>
+        <div class="divider" *ngIf="p.hasDivider "></div>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<!-- RTL -->
+<ion-menu [content]="content" persistent side="right" *ngIf="translate.currentLang == 'ar'">
+  <ion-content>
+
+    <ion-row class="sidemenu-header" *ngIf="auth.isAuthenticated()" menuClose (click)="openPage(customerPage)">
+      <ion-col col-3 align-self-center>
+        <img src="./assets/imgs/no-image.jpg" class="profile-img" />
+      </ion-col>
+      <ion-col align-self-center>
+        <div class="user-welcome"> {{"MENU.Welcome" | translate}}</div>
+        <div class="user-name">{{auth.getToken()?.FirstName}} {{auth.getToken()?.LastName}}</div>
+      </ion-col>
+    </ion-row>
+
+    <div class="divider" *ngIf="auth.isAuthenticated()"></div>
+
+    <div *ngFor="let p of pages">
+      <div *ngIf="showItem(p)">
+        <div class="menu-item" menuClose (click)="openPage(p)">
+          <div>
+            <ion-icon *ngIf="p.icon" name="{{p.icon}}"></ion-icon>
+          </div>
+
+          <div *ngIf="p.icon" class="padding-4"></div>
+
+          <div class="title">{{ p.title | translate }}</div>
+        </div>
+        <div class="divider" *ngIf="p.hasDivider "></div>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

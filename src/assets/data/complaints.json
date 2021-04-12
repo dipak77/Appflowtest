@@ -1,0 +1,26 @@
+﻿[
+  {
+    "Id": "1",
+    "ComplaintNumber": "34435",
+    "DeliveryDate": "10-12-2018",
+    "Order Status": "Under Shipping",
+    "Name": "Omar Khaled",
+    "Mobile": "056140894",
+    "Email": "okhaled@netways.com",
+    "Region": "Bekaa",
+    "City": "Chtaura",
+    "Description": "AC not cooling"
+  },
+  {
+    "Id": "2",
+    "ComplaintNumber": "77869",
+    "DeliveryDate": "05-11-2018",
+    "Order Status": "Under Treatment",
+    "Name": "Amro Srouji",
+    "Mobile": "056140894",
+    "Email": "asrouji@netways.com",
+    "Region": "Bekaa",
+    "City": "Chtaura",
+    "Description": "AC not cooling"
+  }
+]

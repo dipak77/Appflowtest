@@ -1,0 +1,128 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+
+  <div class="main-content" *ngIf="result">
+
+    <div class="page-subTitle">{{"ORDERDETAILS.Order Info" | translate}}</div>
+
+    <div class="page-body">
+
+      <div class="order-overview">
+        <div class="order-number">
+          <strong>{{"ORDERDETAILS.Order" | translate}} {{ result?.CustomOrderNumber || result?.Id }}</strong>
+        </div>
+        <ul class="order-overview-content">
+          <li class="order-date">
+            {{"ORDERDETAILS.Order Date" | translate}}: {{helper.formatDateByAppConfig(result?.CreatedOn, 'datetime')}}
+          </li>
+          <li class="order-status">
+            {{"ORDERDETAILS.Order Status" | translate}}: {{result?.OrderStatus}}
+          </li>
+          <li class="order-total">
+            {{"ORDERDETAILS.Order Total" | translate}}: <strong>{{result?.OrderTotal}}</strong>
+          </li>
+        </ul>
+
+      </div>
+      <div class="order-details-area">
+        <div class="billing-info-wrap">
+          <div class="billing-info">
+            <div class="title">
+              <strong>{{"ORDERDETAILS.Billing Address" | translate}}</strong>
+            </div>
+            <ul class="info-list">
+              <li class="name">
+                {{result?.BillingAddress.FirstName}} {{result?.BillingAddress.LastName}}
+              </li>
+              <li class="email">
+                {{"ORDERDETAILS.Email" | translate}}: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3c5d514e53124f4e534956557c5b515d5550125f5351">
+                  {{result?.BillingAddress.Email}}
+                </a>
+              </li>
+              <li class="phone">
+                {{"ORDERDETAILS.Phone" | translate}}: {{result?.BillingAddress.PhoneNumber}}
+              </li>
+              <!-- <li class="fax">
+                {{"ORDERDETAILS.Fax" | translate}}: {{result?.BillingAddress.FaxNumber}}
+              </li> -->
+              <li class="address1">
+                {{result?.BillingAddress.Address1}}
+              </li>
+              <li class="address2">
+                {{result?.BillingAddress.Address2}}
+              </li>
+              <li class="city-state-zip">
+                {{result?.BillingAddress.City}}
+              </li>
+              <li class="country">
+                {{result?.BillingAddress.CountryName}}
+              </li>
+            </ul>
+          </div>
+          <div class="payment-method-info">
+            <div class="title">
+              <strong>{{"ORDERDETAILS.Payment" | translate}}</strong>
+            </div>
+            <ul class="info-list">
+              <li class="payment-method">
+                <span class="label">
+                  {{"ORDERDETAILS.Payment Method" | translate}}:
+                </span>
+                <span class="value">
+                  {{result?.PaymentMethod}}
+                </span>
+              </li>
+              <li class="payment-method-status">
+                <span class="label">
+                  {{"ORDERDETAILS.Payment Status" | translate}}:
+                </span>
+                <span class="value">
+                  {{result?.PaymentMethodStatus}}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="padding-8"></div>
+
+    <!-- Order Items -->
+    <div class="page-subTitle">{{"ORDERDETAILS.OrderItems" | translate}}</div>
+
+    <shopping-cart-items [items]="result?.Items" [canEdit]="false" [canDelete]="false">
+    </shopping-cart-items>
+
+    <div class="padding-8"></div>
+
+    <!-- Order Totals -->
+    <div class="page-subTitle">{{"ORDERDETAILS.OrderTotal" | translate}}</div>
+
+    <shopping-cart-total [Shipping]="result?.OrderShipping"
+                         [Tax]="result?.Tax"
+                         [OrderTotalDiscount]="result?.OrderTotalDiscount"
+                         [SubTotalDiscount]="result?.SubTotalDiscount"
+                         [OrderTotal]="result?.OrderTotal"
+                         [SubTotal]="result?.OrderSubtotal">
+    </shopping-cart-total>
+
+    <div class="padding-8"></div>
+
+    <!-- Reorder -->
+    <div>
+      <button ion-button block color="primary"
+              (click)="onClickReorder()">
+        {{"ORDERDETAILS.ReOrder" | translate}}
+      </button>
+    </div>
+  </div>
+</ion-content>
+
+
+<!-- footer -->
+<app-footer></app-footer>

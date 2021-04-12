@@ -1,0 +1,9 @@
+<div [ngClass]="['autocomplete', showList ? 'list-shown' : 'list-hidden']">
+  <input type="text" (click)="setFocus()" placeholder="{{ placeholder || label }}" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)" (input)="search($event.target.value)" debounce="500" />
+  <div class="list-shadow" (click)="removeFocus()" [ngStyle]="{ height: scrollHeight }"></div>
+  <ion-list *ngIf="showList">
+    <ion-item *ngFor="let item of (list || items)" (click)="value = item; valueChange.emit(item); removeFocus()">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+</div>

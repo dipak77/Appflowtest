@@ -1,0 +1,40 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+
+  <!-- Page Image -->
+  <div class="page-image">
+    <div class="title">{{'ORDERLIST.Orders' | translate}}</div>
+  </div>
+
+  <!-- Result -->
+  <div *ngIf="!helper.isLoading('ORDERLIST')">
+
+    <ion-list-header [hidden]="result?.Orders && result?.Orders.length > 0">
+      {{"ORDERLIST.NoOrdersFound" | translate}}
+    </ion-list-header>
+
+    <ion-list *ngIf="result?.Orders">
+      <ion-item *ngFor="let order of result?.Orders">
+
+        <h2>{{"ORDERLIST.Order" | translate}} # {{order.Id}}</h2>
+        <p>{{"ORDERLIST.OrderStatus" | translate}}: {{order.OrderStatus}}</p>
+        <p>{{"ORDERLIST.OrderDate" | translate}}: {{order.CreatedOn}}</p>
+        <p>{{"ORDERLIST.Total" | translate}}: {{order.OrderTotal}}</p>
+
+        <button ion-button clear item-end (click)="navigateToDetailsPage(order)">
+          {{"ORDERLIST.Details" | translate}}
+        </button>
+
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+
+
+<!-- footer -->
+<app-footer></app-footer>

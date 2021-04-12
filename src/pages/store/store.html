@@ -1,0 +1,30 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+<ion-content>
+
+  <!-- Page Image
+  <div class="page-image" [ngStyle]="{ 'background-image': 'url('+remoteProperties.onlineStoreImageUrl+')'}">
+    <div class="title">{{'STORE.OurStore' | translate}}</div>
+  </div> -->
+
+  <div class="page-title">{{'STORE.OurStore' | translate}}</div>
+
+  <!-- Result -->
+  <div *ngIf="!helper.isLoading() && categories">
+
+    <ion-row justify-content-center align-items-center>
+        <ion-col col-5 col-md-5 class="category-item grid-style" *ngFor="let category of categories;" (click)="onItemSelected(category)">
+            <div class="image-container">
+              <img src="{{category.DefaultPictureModel.ImageUrl}}" />
+            </div>
+            <div class="padding-8"></div>
+            <div class="text">{{category.Name}}</div>
+          </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

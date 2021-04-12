@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "759857519813",
+    "firebase_url": "https://york-mobile-app.firebaseio.com",
+    "project_id": "york-mobile-app",
+    "storage_bucket": "york-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759857519813:android:33a22d64d0fc65afb764ac",
+        "android_client_info": {
+          "package_name": "sa.com.yorkmobilestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759857519813-cr3a0sqrgseco32lros3kc6br5ig7avq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sa.com.yorkmobilestore",
+            "certificate_hash": "55b9cc07c00a2dfc613ee57e031941770bf275e9"
+          }
+        },
+        {
+          "client_id": "759857519813-ub32sa728fgvr9hf9ntajf1gfvdvkr6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtIijd9F7KOs2JL6RbaHs0n6rGzMHlz1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759857519813-ub32sa728fgvr9hf9ntajf1gfvdvkr6q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "759857519813-1i6k8f3lgfdeadjtfgmbsfksdbocsmak.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "sa.com.yorkmobilestore",
+                "app_store_id": "1462878005"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

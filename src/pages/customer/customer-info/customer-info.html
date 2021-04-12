@@ -1,0 +1,67 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+  <div class="main-content">
+
+    <div class="page-title no-margin">{{"CUSTOMERINFO.CustomerInfo" | translate}}</div>
+
+    <form #customerInfoForm="ngForm">
+
+      <!-- First Name -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERINFO.Fname" | translate}}</ion-label>
+        <input type="text" placeholder="{{'CUSTOMERINFO.Fname' | translate}}" name="fname" required [(ngModel)]="customer.FirstName">
+      </ion-row>
+      <!-- Last Name -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERINFO.Lname" | translate}}</ion-label>
+        <input type="text" placeholder="{{'CUSTOMERINFO.Lname' | translate}}" name="lname" required [(ngModel)]="customer.LastName">
+      </ion-row>
+
+      <!-- Email -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERINFO.Email" | translate}}</ion-label>
+        <input type="email" placeholder="{{'CUSTOMERINFO.Email' | translate}}" name="email" required email [(ngModel)]="customer.Email">
+      </ion-row>
+
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERINFO.Phone" | translate}}</ion-label>
+        <input type="tel" placeholder="{{'CUSTOMERINFO.Phone' | translate}}" name="Phone" required [(ngModel)]="customer.Phone">
+      </ion-row>
+
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERINFO.City" | translate}}</ion-label>
+        <input type="tel" placeholder="{{'CUSTOMERINFO.City' | translate}}" name="City" required [(ngModel)]="customer.City">
+      </ion-row>
+
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERINFO.District" | translate}}</ion-label>
+        <input type="tel" placeholder="{{'CUSTOMERINFO.District' | translate}}" name="StreetAddress" required [(ngModel)]="customer.StreetAddress">
+      </ion-row>
+
+      <div class="padding-4"></div>
+
+      <!-- Address -->
+      <ion-row>
+        <ion-label class="app-label">{{"CUSTOMERINFO.AddressesDetails" | translate}}</ion-label>
+        <button (click)="navigateToAddressPage()" secondary clear item-right>
+          {{"CUSTOMERINFO.Details" | translate}}
+        </button>
+      </ion-row>
+      <div class="padding-8"></div>
+
+      <ion-row>
+        <button ion-button block color="primary"
+                [disabled]="customerInfoForm.invalid"
+                (click)="onClickUpdate()">
+          {{"CUSTOMERINFO.Update" | translate}}
+        </button>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

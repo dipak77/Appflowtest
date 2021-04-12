@@ -1,0 +1,19 @@
+{
+  "IsEnabled": "true",
+  "DataAr": [
+    { "ImageUrl": "/Themes/JCI/assets/imgs/Landing-Page-Banner_Inverter-Arb_edited-1.png" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/small_banner_arabic.png" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/Arabic-Banner-3312x250-01.jpg" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/Arabic-Banner-3312x250-05.jpg" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/Arabic-Banner-3312x250-03-1.jpg" }
+  ],
+  "DataEn": [
+    { "ImageUrl": "/Themes/JCI/assets/imgs/Landing-Page-Banner_Inverter-Eng-edit-1.png" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/small_banner_english.png" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/English-Banner-3312x250-01.jpg" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/English-Banner-3312x250-05.jpg" },
+    { "ImageUrl": "/Themes/JCI/assets/imgs/English-Banner-3312x250-03-1.jpg" }
+  ]
+}    
+
+

@@ -1,0 +1,20 @@
+﻿<div class="modal image-modal">
+
+  <div class="close-button" (click)="closeModal()">
+    <ion-icon name="close"></ion-icon>
+  </div>
+
+  <app-image-viewer *ngIf="imagesUrl.length === 1" [rotate]="true" [download]="false" [fullscreen]="false"
+    [showPDFOnlyOption]="false" [enableTooltip]="false" [images]="imagesUrl" [idContainer]="'appImageViewer'"
+    [loadOnInit]="true"></app-image-viewer>
+
+  <ion-slides *ngIf="imagesUrl.length > 1" [loop]="enableLooping" [pager]="enablePager" zoom="true"
+    [dir]="translate.currentLang == 'ar' ? 'rtl' : 'ltr'" [initialSlide]="defaultImageIndex">
+    <ion-slide *ngFor="let image of imagesUrl">
+      <div class="swiper-zoom-container">
+        <img data-src="{{image}}">
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+</div>

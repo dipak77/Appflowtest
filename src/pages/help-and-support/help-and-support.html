@@ -1,0 +1,11 @@
+<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+  <div class="page-title">{{ topic.Title }}</div>
+  <article *ngIf="translate.currentLang == 'en'" class="en" [innerHTML]="topic.Body"></article>
+  <article *ngIf="translate.currentLang == 'ar'" class="ar" [innerHTML]="topic.Body"></article>
+</ion-content>
+
+<app-footer></app-footer>

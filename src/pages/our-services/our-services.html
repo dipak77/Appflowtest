@@ -1,0 +1,50 @@
+<ion-header>
+  <header></header>
+</ion-header>
+
+<ion-content>
+  <!-- <div class="page-image" [ngStyle]="{ 'background-image': 'url('+remoteProperties.ourServicesImageUrl+')'}">
+    <div class="title">
+      {{"SERVICES.OurServices" | translate}}
+    </div>
+  </div> -->
+  
+  <div class="page-title">{{'SERVICES.OurServices' | translate}}</div>
+
+  <!-- Service -->
+  <ion-row justify-content-center align-items-center>
+    <ion-col col-12>
+      <div class="option-item" (click)="loadServiceRequestPage()">
+        <div class="icon-container">
+          <img src="./assets/submit-request.svg" />
+        </div>
+        <div class="padding-8"></div>
+        <div class="text">{{"SERVICES.SubmitServiceRequest" | translate}}</div>
+      </div>
+    </ion-col>
+    <!-- Contract -->
+    <ion-col col-12>
+      <div class="option-item" (click)="loadContractRequest()">
+        <div class="icon-container">
+          <img class="spare-parts" src="./assets/2-contact-service.png" />
+        </div>
+        <div class="padding-8"></div>
+        <div class="text">{{"SERVICES.SubmitContract" | translate}}</div>
+      </div>
+    </ion-col>
+    <!-- Complaint -->
+    <ion-col col-12>
+      <div class="option-item" (click)="loadComplaintRequest()">
+        <div class="icon-container">
+          <img src="./assets/3-submit-complaint.png" />
+        </div>
+        <div class="padding-8"></div>
+        <div class="text">{{"SERVICES.SubmitComplaint" | translate}}</div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

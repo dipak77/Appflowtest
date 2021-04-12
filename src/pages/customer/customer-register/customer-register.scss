@@ -1,0 +1,11 @@
+﻿customer-register {
+  .register-content {
+    @include horizontal-space();
+    @include vertical-space();
+
+    .error-msg {
+      padding-top: 8px;
+      color: color($colors, danger);
+    }
+  }
+}

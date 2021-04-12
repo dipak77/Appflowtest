@@ -1,0 +1,59 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+  <div class="page-title no-margin">{{"CART.Your Cart" | translate}}</div>
+
+  <!-- Cart Items -->
+  <shopping-cart-items [items]="cart.items"></shopping-cart-items>
+
+  <div class="padding-8"></div>
+
+  <!-- Actions -->
+  <div *ngIf="cart?.items.length > 0">
+    <!-- Cart Total -->
+    <shopping-cart-total 
+      [RequiresShipping]="cart.orderTotal.RequiresShipping"
+      [Shipping]="cart.orderTotal.Shipping" [Tax]="cart.orderTotal.Tax"
+      [OrderTotalDiscount]="cart.orderTotal.OrderTotalDiscount || discountOnItems" [SubTotalDiscount]="cart.orderTotal.SubTotalDiscount"
+      [OrderTotal]="cart.orderTotal.OrderTotal" [SubTotal]="cart.orderTotal.SubTotal"
+      [totalProperties]="cart.orderTotal"></shopping-cart-total>
+
+    <div class="padding-8"></div>
+
+    <div>
+      <coupon (actionHandler)="couponActionHandler($event)" [couponInfo]="cart?.info?.DiscountBox"></coupon>
+    </div>
+
+    <ion-row class="btns" align-items-center justify-content-between nowrap>
+      <ion-col>
+        <button ion-button block color="third" (click)="onClickNavigate('Continue')">
+          {{"CART.ContinueShopping" | translate}}
+        </button>
+      </ion-col>
+      <ion-col><div class="padding-8"></div></ion-col>
+      <ion-col *ngIf="isGuest && canGuestCheckout">
+        <button ion-button block color="third" (click)="onClickNavigate('CheckOut')">
+          {{"CART.CheckoutAsGuest" | translate}}
+        </button>
+      </ion-col>
+      <ion-col *ngIf="!isGuest">
+        <button ion-button block color="third" (click)="onClickNavigate('CheckOut')">
+          {{"CART.Checkout" | translate}}
+        </button>
+      </ion-col>
+      <ion-col *ngIf="isGuest && !canGuestCheckout">
+          <button ion-button block color="third" (click)="onClickNavigate('Register')">
+          {{"CART.RegisterToCheckout" | translate}}
+        </button>   
+      </ion-col>   
+    </ion-row>
+
+    <div class="padding-8"></div>
+    
+  </div>
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

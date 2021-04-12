@@ -1,0 +1,28 @@
+﻿contactus {
+
+  .scroll-content {
+    @include horizontal-space();
+    @include vertical-space();
+
+    a {
+      color: white;
+      text-decoration: none;
+
+      .phone {
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        height: 28px;
+        padding: 5px;
+        color: white;
+        border-radius: 2px;
+      }
+    }
+
+    .message {
+      min-height: 64px;
+      width: 100%;
+      resize: vertical;
+    }
+  }
+}

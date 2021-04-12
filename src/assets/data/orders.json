@@ -1,0 +1,42 @@
+﻿{
+  "Orders": [
+    {
+      "OrderTotal": "$1,259.00",
+      "IsReturnRequestAllowed": false,
+      "OrderStatusEnum": "1",
+      "OrderStatus": "Pending",
+      "PaymentStatus": "Pending",
+      "ShippingStatus": "Not yet shipped",
+      "CreatedOn": "8/29/2018 7:28:53 AM",
+      "Id": "1",
+      "CustomProperties": {}
+    },
+    {
+      "OrderTotal": "$859.00",
+      "IsReturnRequestAllowed": false,
+      "OrderStatusEnum": "2",
+      "OrderStatus": "Pending",
+      "PaymentStatus": "Pending",
+      "ShippingStatus": "Not yet shipped",
+      "CreatedOn": "8/29/2018 7:28:53 AM",
+      "Id": "2",
+      "CustomProperties": {}
+    },
+    {
+      "OrderTotal": "$500.00",
+      "IsReturnRequestAllowed": false,
+      "OrderStatusEnum": "3",
+      "OrderStatus": "Pending",
+      "PaymentStatus": "Pending",
+      "ShippingStatus": "Not yet shipped",
+      "CreatedOn": "8/29/2018 7:28:53 AM",
+      "Id": "3",
+      "CustomProperties": {}
+    }
+  ],
+  "RecurringOrders": [],
+  "CancelRecurringPaymentErrors": [],
+  "SuccessMessage": "String",
+  "StatusCode": "Number",
+  "ErrorList": "Array"
+} 

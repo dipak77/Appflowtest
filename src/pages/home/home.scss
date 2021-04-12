@@ -1,0 +1,115 @@
+﻿page-home {
+  .imgContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4px;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 50%;
+
+    .plus-icon {
+      padding-top: 5px;
+
+      html[dir="ltr"] & {
+        text-align: left;
+      }
+
+      html[dir="rtl"] & {
+        text-align: right;
+      }
+    }
+
+    &.store {
+      background-color: rgba(0, 0, 0, 0.55);
+    }
+
+    &.service {
+      background-color: rgba(0, 0, 0, 0.65);
+    }
+
+    .imgText {
+      position: absolute;
+      color: rgba(255, 255, 255, 1);
+      background-color: rgba(0, 0, 0, 0.25);
+      min-width: 200px;
+      border-radius: 5%;
+      font-size: 3vh;
+      bottom: 12%;
+      padding: 8px;
+      margin: 16px;
+
+      html[dir="ltr"] & {
+        padding-left: 8%;
+      }
+
+      html[dir="rtl"] & {
+        padding-right: 8%;
+      }
+
+      .border {
+        position: absolute;
+        border-bottom: 3px solid rgba(255, 255, 255, 1);
+        font-size: 4vh;
+        height: 40%;
+
+        html[dir="ltr"] & {
+          padding-right: 40%;
+        }
+
+        html[dir="rtl"] & {
+          padding-left: 40%;
+        }
+      }
+    }
+  }
+
+  .promot-alert {
+    display: none;
+    position: absolute;
+    z-index: 12;
+    top: 30%;
+    .promot-alert-close {
+      position: absolute;
+      right: calc(5% + 2px);
+      top: calc(5% + 8px);
+     
+      margin: auto;
+
+      .close-icon {
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4em;
+        font-weight: bolder;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 1.4em;
+        height: 1.4em;
+        border: 1px solid #09559f;
+        fill: #09559f;
+        color: #09559f;
+        border-radius: 50%;
+        background-color: white;
+      }
+    }
+    .promot-image {
+      img {
+        padding: 5%;
+      }
+    }
+  }
+  #cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+}

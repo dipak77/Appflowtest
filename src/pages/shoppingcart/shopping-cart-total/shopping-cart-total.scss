@@ -1,0 +1,25 @@
+﻿shopping-cart-total {
+
+  .main-content {
+    background-color: rgba(242,248,248,1);
+    padding: 8px;
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      padding: 8px;
+      color: #263238;
+      font-size: 14px;
+
+      &.sub-total {
+        opacity: 0.64;
+        color: #37474F;
+        font-size: 12px;
+      }
+    }
+  }
+}

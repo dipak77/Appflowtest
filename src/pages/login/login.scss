@@ -1,0 +1,10 @@
+﻿login {
+  .scroll-content {
+    @include horizontal-space();
+    @include vertical-space();
+  }
+
+  .resetbutton{
+    padding:0 !important;
+  }
+}

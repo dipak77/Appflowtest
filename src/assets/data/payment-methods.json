@@ -1,0 +1,30 @@
+{
+  "PaymentMethods": [
+    {
+      "PaymentMethodSystemName": "Credit Card",
+      "id": 1,
+      "Name": "String",
+      "Fee": "String",
+      "Selected": "Boolean",
+      "LogoUrl": "https://store.york.com.sa/wp-content/plugins/paytabs-payment-gateway-woocommerce/icons/paytabs.png",
+      "CustomProperties": "Object"
+    },
+    {
+      "PaymentMethodSystemName": "Sadad",
+      "id": 2,
+      "Name": "String",
+      "Fee": "String",
+      "Selected": "Boolean",
+      "LogoUrl": "https://store.york.com.sa/wp-content/plugins/paytabs_sadad_wc/icons/sadad.png",
+      "CustomProperties": "Object"
+    }
+  ],
+  "PaySafeLogoUrl": "https://store.york.com.sa/wp-content/uploads/2018/03/PositiveSSL_tl_trans.png",
+  "DisplayRewardPoints": "Boolean",
+  "RewardPointsBalance": "Number",
+  "RewardPointsAmount": "String",
+  "UseRewardPoints": "Boolean",
+  "SuccessMessage": "String",
+  "StatusCode": "Number",
+  "ErrorList": "Array"
+} 

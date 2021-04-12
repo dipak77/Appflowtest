@@ -1,0 +1,61 @@
+﻿<ion-header>
+  <header  (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+<ion-content>
+  <div class="main-content">
+    <div class="page-subTitle">{{"CUSTOMERADDRESS.My Account" | translate}}</div>
+
+    <ion-list-header [hidden]="addresses || addresses.length > 0">
+      {{"PRODUCTLIST.NoAddressesFound" | translate}}
+    </ion-list-header>
+    
+    <!-- On CLick New Address -->
+    <div *ngIf="showAddressCmp">
+      <address [address]="selAddress" [isNew]="isNew" (actionHandler)="addressCmpActionHandler($event)"></address>
+    </div>    
+
+    <div *ngIf="( addresses && addresses.length > 0) && !showAddressCmp">
+      <ion-list >
+        <ion-item *ngFor="let address of addresses; let i = index;">
+          <div class="container">
+            <h2>{{i + 1}} - {{address.FirstName}} {{address.LastName}}</h2>
+            <div>
+              <button ion-button clear (click)="onClickEditAddress(address)">{{"CUSTOMERADDRESS.Edit" | translate}}</button>
+              <button ion-button clear (click)="onClickRemoveAddress(address, i)">{{"CUSTOMERADDRESS.Delete" | translate}}</button>
+            </div>
+          </div>
+          <div class="info-container">
+            <p class="name">{{address.FirstName}} {{address.LastName}}</p>
+            <p><b>{{"CUSTOMERADDRESS.Email" | translate}}</b>: {{address.Email}}</p>
+            <p *ngIf="address.Phone"><b>{{"CUSTOMERADDRESS.Phone" | translate}}</b>: {{address.Phone}}</p>
+            <p *ngIf="address.City"><b>{{"CUSTOMERADDRESS.City" | translate}}</b>: {{address.City}}</p>
+            <p *ngIf="address.Address1"><b>{{"CUSTOMERADDRESS.District" | translate}}</b>: {{address.Address1}}</p>
+            <p *ngIf="address.Address2"><b>{{"CUSTOMERADDRESS.StreetAddress" | translate}}</b>: {{address.Address2}}</p>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="padding-8"></div>
+
+    <button ion-button block color="primary"
+            *ngIf="!showAddressCmp"
+            (click)="onClickAddAddress(address)">
+      {{"CUSTOMERADDRESS.Add New" | translate}}
+    </button>
+
+    <button ion-button block class="btn-gray"
+            *ngIf="showAddressCmp"
+            (click)="showAddressCmp = false;">
+      {{"CUSTOMERADDRESS.Back" | translate}}
+    </button>
+  </div>
+
+</ion-content>
+
+
+
+<!-- footer -->
+<app-footer></app-footer>
+
+

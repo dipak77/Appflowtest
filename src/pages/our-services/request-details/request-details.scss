@@ -1,0 +1,24 @@
+﻿request-details {
+  .scroll-content {
+    @include horizontal-space();
+    @include vertical-space();
+
+    .delivery-date {
+      background-color: rgba(23,100,167,1);
+      color: white;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .personal-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 4px;
+      padding-top: 4px;
+      border-bottom: 1px solid lightgrey;
+    }
+  }
+}

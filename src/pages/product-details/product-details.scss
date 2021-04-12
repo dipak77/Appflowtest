@@ -1,0 +1,207 @@
+﻿product-details {
+  .section-content {
+    @include horizontal-space();
+  }
+
+  .slides-container {
+    position: relative;
+
+    ion-slides {
+      .swiper-pagination-bullets {
+        opacity: 0.3;
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0.3);
+        width: auto !important;
+
+        html[dir='ltr'] & {
+          left: $horizontal-padding;
+        }
+
+        html[dir='rtl'] & {
+          right: $horizontal-padding;
+        }
+      }
+
+      ion-slide {
+        background-position: center center;
+        background-size: contain;
+        background-color: white;
+        background-repeat: no-repeat;
+        height: 230px;
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+
+    .actions {
+      position: absolute;
+      color: white;
+      background-color: color($colors, secondary);
+      opacity: 0.76;
+      width: 48px;
+      height: 48px;
+      z-index: 30;
+      cursor: pointer;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.favorite-btn {
+        bottom: 10px;
+        font-weight: bold;
+        font-size: 1.6em;
+
+        html[dir='ltr'] & {
+          right: $horizontal-padding;
+        }
+
+        html[dir='rtl'] & {
+          left: $horizontal-padding;
+        }
+      }
+    }
+  }
+
+  .divider {
+    border: 1px solid color($colors, background);
+  }
+
+  .product-info-section {
+    opacity: 0.7;
+    color: #000000;
+
+    .review {
+    }
+
+    .name {
+      font-size: 15px;
+      text-shadow: 0 2px 3px 0 #000000;
+      font-weight: bold;
+    }
+
+    .description {
+      font-size: 11px;
+    }
+    .service-content{
+      padding-top: 5px;
+    }
+  }
+
+  .product-qty-section {
+
+    .label {
+      opacity: 0.7;
+      color: #000000;
+      font-size: 12px;
+    }
+
+    .availability {
+      font-size: 12px;
+
+      .content {
+        color: #23AA6F;
+      }
+    }
+  }
+
+  .product-delivery-section {
+
+    .delivery-info {
+      display: flex;
+      justify-content: flex-start;
+
+      &.price {
+        font-size: 14px;
+        font-weight: bold;
+        color: #1764A7;
+      }
+
+      &.new-price {
+        font-size: 14px;
+        font-weight: bold;
+        color: red;
+      }
+
+      &.old-price {
+        text-decoration: line-through;
+        color: color($colors, primary);
+        opacity: 0.7;
+        font-size: 13px;
+        font-weight: bold;
+      }
+
+      &.delivery-note {
+        font-size: 12px;
+        opacity: 0.7;
+        color: #000000;
+        color: #1764A7;
+      }
+    }
+
+    .add-cart-container {
+      background-color: rgba(248,248,248,1);
+      margin: 0 -16px 0 -16px;
+      padding: 16px;
+    }
+
+    .add-cart-btn {
+      border-radius: 10px;
+      background-color: #30A4BE;
+      box-shadow: 0 2px 9px 0 rgba(72,134,255,0.19);
+      font-size: 12px;
+      letter-spacing: 0.16px;
+    }
+  }
+
+  .additional-info-section {
+
+    .info-tabs-header {
+      background-color: #FFFFFF;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
+
+      .info-tabs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include horizontal-space();
+
+        .tab {
+          opacity: 0.7;
+          color: #000000;
+          font-size: 12px;
+          cursor: pointer;
+          padding: 16px;
+          width:100%;
+
+          &.active {
+            border-bottom: 2px solid color($colors, primary);
+            color: color($colors, primary);
+          }
+        }
+      }
+    }
+
+    .information {
+      @include horizontal-space();
+      @include vertical-space();
+      color: #000000;
+      font-size: 12px;
+
+      .brochure-icon {
+        margin: 8px;
+        font-size: 32px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .related-products-section {
+    @include horizontal-space();
+    background-color: color($colors, background);
+    padding-bottom: 16px;
+  }
+}

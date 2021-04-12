@@ -1,0 +1,134 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+
+  <div class="page-subTitle">{{"CHECKOUT.CheckOut" | translate}}</div>
+
+  <form #checkoutForm class="checkout-form">
+
+    <!-- SELECT ADDRESS -->
+    <div>
+      <ion-row *ngIf="auth.isAuthenticated()">
+        <ion-col>
+          <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}"
+            placeholder="{{'CHECKOUT.SelectAnAddress' | translate}}" name="addresses" [(ngModel)]="selAddress"
+            class="address-select" (ionChange)="onDDLAddressChange($event)" required>
+            <ion-option *ngFor="let address of addresses?.ExistingAddresses" [value]="address.Id">
+              {{address.Address1}} , {{address.Address2}} , {{address.City}}
+            </ion-option>
+            <ion-option [value]="'new'">{{"CHECKOUT.NewAddress" | translate}}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <!-- NEW ADDRESS-->
+      <div *ngIf="!isAddressSaved">
+        <address [showLogin]="true" [address]="checkoutInfo" [isShipping]="true" [isNew]="selAddress === 'new'" [showSaveBtn]="false"
+          (isValid)="isAddressValid = $event"></address>
+      </div>
+
+      <!-- DETAILS ABOUT SEL ADDRESS -->
+      <div *ngIf="isAddressSaved && selAddress !== 'new'">
+        <div class="padding-4"></div>
+        <ion-row>
+          <ion-label class="app-label">{{"CHECKOUT.AddressDetails" | translate}}</ion-label>
+
+          <button (click)="editSelectedAddress()" secondary clear item-right>
+            {{"CHECKOUT.EditAddress" | translate}}
+          </button>
+        </ion-row>
+
+        <div>{{checkoutInfo?.FirstName}} {{checkoutInfo?.LastName}}</div>
+        <div>{{checkoutInfo?.Address1 || '-'}} , {{checkoutInfo?.Address2 || '-'}} , {{checkoutInfo?.City || '-'}}</div>
+        <div>{{checkoutInfo?.Email || '-'}} , {{checkoutInfo?.PhoneNumber || '-'}}</div>
+      </div>
+
+      <!-- SAVE BUTTON -->
+      <div *ngIf="!isAddressSaved">
+        <div class="padding-8"></div>
+        <ion-row>
+          <button ion-button block color="third" (click)="onClickSaveAddress()" [disabled]="!isAddressValid">
+            {{"CHECKOUT.SaveAndContinue" | translate}}
+          </button>
+        </ion-row>
+      </div>
+    </div>
+
+    <div class="padding-8"></div>
+
+    <!-- PAYMENT TYPE -->
+    <div class="payment-type">
+      <div class="page-subTitle">
+        {{"CHECKOUT.SelectPaymentType" | translate}}
+        <span *ngIf="!selPaymentType" style="color: red">*</span>
+      </div>
+      <ion-list radio-group required [(ngModel)]="selPaymentType" (ionChange)="onDDLPaymentTypeChange($event)"
+        name="paymentType">
+
+        <ion-item *ngFor="let paymentMethod of paymentTypes">
+          <ion-label>
+            <img *ngFor="let imgPath of paymentMethod.imgPaths" src="{{imgPath}}" height="24">
+          </ion-label>
+          <ion-radio value="{{paymentMethod?.id}}" [checked]="selPaymentType == paymentMethod?.id" ></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- CART DETAILS -->
+    <div>
+      <div class="cart-details" (click)="showCartDetails = !showCartDetails">
+        <div class="message">{{"CHECKOUT.CartDetails" | translate}}</div>
+        <div class="total">
+          <div><b>{{orderReview?.OrderTotalModel?.OrderTotal || orderReview?.OrderTotalModel?.SubTotal || '-'}}</b>
+          </div>
+          <div class="padding-8"></div>
+          <div>
+            <ion-icon name="arrow-{{showCartDetails ? 'up' : 'down'}}"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="showCartDetails">
+        <shopping-cart-items [items]="orderReview?.ShoppingCartModel?.Items" [canDelete]="false" [canEdit]="false">
+        </shopping-cart-items>
+      </div>
+
+      <shopping-cart-total [OrderTotalDiscount]="discountOnItems" [totalProperties]="orderReview?.OrderTotalModel"></shopping-cart-total>
+
+    </div>
+
+    <div class="padding-8"></div>
+
+    <!-- Terms and Conditions -->
+    <ion-row align-items-center nowrap>
+      <div><input type="checkbox" id="hasAgreedTermsAndConditions" name="hasAgreedTermsAndConditions" [(ngModel)]="hasAgreedTermsAndConditions" style="width: auto;" /></div>
+      <div class="padding-4"></div>
+      <div>
+          <label for="hasAgreedTermsAndConditions">{{"CHECKOUT.AgreeTermsAndConditions" | translate }}</label>
+          <a href="javascript:;" (click)="openTermsAndConditions()">({{"CHECKOUT.ReadMore" | translate }})</a>
+      </div>     
+    </ion-row>
+
+    <div class="padding-8"></div>
+
+    <!-- CONFIRM BUTTON -->
+    <ion-row>
+      <button ion-button block color="third" [disabled]="!hasAgreedTermsAndConditions
+                                                            ||  !orderReview?.ShoppingCartModel
+                                                            || (orderReview?.ShoppingCartModel?.Items && orderReview?.ShoppingCartModel?.Items.length == 0) 
+                                                            || !isAddressSaved 
+                                                            || !isPaymentMethodSaved" (click)="onClickConfirm()">
+        {{"CHECKOUT.Confirm" | translate}}
+      </button>
+    </ion-row>
+
+    <div class="padding-8"></div>
+
+  </form>
+
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

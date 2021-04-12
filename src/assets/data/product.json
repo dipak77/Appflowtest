@@ -1,0 +1,461 @@
+﻿{
+  "Data": {
+    "DefaultPictureZoomEnabled": false,
+    "DefaultPictureModel": {
+      "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000107_womens-shoes_470.jpeg",
+      "FullSizeImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000107_womens-shoes_800.jpeg",
+      "Title": null,
+      "AlternateText": null,
+      "CustomProperties": {}
+    },
+    "PictureModels": [
+      {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000107_womens-shoes_400.jpeg",
+        "FullSizeImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000107_womens-shoes_800.jpeg",
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000020_womens-shoes_400.jpeg",
+        "FullSizeImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000020_womens-shoes_800.jpeg",
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000021_womens-shoes_400.jpeg",
+        "FullSizeImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000021_womens-shoes_800.jpeg",
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      }
+    ],
+    "Name": "Womens Shoes",
+    "ShortDescription": "Build it",
+    "FullDescription": "<p>Fight back against cluttered workspaces with the stylish IBM zBC12 All-in-One desktop PC, featuring powerful computing resources and a stunning 20.1-inch widescreen display with stunning XBRITE-HiColor LCD technology. The black IBM zBC12 has a built-in microphone and MOTION EYE camera with face-tracking technology that allows for easy communication with friends and family. And it has a built-in DVD burner and Sony's Movie Store software so you can create a digital entertainment library for personal viewing at your convenience. Easy to setup and even easier to use, this JS-series All-in-One includes an elegantly designed keyboard and a USB mouse.</p>",
+    "ProductTemplateViewPath": null,
+    "ShowManufacturerPartNumber": false,
+    "ManufacturerPartNumber": null,
+    "ShowVendor": false,
+    "VendorModel": {
+      "Name": null,
+      "SeName": null,
+      "Id": 0,
+      "CustomProperties": {}
+    },
+    "HasSampleDownload": false,
+    "GiftCard": {
+      "IsGiftCard": false,
+      "RecipientName": null,
+      "RecipientEmail": null,
+      "SenderName": null,
+      "SenderEmail": null,
+      "Message": null,
+      "GiftCardType": 0,
+      "CustomProperties": {}
+    },
+    "IsShipEnabled": true,
+    "IsFreeShipping": true,
+    "FreeShippingNotificationEnabled": true,
+    "DeliveryDate": null,
+    "Url": "https://store.york.com.sa/wp-content/uploads/2017/10/Taurus-Flier.pdf",
+    "IsRental": false,
+    "RentalStartDate": null,
+    "RentalEndDate": null,
+    "StockAvailability": "In stock",
+    "DisplayBackInStockSubscription": false,
+    "EmailAFriendEnabled": true,
+    "CompareProductsEnabled": true,
+    "ProductPrice": {
+      "CurrencyCode": "USD",
+      "OldPrice": null,
+      "Price": "$1,200.00",
+      "PriceWithDiscount": null,
+      "PriceValue": 1200,
+      "PriceWithDiscountValue": 1200,
+      "CustomerEntersPrice": false,
+      "CallForPrice": false,
+      "ProductId": 1,
+      "HidePrices": false,
+      "IsRental": false,
+      "RentalPrice": null,
+      "DisplayTaxShippingInfo": false,
+      "BasePricePAngV": null,
+      "CustomProperties": {}
+    },
+    "Quantity": {
+      "OrderMinimumQuantity": 1,
+      "OrderMaximumQuantity": 10000,
+      "StockQuantity": 9951,
+      "SelectedQuantity": 0
+    },
+    "AddToCart": {
+      "ProductId": 1,
+      "EnteredQuantity": 1,
+      "CustomerEntersPrice": false,
+      "CustomerEnteredPrice": 0,
+      "CustomerEnteredPriceRange": null,
+      "DisableBuyButton": false,
+      "DisableWishlistButton": false,
+      "AllowedQuantities": [],
+      "IsRental": false,
+      "AvailableForPreOrder": false,
+      "PreOrderAvailabilityStartDateTimeUtc": null,
+      "UpdatedShoppingCartItemId": 0
+    },
+    "Breadcrumb": {
+      "Enabled": true,
+      "ProductId": 1,
+      "ProductName": "Womens Shoes",
+      "ProductSeName": null,
+      "CategoryBreadcrumb": [
+        {
+          "Name": "Others",
+          "SeName": null,
+          "NumberOfProducts": null,
+          "IncludeInTopMenu": true,
+          "SubCategories": [],
+          "Id": 42,
+          "CustomProperties": {}
+        },
+        {
+          "Name": "Computers",
+          "SeName": null,
+          "NumberOfProducts": null,
+          "IncludeInTopMenu": true,
+          "SubCategories": [],
+          "Id": 1,
+          "CustomProperties": {}
+        },
+        {
+          "Name": "Desktops",
+          "SeName": null,
+          "NumberOfProducts": null,
+          "IncludeInTopMenu": true,
+          "SubCategories": [],
+          "Id": 2,
+          "CustomProperties": {}
+        }
+      ],
+      "CustomProperties": {}
+    },
+    "ProductTags": [
+      {
+        "Name": "computer",
+        "SeName": "computer",
+        "ProductCount": 14,
+        "Id": 6,
+        "CustomProperties": {}
+      },
+      {
+        "Name": "awesome",
+        "SeName": "awesome",
+        "ProductCount": 17,
+        "Id": 8,
+        "CustomProperties": {}
+      }
+    ],
+    "ProductAttributes": [
+      {
+        "ProductId": 1,
+        "ProductAttributeId": 5,
+        "Name": "Processor",
+        "Description": null,
+        "TextPrompt": null,
+        "IsRequired": true,
+        "DefaultValue": null,
+        "SelectedDay": null,
+        "SelectedMonth": null,
+        "SelectedYear": null,
+        "AllowedFileExtensions": [],
+        "AttributeControlType": 1,
+        "Values": [
+          {
+            "Name": "2.2 GHz Intel Pentium Dual-Core E2200",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": null,
+            "PriceAdjustmentValue": 0,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 1,
+            "CustomProperties": {}
+          },
+          {
+            "Name": "2.5 GHz Intel Pentium Dual-Core E2200",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$15.00",
+            "PriceAdjustmentValue": 15,
+            "IsPreSelected": true,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 2,
+            "CustomProperties": {}
+          }
+        ],
+        "Id": 1,
+        "CustomProperties": {}
+      },
+      {
+        "ProductId": 1,
+        "ProductAttributeId": 6,
+        "Name": "RAM",
+        "Description": null,
+        "TextPrompt": null,
+        "IsRequired": true,
+        "DefaultValue": null,
+        "SelectedDay": null,
+        "SelectedMonth": null,
+        "SelectedYear": null,
+        "AllowedFileExtensions": [],
+        "AttributeControlType": 1,
+        "Values": [
+          {
+            "Name": "2 GB",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": null,
+            "PriceAdjustmentValue": 0,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 3,
+            "CustomProperties": {}
+          },
+          {
+            "Name": "4GB",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$20.00",
+            "PriceAdjustmentValue": 20,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 4,
+            "CustomProperties": {}
+          },
+          {
+            "Name": "8GB",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$60.00",
+            "PriceAdjustmentValue": 60,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 5,
+            "CustomProperties": {}
+          }
+        ],
+        "Id": 2,
+        "CustomProperties": {}
+      },
+      {
+        "ProductId": 1,
+        "ProductAttributeId": 3,
+        "Name": "HDD",
+        "Description": null,
+        "TextPrompt": null,
+        "IsRequired": true,
+        "DefaultValue": null,
+        "SelectedDay": null,
+        "SelectedMonth": null,
+        "SelectedYear": null,
+        "AllowedFileExtensions": [],
+        "AttributeControlType": 2,
+        "Values": [
+          {
+            "Name": "320 GB",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": null,
+            "PriceAdjustmentValue": 0,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 6,
+            "CustomProperties": {}
+          },
+          {
+            "Name": "400 GB",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$100.00",
+            "PriceAdjustmentValue": 100,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 7,
+            "CustomProperties": {}
+          }
+        ],
+        "Id": 3,
+        "CustomProperties": {}
+      },
+      {
+        "ProductId": 1,
+        "ProductAttributeId": 4,
+        "Name": "OS",
+        "Description": null,
+        "TextPrompt": null,
+        "IsRequired": true,
+        "DefaultValue": null,
+        "SelectedDay": null,
+        "SelectedMonth": null,
+        "SelectedYear": null,
+        "AllowedFileExtensions": [],
+        "AttributeControlType": 2,
+        "Values": [
+          {
+            "Name": "Vista Home",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$50.00",
+            "PriceAdjustmentValue": 50,
+            "IsPreSelected": true,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 8,
+            "CustomProperties": {}
+          },
+          {
+            "Name": "Vista Premium",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$60.00",
+            "PriceAdjustmentValue": 60,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 9,
+            "CustomProperties": {}
+          }
+        ],
+        "Id": 4,
+        "CustomProperties": {}
+      },
+      {
+        "ProductId": 1,
+        "ProductAttributeId": 8,
+        "Name": "Software",
+        "Description": null,
+        "TextPrompt": null,
+        "IsRequired": false,
+        "DefaultValue": null,
+        "SelectedDay": null,
+        "SelectedMonth": null,
+        "SelectedYear": null,
+        "AllowedFileExtensions": [],
+        "AttributeControlType": 3,
+        "Values": [
+          {
+            "Name": "Microsoft Office",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$50.00",
+            "PriceAdjustmentValue": 50,
+            "IsPreSelected": true,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 10,
+            "CustomProperties": {}
+          },
+          {
+            "Name": "Acrobat Reader",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$10.00",
+            "PriceAdjustmentValue": 10,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 11,
+            "CustomProperties": {}
+          },
+          {
+            "Name": "Total Commander",
+            "ColorSquaresRgb": null,
+            "PriceAdjustment": "+$5.00",
+            "PriceAdjustmentValue": 5,
+            "IsPreSelected": false,
+            "PictureModel": {
+              "ImageUrl": null,
+              "FullSizeImageUrl": null,
+              "Title": null,
+              "AlternateText": null,
+              "CustomProperties": {}
+            },
+            "Id": 12,
+            "CustomProperties": {}
+          }
+        ],
+        "Id": 5,
+        "CustomProperties": {}
+      }
+    ],
+    "ProductSpecifications": [],
+    "ProductManufacturers": [],
+    "ProductReviewOverview": {
+      "ProductId": 1,
+      "RatingSum": 5,
+      "AllowCustomerReviews": true,
+      "TotalReviews": 1
+    },
+    "TierPrices": [],
+    "AssociatedProducts": [],
+    "NextProduct": 3,
+    "PreviousProduct": 0,
+    "Id": 1,
+    "CustomProperties": {}
+  },
+  "SuccessMessage": null,
+  "StatusCode": 200,
+  "ErrorList": []
+}

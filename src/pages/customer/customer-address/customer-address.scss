@@ -1,0 +1,27 @@
+customer-address {
+  .main-content {
+    @include horizontal-space();
+    @include vertical-space();
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .info-container {
+    padding-top: 8px;
+    border-top: 1px solid lightgrey;
+  }
+
+  .add-new{
+    text-transform: uppercase;
+  }
+  }
+}

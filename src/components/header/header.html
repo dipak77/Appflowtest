@@ -1,0 +1,34 @@
+<ion-navbar>
+
+  <ion-row align-items-center justify-content-between>
+    
+    <ion-row align-items-center>
+      <ion-row style="margin-left: 8px; margin-right: 8px">        
+        <div></div>
+        <button ion-button menuToggle start>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row>
+        <img class="header-logo" src="./assets/titleLogo.svg" (click)="navigateToHome()" />
+      </ion-row>
+    </ion-row>
+    <ion-row class="header-buttons" align-items-center justify-content-end>
+      <!-- Language -->
+      <div *ngFor="let lang of langConfig?.AvailableLanguages">
+        <div class="header-button lang" *ngIf="langConfig?.CurrentLanguageId != lang.Id"
+          (click)="changeCurrentLanguage(lang.Id)" [ngClass]="{'active': langConfig?.CurrentLanguageId == lang.Id}">
+          {{lang.Name}}</div>
+      </div>
+      <!-- Cart -->
+      <div class="header-button cart" (click)="loadShoppingCart()" *ngIf="showCart">
+        <ion-icon name="cart"></ion-icon>
+
+        <div color="danger" class="notifications-circle" *ngIf="cart?.items.length > 0">
+          {{cart?.items.length}}
+        </div>
+      </div>
+    </ion-row>
+  </ion-row>
+
+</ion-navbar>

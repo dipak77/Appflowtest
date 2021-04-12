@@ -1,0 +1,33 @@
+contract-request {
+
+  .scroll-content {
+
+    @include horizontal-space();
+    @include vertical-space();
+
+    .comments {
+      min-height: 100px;
+      width: 100%;
+      resize: vertical;
+    }
+
+    .img-container {
+      position: relative;
+      display: flex;
+      width: 100%;
+      margin-top: 10px;
+
+      .img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+
+      .msg {
+        position: absolute;
+        align-self: center;
+        color: white;
+      }
+    }
+  }
+}

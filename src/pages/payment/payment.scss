@@ -1,0 +1,18 @@
+﻿payment {
+  .scroll-content {
+    @include horizontal-space();
+    @include vertical-space();
+    background-color: color($colors, background);
+
+    .payment-success {
+      background-color: color($colors, success);
+      padding: 8px;
+      color: #51A951;
+      border-radius: 2px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+    }
+  }
+}

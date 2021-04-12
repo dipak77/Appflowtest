@@ -1,0 +1,20 @@
+app-page-image {
+  display:block;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 128px;
+  position: relative;
+  font-weight: bold;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: top;
+  background-image: url(../assets/store.png);
+
+  .title {
+    position: absolute;
+    top: 35%;
+    color: white;
+    font-size: 4vh;
+  }
+}

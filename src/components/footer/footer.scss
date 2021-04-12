@@ -1,0 +1,56 @@
+app-footer {
+  ion-footer {
+    width: 100%;
+
+    .toolbar-background {
+      background-color: color($colors, primary);
+    }
+
+    .toolbar-title {
+      font-size: 10px;
+      color: white;
+    }
+
+
+    ion-toolbar {
+      text-align: center;
+      width: 100%;
+    }
+
+    .container {
+      display: flex;
+      -ms-flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        color: rgba(255,255,255,1);
+        font-size: 9px;
+      }
+
+      .al-salim-logo {
+        width: 70px;
+        text-align: right;
+        padding-right: 4px;
+
+        html[dir="rtl"] &{
+          padding-left: 4px;
+        }
+      }
+
+    .contact-us {
+      color: white;
+      font-size: 9px;
+      cursor: pointer;
+      padding-left: 8px; 
+
+      html[dir="rtl"] &{
+        padding-right: 8px;
+      }
+    }
+  }
+}
+}

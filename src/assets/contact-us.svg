@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>contact us icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="BottomMenu" transform="translate(-268.000000, -20.000000)">
+            <g id="contact-us-icon" transform="translate(266.000000, 18.000000)">
+                <polygon id="Shape" points="0 0 22 0 22 22 0 22"></polygon>
+                <path d="M5.21777778,8.92444444 C6.49777778,11.44 8.56,13.4933333 11.0755556,14.7822222 L13.0311111,12.8266667 C13.2711111,12.5866667 13.6266667,12.5066667 13.9377778,12.6133333 C14.9333333,12.9422222 16.0088889,13.12 17.1111111,13.12 C17.6,13.12 18,13.52 18,14.0088889 L18,17.1111111 C18,17.6 17.6,18 17.1111111,18 C8.76444444,18 2,11.2355556 2,2.88888889 C2,2.4 2.4,2 2.88888889,2 L6,2 C6.48888889,2 6.88888889,2.4 6.88888889,2.88888889 C6.88888889,4 7.06666667,5.06666667 7.39555556,6.06222222 C7.49333333,6.37333333 7.42222222,6.72 7.17333333,6.96888889 L5.21777778,8.92444444 Z" id="Shape" fill="#5C6979" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

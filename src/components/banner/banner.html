@@ -1,0 +1,19 @@
+<ion-slides pager="true"
+            loop="true"
+            dir="rtl"
+            autoplay="5000"
+            *ngIf="banners['DataAr'] && banners['DataAr'].length > 0 && translate.currentLang == 'ar'">
+  <ion-slide *ngFor="let item of banners['DataAr']">
+    <img [src]="item || './assets/imgs/no-image.jpg'" />
+  </ion-slide>
+</ion-slides>
+
+<ion-slides pager="true"
+            loop="true"
+            autoplay="5000"
+            *ngIf="banners['DataEn'] && banners['DataEn'].length > 0 && translate.currentLang != 'ar'">
+  <ion-slide *ngFor="let item of banners['DataEn']">
+    <img [src]="item || './assets/imgs/no-image.jpg'" />
+  </ion-slide>
+</ion-slides>
+

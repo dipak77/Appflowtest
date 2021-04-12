@@ -1,0 +1,34 @@
+﻿related-products {
+  .header {
+    border-bottom: 0.5px solid rgba(0,0,0, 0.12);
+
+    .header-title {
+      opacity: 0.65;
+      color: #000000;
+      font-size: 16px;
+      text-shadow: 0 2px 3px 0 #000000;
+    }
+
+    .header-button {
+      border-radius: 2px;
+      background-color: #1764A7;
+      font-size: 12px;
+    }
+  }
+
+  ion-slides {
+    .product-card {
+      .card-info {
+        .body {
+          html[dir='ltr'] & {
+            text-align:left;
+          }
+
+          html[dir='rtl'] & {
+            text-align:right;
+          }
+        }
+      }
+    }
+  }
+}

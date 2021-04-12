@@ -1,0 +1,27 @@
+<div class="product-card">
+  <div class="image" [ngStyle]="{'background-image': 'url('+ (product.DefaultPictureModel.ImageUrl || './assets/imgs/no-image.jpg') +')'}"
+    (click)="onProductSelected(product)"></div>
+  <div class="divider"></div>
+
+  <div class="card-info">
+    <div class="body" (click)="onProductSelected(product)">
+      <div class="category">{{product.Name}}</div>
+    </div>
+    <div class="padding-8"></div>
+    <div class="footer">
+      <div class="old-price" *ngIf="product.ProductPrice?.OldPrice && (product.ProductPrice?.Price != product.ProductPrice?.OldPrice)">{{product.ProductPrice.OldPrice}}</div>
+      <div [ngClass]="(product.ProductPrice?.OldPrice && (product.ProductPrice?.Price != product.ProductPrice?.OldPrice))?'current-price has-discount':'current-price'">
+          <div class="price">{{product.ProductPrice.PriceWithDiscount || product.ProductPrice.Price}}</div>
+          <div class="icons">
+            <div (click)="onClickAddToList('wish')">
+              <ion-icon class="wishlist-icon" name="{{product.QuantityInWishlist? 'heart' : 'heart-outline'}}"></ion-icon>
+            </div>
+            <div class="padding-8"></div>
+            <div (click)="onProductSelected(product)">
+              <ion-icon class="cart-icon" name="{{product.QuantityInCart? 'cart' : 'ios-cart-outline'}}"></ion-icon>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

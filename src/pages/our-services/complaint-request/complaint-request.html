@@ -1,0 +1,61 @@
+<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+<ion-content>
+
+  <div class="page-title no-margin">{{"SERVICES.COMPLAINT-REQUEST.SubmitComplaint" | translate}}</div>
+
+  <form #complaintForm="ngForm">
+
+    <!-- USER INFO -->
+    <userInfo [valueModel]="data" (isValid)="isUserInfoValid = $event"></userInfo>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label required">{{"SERVICES.issue" | translate}}</ion-label>
+        <ion-select required okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}"
+          name="issue" [(ngModel)]="data.jci_issue" placeholder="{{'SERVICES.selectIssue' | translate}}">
+          <ion-option *ngFor="let issue of acIssues" [value]="issue">
+            {{translate.currentLang == 'ar' ? issue?.name : issue?.nameEn}}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <!-- OTHER DETAILS -->
+    <ion-row>
+      <ion-label [ngClass]="{'required': data.jci_issue?.id == '01087876-aee5-e911-a81b-000d3a2419f0'}" class="app-label">
+        {{"SERVICES.COMPLAINT-REQUEST.Description" | translate}}</ion-label>
+      <textarea name="comments" class="comments" [(ngModel)]="data.jci_comments"
+        required="{{data.jci_issue?.id == '01087876-aee5-e911-a81b-000d3a2419f0'? true : false}}"></textarea>
+    </ion-row>
+
+    <div class="padding-4"></div>
+
+    <ion-row align-items-center>
+      <ion-label class="app-label">{{"SERVICES.contract" | translate}}</ion-label>
+      <ion-checkbox name="contract" [(ngModel)]="data.jci_contract"></ion-checkbox>
+    </ion-row>
+
+    <ion-row>
+      <ion-label [ngClass]="{'required': data.jci_contract}" class="app-label">{{"SERVICES.accountNumber" | translate}}
+      </ion-label>
+      <input type="text" name="accountNumber" class="input" required="{{data.jci_contract? true : false}}"
+        [(ngModel)]="data.jci_accountnumber">
+    </ion-row>
+
+    <div class="padding-4"></div>
+    <div *ngIf="complaintForm.invalid || !isUserInfoValid" class="required-msg">
+    </div>
+
+    <div>
+      <button ion-button block color="third" [disabled]="complaintForm.invalid || !isUserInfoValid"
+        (click)="onSubmit()">
+        {{"SERVICES.COMPLAINT-REQUEST.Submit" | translate}}
+      </button>
+    </div>
+  </form>
+
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

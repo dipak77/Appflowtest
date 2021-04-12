@@ -1,0 +1,50 @@
+﻿my-image-viewer {
+
+  .image-modal {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(26, 26, 26, 0.8);
+    position: fixed;
+
+    .close-button {
+      top: 12px;
+      left: 12px;
+      position: absolute;
+      color: white;
+      background-color: black;
+      opacity: 0.9;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 32;
+
+      html[dir='rtl'] & {
+        right: 12px;
+        left: initial;
+      }
+
+      ion-icon {
+        font-size: 3em;
+      }
+    }
+
+    ion-slides {
+
+      .swiper-pagination-fraction,
+      .swiper-pagination-custom,
+      .swiper-container-horizontal>.swiper-pagination-bullets {
+        bottom: 20px;
+      }
+    }
+  }
+}

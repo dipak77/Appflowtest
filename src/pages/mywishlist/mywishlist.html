@@ -1,0 +1,32 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+  <div class="page-title no-margin">{{"WISHLIST.Your Wishlist" | translate}}</div>
+
+  <div>
+    <shopping-cart-items [items]="wish.items"
+                         [cartType]="'wish'"
+                         [canEdit]="false"
+                         [canDelete]="true"
+                         [canSelect]="true"
+                         [selectedItems]="selectedItems"></shopping-cart-items>
+
+    <div class="padding-8"></div>
+
+    <div *ngIf="wish.items.length > 0">
+      <button ion-button block color="primary"
+              [disabled]="selectedItems.length == 0"
+              (click)="onClickAddToCart()"
+              class="add-to-cart-button"
+              >
+        {{"WISHLIST.Add To Cart" | translate}}
+      </button>
+    </div>
+  </div>
+</ion-content>
+
+
+<!-- footer -->
+<app-footer></app-footer>

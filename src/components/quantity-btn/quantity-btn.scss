@@ -1,0 +1,16 @@
+﻿app-quantity-btn {
+  display:flex;
+
+  .qty-btn {
+    color: color($colors, primary);
+    border: 0.5px solid #CBCACA;
+    border-radius: 0.87px;
+    background-color: #F7F7F7;
+    font-size:10px;
+  }
+
+  .qty-value {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

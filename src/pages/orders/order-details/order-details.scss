@@ -1,0 +1,12 @@
+order-details {
+
+  .main-content {
+
+    @include horizontal-space();
+    @include vertical-space();
+
+    .order-info{
+      padding-bottom: 10px;
+    }
+  }
+}

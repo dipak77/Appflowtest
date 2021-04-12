@@ -1,0 +1,81 @@
+﻿<ion-header>
+  <header (onLanguageChange)="onLanguageChange()"></header>
+</ion-header>
+
+<ion-content>
+
+  <!-- Page Image -->
+  <!-- <div class="page-image" [ngStyle]="{ 'background-image': 'url('+remoteProperties.onlineStoreImageUrl+')'}">
+    
+   
+  </div> -->
+
+  <div class="padding-16">
+    <div class="filter-container">
+      <div class="filter">
+        <div class="filter-input">
+          <ion-searchbar color="primary"
+                         [(ngModel)]="queryText"
+                         placeholder="{{'PRODUCTLIST.Search' | translate}}">
+          </ion-searchbar>
+        </div>
+        <div class="filter-btn" (click)="presentFilter()">
+          <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div *ngIf="!helper.isLoading()" class="main-content">
+
+    <ion-row justify-content-between align-items-center>
+      <div class="page-subTitle">
+        {{result?.Name}}
+      </div>
+      <div>
+        <button ion-button color="grey" outline icon-only (click)="showSortCtrls = !showSortCtrls">
+          <ion-icon name="md-reorder"></ion-icon>
+        </button>
+      </div>
+    </ion-row>
+
+    <div *ngIf="showSortCtrls">
+      <!-- ALPHABETIC -->
+      <ion-row>
+        <ion-col>
+          <ion-label class="app-label">{{'PRODUCTLIST.SortBy' | translate}}</ion-label>
+          <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" 
+                      [(ngModel)]="sortBy" [placeholder]="'PRODUCTLIST.SortBy' | translate"
+                      (ionChange)="onSortByChange($event)">
+
+            <ion-option *ngFor="let spc of result?.AvailableSortOptions" [value]="spc?.Value">{{spc?.Text}}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <div class="padding-8"></div>
+    </div>
+    
+    <ion-list-header [hidden]="result?.Products || result?.Products.length > 0">
+      {{"PRODUCTLIST.NoProductsFound" | translate}}
+    </ion-list-header>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-md-4 *ngFor="let product of result?.Products | filter : queryText:'Name'">
+          <product-card [product]="product"></product-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="pageNumber <= ( result?.TotalPages || 1)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+</ion-content>
+
+
+<!-- footer -->
+<app-footer></app-footer>
+

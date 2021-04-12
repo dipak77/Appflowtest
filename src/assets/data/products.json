@@ -1,0 +1,262 @@
+﻿{
+  "Name": "Computers",
+  "PriceRange": {
+    "From": 54.99,
+    "To": 1800
+  },
+  "Products": [
+    {
+      "Name": "Adobe Photoshop CS4",
+      "ShortDescription": "Easily find and view all your photos",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": 75
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000032_adobe-photoshop-cs4_415.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 5,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 1
+      },
+      "Id": 10,
+      "CustomProperties": {}
+    },
+    {
+      "Name": "Digital Storm VANQUISH 3 Custom Performance PC",
+      "ShortDescription": "Digital Storm Vanquish 3 Desktop PC",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": 1259
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000022_digital-storm-vanquish-3-custom-performance-pc_415.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 5,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 1
+      },
+      "Id": 2,
+      "CustomProperties": {}
+    },
+    {
+      "Name": "Fridge",
+      "ShortDescription": "A groundbreaking Retina display. A new force-sensing trackpad. All-flash architecture. Powerful dual-core and quad-core Intel processors. Together, these features take the notebook to a new level of performance. And they will do the same for you in everything you create.",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": 1800
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000104_fridge_415.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 10,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 2
+      },
+      "Id": 4,
+      "CustomProperties": {}
+    },
+    {
+      "Name": "HP Envy 6-1180ca 15.6-Inch Sleekbook",
+      "ShortDescription": "HP ENVY 6-1202ea Ultrabook Beats Audio, 3rd generation Intel® CoreTM i7-3517U processor, 8GB RAM, 500GB HDD, Microsoft Windows 8, AMD Radeon HD 8750M (2 GB DDR3 dedicated)",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": 1460
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000030_hp-envy-6-1180ca-156-inch-sleekbook_415.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 0,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 0
+      },
+      "Id": 8,
+      "CustomProperties": {}
+    },
+    {
+      "Name": "HP Spectre XT Pro UltraBook",
+      "ShortDescription": "HP Spectre XT Pro UltraBook / Intel Core i5-2467M / 13.3 / 4GB / 128GB / Windows 7 Professional / Laptop",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": 1350
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000028_hp-spectre-xt-pro-ultrabook_415.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 0,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 0
+      },
+      "Id": 7,
+      "CustomProperties": {}
+    },
+    {
+      "Name": "Lenovo IdeaCentre 600 All-in-One PC",
+      "ShortDescription": "",
+      "ProductPrice": {
+        "OldPrice": null,
+        "Price": 500
+      },
+      "DefaultPictureModel": {
+        "ImageUrl": "http://apps.nop-station.com/content/images/thumbs/0000023_lenovo-ideacentre-600-all-in-one-pc_415.jpeg",
+        "FullSizeImageUrl": null,
+        "Title": null,
+        "AlternateText": null,
+        "CustomProperties": {}
+      },
+      "ReviewOverviewModel": {
+        "ProductId": 0,
+        "RatingSum": 4,
+        "AllowCustomerReviews": false,
+        "TotalReviews": 1
+      },
+      "Id": 3,
+      "CustomProperties": {}
+    }
+  ],
+  "NotFilteredItems": [
+    {
+      "SpecificationAttributeName": "CPU Type",
+      "SpecificationAttributeOptionName": "Intel Core i5",
+      "FilterId": 6,
+      "CustomProperties": {}
+    },
+    {
+      "SpecificationAttributeName": "CPU Type",
+      "SpecificationAttributeOptionName": "Intel Core i7",
+      "FilterId": 7,
+      "CustomProperties": {}
+    },
+    {
+      "SpecificationAttributeName": "Memory",
+      "SpecificationAttributeOptionName": "4 GB",
+      "FilterId": 8,
+      "CustomProperties": {}
+    },
+    {
+      "SpecificationAttributeName": "Memory",
+      "SpecificationAttributeOptionName": "8 GB",
+      "FilterId": 9,
+      "CustomProperties": {}
+    }
+  ],
+  "AlreadyFilteredItems": [],
+  "FilterItems": [
+    {
+      "SpecificationAttributeName": "CPU Type",
+      "Value": "",
+      "SpecificationAttributeOptions": [
+        {
+          "SpecificationAttributeOptionName": "Intel Core i5",
+          "FilterId": 6,
+          "Selected": false,
+          "CustomProperties": {}
+        },
+        {
+          "SpecificationAttributeOptionName": "Intel Core i7",
+          "FilterId": 7,
+          "Selected": false,
+          "CustomProperties": {}
+        }
+      ],
+      "CustomProperties": {}
+    },
+    {
+      "SpecificationAttributeName": "Memory",
+      "Value": "",
+      "SpecificationAttributeOptions": [
+        {
+          "SpecificationAttributeOptionName": "4 GB",
+          "FilterId": 8,
+          "Selected": false,
+          "CustomProperties": {}
+        },
+        {
+          "SpecificationAttributeOptionName": "8 GB",
+          "FilterId": 9,
+          "Selected": false,
+          "CustomProperties": {}
+        }
+      ],
+      "CustomProperties": {}
+    }
+  ],
+  "AvailableSortOptions": [
+    {
+      "Disabled": false,
+      "Group": null,
+      "Selected": true,
+      "Text": "Position",
+      "Value": "0"
+    },
+    {
+      "Disabled": false,
+      "Group": null,
+      "Selected": false,
+      "Text": "Name: A to Z",
+      "Value": "5"
+    },
+    {
+      "Disabled": false,
+      "Group": null,
+      "Selected": false,
+      "Text": "Name: Z to A",
+      "Value": "6"
+    },
+    {
+      "Disabled": false,
+      "Group": null,
+      "Selected": false,
+      "Text": "Price: Low to High",
+      "Value": "10"
+    },
+    {
+      "Disabled": false,
+      "Group": null,
+      "Selected": false,
+      "Text": "Price: High to Low",
+      "Value": "11"
+    },
+    {
+      "Disabled": false,
+      "Group": null,
+      "Selected": false,
+      "Text": "Created on",
+      "Value": "15"
+    }
+  ],
+  "TotalPages": 2,
+  "SuccessMessage": null,
+  "StatusCode": 200,
+  "ErrorList": []
+}

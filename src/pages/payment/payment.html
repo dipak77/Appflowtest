@@ -1,0 +1,48 @@
+﻿<ion-header>
+  <header></header>
+</ion-header>
+
+<ion-content>
+  <div class="page-subTitle">{{"PAYMENT.Payment" | translate}}</div>
+
+  <div class="payment-success">
+    {{( paymentType === 'paytabs' ?  "PAYMENT.PaymentSucceeded" : 'PAYMENT.OrderCreatedSuccessfully' ) | translate}}
+  </div>
+  
+  <div *ngIf="paymentType == 'banktransfer'">
+    <div class="padding-8"></div>
+    <div>{{"PAYMENT.OrderProceedOnceThePaymentDone" | translate}}</div>
+    <div class="padding-4"></div>
+    <div>{{"PAYMENT.TransferTheAmountMessage" | translate}}:</div>
+    <div><b>KSA-OnlineSales@jci.com</b></div>
+
+    <div class="padding-8"></div>
+    <div class="page-subTitle">{{"PAYMENT.BankAccountDetails" | translate}}</div>
+    <div>{{"PAYMENT.AccountName" | translate}}</div>
+    <div class="padding-4"></div>
+    <div>{{"PAYMENT.Bank" | translate}}</div>
+    <div class="padding-4"></div>
+    <div>{{"PAYMENT.AccountNumber" | translate}}</div>
+    <div class="padding-4"></div>
+    <div>{{"PAYMENT.IBAN" | translate}}</div>
+  </div>
+  
+  <div class="padding-8"></div>
+  <ion-row align-items-center>
+    <ion-label class="app-label">{{"PAYMENT.OrderId" | translate}}:</ion-label>
+    <div><b>{{ reference_no || orderId }}</b></div>
+  </ion-row>
+  <ion-row align-items-center> 
+    <ion-label class="app-label">{{"PAYMENT.OrderTotal" | translate}}:</ion-label>
+    <div><b>{{orderTotal}} {{"PAYMENT.SAR" | translate}}</b></div>
+  </ion-row>
+
+  <div class="padding-4"></div>
+
+  <button ion-button block color="third" (click)="navigateToDetailsPage()">
+    {{"PAYMENT.ShowOrderDetails" | translate}}
+  </button>
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>

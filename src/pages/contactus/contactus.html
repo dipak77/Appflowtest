@@ -1,0 +1,60 @@
+<ion-header>
+  <header></header>
+</ion-header>
+
+<ion-content>
+ 
+  <form #contactusForm="ngForm">
+
+    <ion-row>
+      <ion-col>
+        <a href='tel:920003588'>
+          <div class="phone">
+            <div>{{"CONTACTUS.Customer Care" | translate}}</div>&nbsp;
+            <ion-icon name="ios-call-outline"></ion-icon>&nbsp;
+            <span style="direction:ltr">9200 03588</span>
+          </div>
+        </a>
+      </ion-col>
+    </ion-row>
+
+    <div class="padding-8"></div>
+
+    <!-- USER INFO -->
+    <userInfo [valueModel]="contactus" (isValid)="isUserInfoValid = $event"></userInfo>
+
+    <!-- Other Details -->
+    <div class="page-subTitle margin-top">{{"CONTACTUS.Inquiry Info" | translate}}</div>
+
+    <ion-row>
+      <ion-col class="state">
+        <ion-label class="app-label required">{{"CONTACTUS.InterestedArea" | translate}}</ion-label>
+        <ion-select okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" placeholder="{{'CONTACTUS.SelectInterestedArea' | translate}}" multiple="false" name="interestedArea" required [(ngModel)]="contactus.jci_interestarea">
+          <ion-option *ngFor="let area of interestedAreas" [value]="area.id">{{area.name}}</ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-label class="app-label">{{"CONTACTUS.Comments" | translate}}</ion-label>
+        <textarea name="message" class="message" [(ngModel)]="contactus.jci_comments"></textarea>
+      </ion-col>
+    </ion-row>
+
+    <div *ngIf="contactusForm.invalid || !isUserInfoValid" class="required-msg"></div>
+
+    <ion-row>
+      <button ion-button block color="primary"
+              [disabled]="contactusForm.invalid || !isUserInfoValid"
+              (click)="onClickSubmitForm()">
+        {{"CONTACTUS.Submit" | translate}}
+      </button>
+    </ion-row>
+  </form>
+
+</ion-content>
+
+
+<!-- footer -->
+<app-footer></app-footer>

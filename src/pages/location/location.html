@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">{{"LOCATION.Cancel"| translate}}</button>
+    </ion-buttons>
+    <ion-title>
+      {{"LOCATION.Choose"| translate}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button
+              [disabled]="!selPositionType"
+              (click)="onClickDone()" strong>{{"LOCATION.Done"| translate}}</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="map" [class.hidemap]="!((switch == 'map') || error)">
+    <ion-searchbar #searchbar placeholder="{{'LOCATION.StartingPoint'| translate}}"></ion-searchbar>
+    
+    <div class="choose-location" *ngIf="showPositionType">
+      <div (click)="onClickSelPositionType('CurrentLocation')" 
+           class="location current-location">{{'LOCATION.CurrentLocation'| translate}}</div>
+
+      <div (click)="onClickSelPositionType('ChooseOnMap')" 
+           class="location">{{'LOCATION.ChooseOnMap'| translate}}</div>
+    </div>
+
+    <agm-map [latitude]="viewLatitude"
+             [longitude]="viewLongitude"
+             [zoom]="zoom"
+             (mapClick)="onChooseLocation($event)"
+             id="map">
+
+      <agm-marker [latitude]="currentLatitude"
+                  [longitude]="currentLongitude"
+                  iconUrl="./assets/current-location.png"></agm-marker>
+
+      <agm-marker [latitude]="latitude"
+                  [longitude]="longitude"
+                  [markerClickable]="true"
+                  [markerDraggable]="true"
+                  (dragEnd)="onDragEnd($event)"
+                  *ngIf="selPositionType == 'ChooseOnMap'">        
+      </agm-marker>
+    </agm-map>
+  </div>
+
+  <div class="padding-16"></div>
+
+  <div class="location-txt">
+    <ion-icon name="ios-compass-outline"></ion-icon>
+    <span>{{road}}</span>
+  </div>
+
+</ion-content>

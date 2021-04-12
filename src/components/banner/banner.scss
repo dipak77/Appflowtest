@@ -1,0 +1,29 @@
+﻿app-banner {
+  display: flex;
+
+  ion-slides {
+    height:15vw;
+
+    ion-slide {
+      .slide-zoom {
+        height:100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          margin: auto;
+        }
+      }
+    }
+
+    .swiper-pagination-bullets {
+      bottom: 4px !important;
+
+      .swiper-pagination-bullet {
+        &.swiper-pagination-bullet-active {
+          background-color: black;
+        }
+      }
+    }
+  }
+}

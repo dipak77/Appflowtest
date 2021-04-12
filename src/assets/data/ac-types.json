@@ -1,0 +1,32 @@
+﻿{
+  "Data": [
+    {
+      "Id":"1",
+      "Name": "Window Ac"
+    },
+    {
+      "Id": "2",
+      "Name": "HI Wall Split"
+    },
+    {
+      "Id": "3",
+      "Name": "Free Standing"
+    },
+    {
+      "Id": "4",
+      "Name": "Ceiling Floor Convertible"
+    },
+    {
+      "Id": "5",
+      "Name": "Cassette"
+    },
+    {
+      "Id": "6",
+      "Name": "Ducted Splits"
+    },
+    {
+      "Id": "7",
+      "Name": "Packaged Unit"
+    }
+  ]
+}

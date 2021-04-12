@@ -1,0 +1,38 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>{{"LOGINPAGE.Login" | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form #registerForm="ngForm">
+    <ion-row>
+      <ion-label class="app-label required">{{'LOGINPAGE.UserName' | translate}}</ion-label>
+      <input type="text" placeholder="{{'LOGINPAGE.UserName' | translate}}" name="username" [(ngModel)]="user.username" required>
+    </ion-row>
+    <ion-row>
+      <ion-label class="app-label required">{{'LOGINPAGE.Password' | translate}}</ion-label>
+      <input type="password" placeholder="{{'LOGINPAGE.Password' | translate}}" name="password" [(ngModel)]="user.password" required>
+    </ion-row>
+    <ion-row>
+      <div class="padding-8"></div>
+    </ion-row>
+    <ion-row>
+      <button ion-button block color="primary"
+              type="submit"
+              [disabled]="!registerForm.form.valid"
+              (click)="login()">
+        {{"LOGINPAGE.Login" | translate}}
+      </button>
+    </ion-row>
+    <ion-row>
+      <div class="padding-8"></div>
+    </ion-row>
+    <ion-row>
+      <button ion-button clear class="resetbutton" (click)="onClickForgotPassword()">
+        {{"LOGINPAGE.ForgotPassword" | translate}}
+      </button>
+    </ion-row>
+
+  </form>
+</ion-content>

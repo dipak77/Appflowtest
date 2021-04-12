@@ -1,0 +1,59 @@
+﻿checkout {
+  .scroll-content {
+    @include horizontal-space();
+    @include vertical-space();
+    background-color: color($colors, background);
+
+    .payment-type{
+      img{
+        html[dir='ltr'] & {
+          margin-left: 6px;
+        }
+      
+        html[dir='rtl'] & {
+          margin-right: 6px;
+        }
+      }
+    }
+
+    .address-select.ng-invalid {
+      border: 1px solid red;
+    }
+
+    .cart-details {
+      padding: 16px;
+      border-radius: 2px;
+      background-color: #F7F9F9;
+      box-shadow: 0 1px 3px 0 rgba(38,50,56,0.32);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 46px;
+      color: rgba(33,150,243,1);
+      font-size: 16px;
+
+      .total {
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        ion-icon {
+          color: #5C6979;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .notes {
+      min-height: 150px;
+      width: 100%;
+      resize: vertical;
+    }
+
+    .additional {
+      border-bottom: 1px solid lightgrey;
+      padding-bottom: 8px;
+    }
+  }
+}

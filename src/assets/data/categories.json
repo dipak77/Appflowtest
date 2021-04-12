@@ -1,0 +1,407 @@
+{
+  "Data": [
+    {
+      "ParentCategoryId": 0,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=29",
+      "Extension": null,
+      "Children": [],
+      "Id": 31,
+      "Name": "Living Room",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 0,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=30",
+      "Extension": null,
+      "Children": [],
+      "Id": 32,
+      "Name": "Dinning Room",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 0,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=31",
+      "Extension": null,
+      "Children": [],
+      "Id": 33,
+      "Name": "Bed Room",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 0,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=32",
+      "Extension": null,
+      "Children": [],
+      "Id": 34,
+      "Name": "Toilet",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 0,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=33",
+      "Extension": null,
+      "Children": [],
+      "Id": 35,
+      "Name": "Kitchen ",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 0,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=34",
+      "Extension": null,
+      "Children": [],
+      "Id": 42,
+      "Name": "Others",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 30,
+      "Name": "Furniture",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 1,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 9,
+      "Name": "Fashion",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 9,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=12",
+      "Extension": null,
+      "Children": [],
+      "Id": 27,
+      "Name": "Mens",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 27,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 29,
+      "Name": "Shirt",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 9,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=11",
+      "Extension": null,
+      "Children": [],
+      "Id": 28,
+      "Name": "Womens",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 9,
+      "DisplayOrder": 1,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=10",
+      "Extension": null,
+      "Children": [],
+      "Id": 10,
+      "Name": "Shoes",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 10,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 43,
+      "Name": "Test category level",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 9,
+      "DisplayOrder": 2,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=7",
+      "Extension": null,
+      "Children": [],
+      "Id": 26,
+      "Name": "Kids",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 9,
+      "DisplayOrder": 3,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=13",
+      "Extension": null,
+      "Children": [],
+      "Id": 11,
+      "Name": "Beauty",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 9,
+      "DisplayOrder": 3,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=14",
+      "Extension": null,
+      "Children": [],
+      "Id": 12,
+      "Name": "Accessories",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 2,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 1,
+      "Name": "Computers",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=21",
+      "Extension": null,
+      "Children": [],
+      "Id": 19,
+      "Name": "Router",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=22",
+      "Extension": null,
+      "Children": [],
+      "Id": 20,
+      "Name": "USB Cable",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=23",
+      "Extension": null,
+      "Children": [],
+      "Id": 21,
+      "Name": "HDD",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=24",
+      "Extension": null,
+      "Children": [],
+      "Id": 22,
+      "Name": "Monitor",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 0,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=27",
+      "Extension": null,
+      "Children": [],
+      "Id": 24,
+      "Name": "Pendrive",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 1,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=26",
+      "Extension": null,
+      "Children": [],
+      "Id": 2,
+      "Name": "Desktops",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 2,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=25",
+      "Extension": null,
+      "Children": [],
+      "Id": 3,
+      "Name": "Notebooks",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 1,
+      "DisplayOrder": 3,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=28",
+      "Extension": null,
+      "Children": [],
+      "Id": 4,
+      "Name": "Software",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 3,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 5,
+      "Name": "Electronics",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 5,
+      "DisplayOrder": 1,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=15",
+      "Extension": null,
+      "Children": [],
+      "Id": 6,
+      "Name": "Camera & photo",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 5,
+      "DisplayOrder": 2,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=16",
+      "Extension": null,
+      "Children": [],
+      "Id": 7,
+      "Name": "Cell phones",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 5,
+      "DisplayOrder": 2,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=19",
+      "Extension": null,
+      "Children": [],
+      "Id": 25,
+      "Name": "TV & Video",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 5,
+      "DisplayOrder": 2,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=18",
+      "Extension": null,
+      "Children": [],
+      "Id": 18,
+      "Name": "Headphone",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 5,
+      "DisplayOrder": 3,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/DefaultIcon.png?id=17",
+      "Extension": null,
+      "Children": [],
+      "Id": 8,
+      "Name": "Others",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 4,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 13,
+      "Name": "Digital downloads",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 5,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 14,
+      "Name": "Books",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 6,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 15,
+      "Name": "Jewelry",
+      "ProductCount": 0
+    },
+    {
+      "ParentCategoryId": 42,
+      "DisplayOrder": 7,
+      "IconPath": "http://apps.nop-station.com/Plugins/NopStation.MobileWebApi/Content/IconPackage/defaultIcon.png",
+      "Extension": null,
+      "Children": [],
+      "Id": 16,
+      "Name": "Gift Cards",
+      "ProductCount": 0
+    }
+  ],
+  "Count": 10,
+  "DisplayTaxInOrderSummary": true,
+  "ShowDiscountBox": true,
+  "Language": {
+    "AvailableLanguages": [
+      {
+        "Name": "English",
+        "IsRightToleft": false,
+        "FlagImageFileName": "us.png",
+        "Id": 1,
+        "CustomProperties": {}
+      },
+      {
+        "Name": "Arabic",
+        "IsRightToleft": true,
+        "FlagImageFileName": null,
+        "Id": 3,
+        "CustomProperties": {}
+      },
+      {
+        "Name": "Italiano",
+        "IsRightToleft": true,
+        "FlagImageFileName": "it.png",
+        "Id": 2,
+        "CustomProperties": {}
+      }
+    ],
+    "CurrentLanguageId": 1,
+    "IsRightToleft": false,
+    "UseImages": false,
+    "CustomProperties": {}
+  },
+  "Currency": {
+    "AvailableCurrencies": [
+      {
+        "Name": "US Dollar",
+        "CurrencySymbol": "$",
+        "Id": 1,
+        "CustomProperties": {}
+      },
+      {
+        "Name": "Euro",
+        "CurrencySymbol": "EUR",
+        "Id": 6,
+        "CustomProperties": {}
+      }
+    ],
+    "CurrentCurrencyId": 1,
+    "CustomProperties": {}
+  },
+  "SuccessMessage": null,
+  "StatusCode": 200,
+  "ErrorList": []
+}

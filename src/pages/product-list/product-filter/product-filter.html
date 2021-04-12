@@ -1,0 +1,57 @@
+﻿<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">{{"PRODUCTFILTER.Cancel" | translate}}</button>
+    </ion-buttons>
+    <ion-title>
+      {{"PRODUCTFILTER.Filter" | translate}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="applyFilters()" strong>{{"PRODUCTFILTER.Done" | translate}}</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-content">
+
+    <div class="page-subTitle">
+      {{"PRODUCTFILTER.Price" | translate}}
+    </div>
+
+    <ion-row dir="ltr">
+      <!-- Price Range -->
+      <ion-range class="full-width" dualKnobs="true" [(ngModel)]="filterProperties.PriceRange"
+                 [min]="defaultProperties.PriceRange.lower" 
+                 [max]="defaultProperties.PriceRange.upper" color="secondary" pin="true">
+        <ion-label range-left>{{defaultProperties.PriceRange.lower}}</ion-label>
+        <ion-label range-right>{{defaultProperties.PriceRange.upper}}</ion-label>
+      </ion-range>
+    </ion-row>
+
+    <ion-row>
+      <p>
+        {{"PRODUCTFILTER.Price" | translate}} {{filterProperties.PriceRange.lower}}  {{"PRODUCTFILTER.SAR" | translate}} —
+        {{filterProperties.PriceRange.upper}}  {{"PRODUCTFILTER.SAR" | translate}}
+      </p>
+    </ion-row>
+
+    <div class="padding-8"></div>
+
+    <ion-row class="ion-row" *ngFor="let ddl of filterProperties.FilterItems">
+      <ion-label class="app-label">{{ddl.SpecificationAttributeName}}</ion-label>
+      <select [(ngModel)]="ddl.Value" class="select">
+        <option *ngFor="let spc of ddl.SpecificationAttributeOptions" [value]="spc.FilterId">
+          {{spc.SpecificationAttributeOptionName}}
+        </option>
+      </select>
+    </ion-row>
+
+    <div class="padding-8"></div>
+    <div>
+      <button ion-button (click)="resetFilters()" class="reset-filters">
+        {{"PRODUCTFILTER.ResetAllFilters" | translate}}
+      </button>
+    </div>
+  </div>
+</ion-content>

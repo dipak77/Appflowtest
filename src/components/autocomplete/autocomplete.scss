@@ -1,0 +1,51 @@
+autocomplete {
+  * {
+    box-sizing: border-box;
+  }
+
+  width: 100%;
+
+  .autocomplete {
+    &.list-hidden {
+      .list-shadow {
+        display: none;
+      }
+    }
+
+    &.list-shown {
+      input {
+        z-index: 2;
+        position: relative;
+        background-color: white;
+      }
+    }
+
+    .list-shadow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    ion-list {
+      position: absolute;
+      width: 90%;
+      overflow-y: scroll;
+      max-height: 40vh;
+      border: 5px;
+      z-index: 999;
+
+      ion-item {
+        background: white;
+      }
+
+      ion-item:hover {
+        cursor: pointer;
+        background: #dddddd;
+      }
+    }
+  }
+}

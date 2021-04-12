@@ -1,0 +1,91 @@
+﻿<div>
+  <form #customerAddressForm="ngForm">
+    <ion-row>
+      <ion-label class="app-label">{{"ADDRESS.Email" | translate}}</ion-label>
+      <input type="email" name="email" class="input" [(ngModel)]="address.Email">
+    </ion-row>
+
+    <div *ngIf="showLogin && !auth.isAuthenticated()">
+      <div class="padding-8"></div>
+      <ion-row>
+        <ion-col>
+          <span class="have-acc-text">{{"ADDRESS.HaveAcc" | translate}}</span>&nbsp;&nbsp;
+          <span class="login-text" (click)="onClickOpenLoginPage()">{{"ADDRESS.Login" | translate}}</span>
+        </ion-col>
+      </ion-row>
+      <div class="padding-8"></div>
+    </div>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"ADDRESS.Phone" | translate}}</ion-label>
+      <input type="tel" name="phone" class="input" required [(ngModel)]="address.PhoneNumber">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"ADDRESS.Fname" | translate}}</ion-label>
+      <input type="text" name="fname" class="input" required [(ngModel)]="address.FirstName">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"ADDRESS.Lname" | translate}}</ion-label>
+      <input type="text" name="lname" class="input" required [(ngModel)]="address.LastName">
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label">{{"ADDRESS.Country" | translate}}</ion-label>
+      <input type="text" name="country" class="input" disabled placeholder="{{'ADDRESS.CountryInput' | translate}}">
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="state">
+
+        <ion-label class="app-label required">{{"ADDRESS.City" | translate}}</ion-label>
+
+        <ion-select *ngIf="isShipping" [(ngModel)]="address.City" name="address.City" (ngModelChange)="cityChanged($event)">
+          <ion-option *ngFor="let item of cities" [value]="item">{{ item }}</ion-option>
+        </ion-select>
+
+        <autocomplete *ngIf="!isShipping" [items]="cities" [(value)]="address.City" (valueChange)="cityChanged($event)">
+        </autocomplete>
+
+      </ion-col>
+    </ion-row>
+
+    <div class="padding-8"></div>
+    <ion-row>
+      <ion-col>
+        <span class="login-text" (click)="openMap(address.City)">{{"ADDRESS.MapAddress" | translate}}</span>
+      </ion-col>
+    </ion-row>
+    <div class="padding-8"></div>
+
+    <ion-row>
+      <ion-col class="state">
+
+        <ion-label class="app-label required">{{"ADDRESS.District" | translate}}</ion-label>
+
+        <ion-select *ngIf="isShipping" [(ngModel)]="address.Address1" name="address.Address1">
+          <ion-option *ngFor="let item of districts" [value]="item">{{ item }}</ion-option>
+        </ion-select>
+        <autocomplete *ngIf="!isShipping" [items]="districts" [(value)]="address.Address1"></autocomplete>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-label class="app-label required">{{"ADDRESS.StreetAddress" | translate}}</ion-label>
+      <input type="text" name="address2" class="input" required [(ngModel)]="address.Address2">
+    </ion-row>
+
+    <div class="padding-8" *ngIf="showSaveBtn"></div>
+
+    <div *ngIf="customerAddressForm.invalid" class="required-msg">
+    </div>
+
+    <ion-row *ngIf="showSaveBtn">
+      <button ion-button block color="primary" (click)="onClickSave()" [disabled]="customerAddressForm.invalid">
+        {{"ADDRESS.Save" | translate}}
+      </button>
+    </ion-row>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+﻿<div *ngIf="items && items.length > 0">
+  <div class="cart-item" *ngFor="let item of items; let i = index">
+
+    <div class="cart-info">
+      <div class="cart-desc">
+        <div *ngIf="canSelect">
+          <ion-checkbox [(ngModel)]="item.isChecked"
+                        (click)="selectCartItem(item)"></ion-checkbox>
+        </div>
+        <div class="padding-4"></div>
+        <div><img src="{{item.Picture?.ImageUrl}}" /></div>
+        <div class="padding-4"></div>
+        <div>
+          <b>{{item?.ProductName}}</b><br />
+          <!-- <span class="product-type">{{item?.ProductSeName}}</span> -->
+          <div [innerHTML]="item?.AttributeInfo"></div>
+        </div>
+      </div>
+
+      <div class="padding-8"></div>
+
+      <div class="trash-icon" (click)="onClickRemoveCartItem(item, i)" *ngIf="canDelete">
+        <ion-icon name="ios-trash-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="padding-8"></div>
+
+    <div class="qtyAndPrice">
+      <div>
+        <ion-row justify-content-center align-items-center>
+          <div>{{"CARTITEMS.Quantity" | translate}}</div>
+          <div class="padding-8"></div>
+          <div>
+            <app-quantity-btn [(quantity)]="item.Quantity"
+                              (quantityChange)="onQuantityChangeHandler($event, item)"
+                              [canEdit]="canEdit"></app-quantity-btn>
+          </div>
+        </ion-row>
+      </div>
+      <div class="item-price">
+          {{ item.SubTotal }}
+          <div *ngIf="item.Discount" style="color: green; font-size: 80%;">
+              {{"CARTITEMS.Discount" | translate}}: {{ item.Discount }}
+          </div>
+          
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="canEdit">
+    <button ion-button block color="primary" 
+             (click)="onClickUpdateCartItems()"
+            [disabled]="!isItemsChanged">
+      <span *ngIf="cartType == 'cart'">{{"CARTITEMS.UpdateCart" | translate}}</span>
+      <span *ngIf="cartType == 'wish'">{{"CARTITEMS.UpdateWishList" | translate}}</span>
+    </button>
+  </div>
+</div>
+
+<ion-list-header [hidden]="items && items.length > 0">
+  {{"CARTITEMS.CartIsEmpty" | translate}}
+</ion-list-header>

@@ -1,0 +1,12 @@
+{
+  "name": "JC_Controls_Mobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://20.50.18.127:2020/api"
+    }]
+}

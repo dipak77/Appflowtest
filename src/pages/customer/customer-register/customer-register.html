@@ -1,0 +1,96 @@
+<ion-header>
+  <header></header>
+</ion-header>
+
+<ion-content>
+  <div class="register-content">
+
+    <div class="page-subTitle">{{"CUSTOMERREGISTER.Register" | translate}}</div>
+
+    <form #register="ngForm">
+      <!-- First Name -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.Fname" | translate}}</ion-label>
+        <input type="text" placeholder="{{'CUSTOMERREGISTER.Fname' | translate}}" name="fname" required
+          [(ngModel)]="customer.FirstName">
+      </ion-row>
+      <!-- Last Name -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.Lname" | translate}}</ion-label>
+        <input type="text" placeholder="{{'CUSTOMERREGISTER.Lname' | translate}}" name="lname" required
+          [(ngModel)]="customer.LastName">
+      </ion-row>
+
+      <!-- Email -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.Email" | translate}}</ion-label>
+        <input type="email" placeholder="{{'CUSTOMERREGISTER.Email' | translate}}" name="email" required email
+          [(ngModel)]="customer.Email">
+      </ion-row>
+
+      <!-- Phone -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.Phone" | translate}}</ion-label>
+        <input type="tel" placeholder="{{'CUSTOMERREGISTER.Phone' | translate}}" name="phone" required
+          [(ngModel)]="customer.Phone">
+      </ion-row>
+
+      <!-- City -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.City" | translate}}</ion-label>
+        <autocomplete [items]="cities" [(value)]="customer.City" (valueChange)="cityChanged($event)"></autocomplete>
+        <!-- <input type="text" placeholder="{{'CUSTOMERREGISTER.City' | translate}}" name="city" required [(ngModel)]="customer.City"> -->
+      </ion-row>
+
+      <!-- Street Address -->
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.District" | translate}}</ion-label>
+        <autocomplete [items]="districts" [(value)]="customer.StreetAddress"></autocomplete>
+        <!-- <input type="text" placeholder="{{'CUSTOMERREGISTER.District' | translate}}" name="StreetAddress" required [(ngModel)]="customer.StreetAddress"> -->
+      </ion-row>
+
+      <div class="padding-8"></div>
+      <!-- Password -->
+      <div class="page-subTitle">{{"CUSTOMERREGISTER.Pass" | translate}}</div>
+
+      <div class="padding-4"></div>
+
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.Enter Pass" | translate}}</ion-label>
+        <input type="password" name="Pass" class="input" placeholder="{{'CUSTOMERREGISTER.Enter Pass' | translate}}"
+          minlength="6" [(ngModel)]="customer.Password" #newPasswordInput="ngModel" required />
+      </ion-row>
+      <div class="padding-8"></div>
+
+      <ion-row>
+        <ion-label class="app-label required">{{"CUSTOMERREGISTER.Confirm Pass" | translate}}</ion-label>
+        <input type="password" name="confirmPass" class="input"
+          placeholder="{{'CUSTOMERREGISTER.Confirm Pass' | translate}}" minlength="6"
+          [(ngModel)]="customer.confirmPassword" required />
+      </ion-row>
+
+      <div *ngIf="( Password != confirmPassword)
+           && (register.form.controls['confirmPass'].dirty)" class="error-msg">
+        {{"CUSTOMERREGISTER.Pass error msg" | translate}}
+      </div>
+
+      <div class="padding-4"></div>
+
+      <div *ngIf="register.invalid" class="required-msg">
+      </div>
+
+      <div class="padding-8"></div>
+
+      <ion-row>
+        <button ion-button block color="primary" [disabled]="register.invalid || (Password != confirmPassword)"
+          (click)="onClickRegister()">
+          {{"CUSTOMERREGISTER.Register" | translate}}
+        </button>
+      </ion-row>
+    </form>
+
+  </div>
+</ion-content>
+
+<!-- footer -->
+<app-footer></app-footer>
