@@ -69,11 +69,12 @@ export const config: AppConfigInterface = {
     ? "http://20.50.18.127:2020/api"
     //: "http://87.101.136.180:2019/api",
     //: "http://localhost:53234/api",
+     //: "http://localhost:53234/api",
     : "http://20.50.18.127:2020/api",
   crmBaseUrl: isMobileAppMode
    // ? "https://api.york.com.sa/api"  
-    ? "http://104.46.43.15:8080//api"
-    : "http://104.46.43.15:8080//api",//  or http://87.101.136.180:53234/api
+    ? "http://104.46.43.15:8080/api"
+    : "http://104.46.43.15:8080/api",//  or http://87.101.136.180:53234/api
    // : "http://localhost:56507/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
   developmentMode: false,
   NST_TOKEN:

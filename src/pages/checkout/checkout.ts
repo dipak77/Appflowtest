@@ -95,6 +95,8 @@ export class CheckoutComponent {
             observables.push(this.custService.getCustomerAddresses());
         }
 
+        console.log("isAuthenticated()=> ", this.auth.isAuthenticated());
+
         let loaderName = "CHEKOUT.Loading";
 
         this.helper.showLoading(loaderName);
