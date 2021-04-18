@@ -66,11 +66,12 @@ export const config: AppConfigInterface = {
   // Using API Proxy for local development (check package.json on how to start it in scripts section)
   applicationBaseUrl: isMobileAppMode
     //? "https://york.com.sa/api"
-    ? "http://20.50.18.127:2020/api"
+    // ? "http://20.50.18.127:2020/api"
+    // : "http://20.50.18.127:2020/api",
     //: "http://87.101.136.180:2019/api",
     //: "http://localhost:53234/api",
-     //: "http://localhost:53234/api",
-    : "http://20.50.18.127:2020/api",
+    ? "http://localhost7:56507/api"
+    : "http://localhost:56507/api",
   crmBaseUrl: isMobileAppMode
    // ? "https://api.york.com.sa/api"  
     ? "http://104.46.43.15:8080/api"

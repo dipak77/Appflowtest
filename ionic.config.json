@@ -8,5 +8,10 @@
     {
       "path": "/api",
       "proxyUrl": "http://20.50.18.127:2020/api"
-    }]
+    },
+    {
+      "path": "/api2",
+      "proxyUrl": "http://104.46.43.15:8080/api"
+    }
+  ]
 }
