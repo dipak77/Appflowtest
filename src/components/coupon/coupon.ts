@@ -35,7 +35,13 @@ export class CouponComponent {
     applyCoupon() {
         let loader = 'COUPON';
         this.helper.showLoading(loader);
-        this.cart.applyDiscountCoupon(this.coupon.toUpperCase(),this.card.toString().substring(0,6))
+        debugger;
+        let cardnum=this.card==null || this.card==undefined? "" : this.card.toString().substring(0,6);
+        if(cardnum.length>6)
+        {
+            cardnum=cardnum.substring(0,6);
+        }
+        this.cart.applyDiscountCoupon(this.coupon.toUpperCase(),cardnum)
             .subscribe((res) => {
                 AnalyticsHelper.logEvent("Promocode", { coupon: this.coupon });
                 this.helper.hideLoading(loader);
@@ -57,6 +63,7 @@ export class CouponComponent {
         //manually launch change detection
         this.cdRef.detectChanges();
         console.log(value);
+        debugger;
         this.coupon=this.coupon.toUpperCase();
         if(this.coupon.toUpperCase()=="NCB21")
         {

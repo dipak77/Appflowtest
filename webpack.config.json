@@ -4,7 +4,7 @@
     "historyApiFallback": true,
     "proxy": {
       "/api": {
-        "target" : "http://localhost:56507",
+        "target" : "http://20.50.18.127:2020/api",
         "secure": false
       }
     }

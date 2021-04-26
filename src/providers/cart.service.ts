@@ -178,39 +178,46 @@ export class CartService {
     }
 
     applyDiscountCoupon(code,card="") {
-        return Observable.create((observer) => {
-            this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon?cardNumber='+card, { value: code }).subscribe((res: any) => {
-                AnalyticsHelper.logEvent("Promocode", {
-                    promocode: code
+
+        if(card==undefined || card==null)
+        {
+            return Observable.create((observer) => {
+                this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon', { value: code }).subscribe((res: any) => {
+                    AnalyticsHelper.logEvent("Promocode", {
+                        promocode: code
+                    });
+                    this.getCartItems().subscribe(() => {
+                        observer.next(res);
+                        observer.complete();
+                    }, (err) => {
+                        observer.error(err)
+                    });
+                }, () => {
+                    observer.error();
                 });
-                this.getCartItems().subscribe(() => {
-                    observer.next(res);
-                    observer.complete();
-                }, (err) => {
-                    observer.error(err)
-                });
-            }, () => {
-                observer.error();
             });
-        });
     }
-    applyDiscountCouponforNCBCard(code,card) {
-        return Observable.create((observer) => {
-            this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon?cardNumber='+card, { value: code }).subscribe((res: any) => {
-                AnalyticsHelper.logEvent("Promocode", {
-                    promocode: code
+    else
+    {
+            return Observable.create((observer) => {
+                this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon?cardNumber='+card, { value: code }).subscribe((res: any) => {
+                    AnalyticsHelper.logEvent("Promocode", {
+                        promocode: code
+                    });
+                    this.getCartItems().subscribe(() => {
+                        observer.next(res);
+                        observer.complete();
+                    }, (err) => {
+                        observer.error(err)
+                    });
+                }, () => {
+                    observer.error();
                 });
-                this.getCartItems().subscribe(() => {
-                    observer.next(res);
-                    observer.complete();
-                }, (err) => {
-                    observer.error(err)
-                });
-            }, () => {
-                observer.error();
             });
-        });
+        }
+        
     }
+ 
 
     removeDiscountCoupon(couponId) {
         return Observable.create((observer) => {
