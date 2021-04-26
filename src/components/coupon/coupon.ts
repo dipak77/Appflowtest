@@ -17,6 +17,7 @@ import { ValueTransformer } from '@angular/compiler/src/util';
 export class CouponComponent {
 
     coupon: string = '';
+    isCoupanEnter:  boolean = false;
     showCouponInput: boolean = false;
     isValidCard: boolean = false;
     card: string = '';
@@ -69,12 +70,15 @@ export class CouponComponent {
         {
             this.card=undefined;
             this.showcardInput = true;
+            this.isCoupanEnter=false;
             console.log("NCB card flag=> "+this.showcardInput);
         }
         else
         { 
+            this.isCoupanEnter=true;
             this.showcardInput = false;
             this.card=undefined;
+            this.isCoupanEnter=true;
         }           
       }
     ValidatedCard(value){
@@ -89,10 +93,13 @@ export class CouponComponent {
             {
                 console.log("this.isValidCard=true;");
                 this.isValidCard=true;
+                this.isCoupanEnter=true;
                 console.log(this.isValidCard);
             }
             else
+            {
                 this.isValidCard=true;
+            }
         }
       }
 

@@ -178,27 +178,9 @@ export class CartService {
     }
 
     applyDiscountCoupon(code,card="") {
-
-        if(card==undefined || card==null)
+ debugger;
+        if(card!=undefined && card!=null && card!="")
         {
-            return Observable.create((observer) => {
-                this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon', { value: code }).subscribe((res: any) => {
-                    AnalyticsHelper.logEvent("Promocode", {
-                        promocode: code
-                    });
-                    this.getCartItems().subscribe(() => {
-                        observer.next(res);
-                        observer.complete();
-                    }, (err) => {
-                        observer.error(err)
-                    });
-                }, () => {
-                    observer.error();
-                });
-            });
-    }
-    else
-    {
             return Observable.create((observer) => {
                 this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon?cardNumber='+card, { value: code }).subscribe((res: any) => {
                     AnalyticsHelper.logEvent("Promocode", {
@@ -214,9 +196,29 @@ export class CartService {
                     observer.error();
                 });
             });
+        
         }
+        else
+         {
+
+        return Observable.create((observer) => {
+            this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon', { value: code }).subscribe((res: any) => {
+                AnalyticsHelper.logEvent("Promocode", {
+                    promocode: code
+                });
+                this.getCartItems().subscribe(() => {
+                    observer.next(res);
+                    observer.complete();
+                }, (err) => {
+                    observer.error(err)
+                });
+            }, () => {
+                observer.error();
+            });
+        });        
         
     }
+}
  
 
     removeDiscountCoupon(couponId) {

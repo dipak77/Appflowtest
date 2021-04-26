@@ -19,7 +19,7 @@
   <div>
     <button ion-button block color="primary"
             *ngIf="showCouponInput"
-            (click)="applyCoupon()" [disabled]="!coupon">
+            (click)="applyCoupon()" [disabled]="!isCoupanEnter">
       {{"COUPON.ApplyCoupon" | translate}}
     </button>
   </div>
