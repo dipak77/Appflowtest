@@ -33,28 +33,28 @@
           "ar":"يرجى العلم أنه سيتم إنهاء إجراءات طلبك فور التأكد من استلام المبلغ."
       },
       "TransferTheAmountMessage":{
-          "en":"Please transfer the amount and attach a photo copy of the transfer receipt along with the order number in two working days on the below email address to avoid cancelling your order",
-          "ar":"نرجوا منك تحويل المبلغ وإرفاق صورة الحوالة البنكية مع رقم الطلب خلال يومي عمل، على الإيميل التالي لتجنب إلغاء الطلب"
+          "en":"Your order will be on hold until we confirm payment is received. Kindly transfer the amount to our account details below and send us a copy of the bank transfer in addition to the Order Number within 2 working days to avoid cancellation of your order to the below email:",
+          "ar":"يرجى العلم أنه سيتم إنهاء إجراءات طلبك فور التأكد من استلام المبلغ. نرجوا منك تحويل المبلغ وإرفاق صورة الحوالة البنكية مع رقم الطلب خلال يومي عمل، على الإيميل التالي لتجنب إلغاء الطلب:"
       },
       "BankAccountDetails":{
           "en":"Bank Account Details",
           "ar":"تفاصيل الحساب"
       },
       "AccountName":{
-          "en":"Account Name: AlSalem AC Company",
-          "ar":"إسم الحساب: شركة ال سالم لتكييف الهواء"
+          "en":"Account Name: Al Salem Air Conditioning Co.",
+          "ar":"شركة ال سالم لتكييف الهواء"
       },
       "Bank":{
-          "en":"Bank: SAMBA Financial Group",
-          "ar":"المصرف: مجموعة سامبا المالية"
+          "en":"Bank Name: Arab National Bank",
+          "ar":"البنك العربي الوطني"
       },
       "AccountNumber":{
-          "en":"Account Number: 9916909776",
-          "ar":"رقم الحساب: 9916909776"
+          "en":"Account Number: 0108 0039 8946 0033",
+         "ar":"رقم الحساب: 0108 0039 8946 0033"
       },
       "IBAN":{
-          "en":"IBAN: SA 214 000 000 000 9916 909776",
-          "ar":"الأيبان: SA 214 000 000 000 9916 909 776"
+          "en":"IBAN: SA 873 040 010 800 3989 460033",
+          "ar":"SA 873040 0108 0039 8946 0033 :الأيبان"
       }
   }
 }
