@@ -13,7 +13,7 @@ import { config } from '../../app/app.config';
 export class SimpleHttp {
     httpOptions: any = { headers: {}, withCredentials: true, credentials: true };
     crmHttpOptions: any = { headers: {}, withCredentials: true, credentials: true };
-
+     //CORS_PROXY: any ='https://cors-anywhere.herokuapp.com/';
     getApiHttpOptions() {
         let options = { ...this.httpOptions };
         if (options.headers && options.headers.Token && options.headers.DeviceId) {

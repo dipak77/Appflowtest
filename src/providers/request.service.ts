@@ -134,7 +134,6 @@ export class RequestService {
       this.translate.currentLang == "ar" ? "arabic" : "english";
     return this.http.doPost(
       config.crmBaseUrl + "/Insert",
-      // "api2/Insert",
       this.inflateValues(data),
       this.http.crmHttpOptions
     );
@@ -233,7 +232,6 @@ export class RequestService {
       this.http
         .doPost(
           config.crmBaseUrl + "/EntityData",
-         // "api2/EntityData",
           filter,
           this.http.crmHttpOptions
         )
@@ -335,7 +333,6 @@ export class RequestService {
       this.http
         .doPost(
           config.crmBaseUrl + "/EntityData",
-          //"api2/EntityData",
           filter,
           this.http.crmHttpOptions
         )
@@ -411,8 +408,7 @@ export class RequestService {
 
       this.http
         .doPost(
-         // config.crmBaseUrl + "/EntityData",
-         config.crmBaseUrl + "/EntityData",
+          config.crmBaseUrl + "/EntityData",
           filter,
           this.http.crmHttpOptions
         )
@@ -520,10 +516,8 @@ export class RequestService {
   getProjectDetails(projectCode) {
     return Observable.create((observer) => {
       let url = config.isMobileAppMode
-       ? "http://40.115.53.94:8088/api/EntityData/GetProjectDetails?ProjectCode="
-       : config.crmBaseUrl + "/EntityData/GetProjectDetails?ProjectCode=";
-      //  ? "api2/EntityData/GetProjectDetails?ProjectCode="
-       // : "api2/EntityData/GetProjectDetails?ProjectCode=";
+        ? "http://40.115.53.94:8088/api/EntityData/GetProjectDetails?ProjectCode="
+        : config.crmBaseUrl + "/EntityData/GetProjectDetails?ProjectCode=";
       this.http
         .doPost(url + projectCode, null, this.http.crmHttpOptions)
         .subscribe(
@@ -630,7 +624,8 @@ export class RequestService {
 
       this.http
         .doPost(
-          config.crmBaseUrl + "/EntityData/GetOptionSetLabelsValue?lcid=" +
+          config.crmBaseUrl +
+            "/EntityData/GetOptionSetLabelsValue?lcid=" +
             lcid,
           interestedarea,
           this.http.crmHttpOptions

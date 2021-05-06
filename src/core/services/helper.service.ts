@@ -88,7 +88,7 @@ export class HelperService {
     let toaster = this.toastCtrl.create({
       message: msg,
       cssClass: toasterClass,
-      duration: additionalConfig["duration"] || 2000,
+      duration: additionalConfig["duration"] || 5000,
       position: additionalConfig["position"] || "bottom",
       showCloseButton: additionalConfig["showCloseButton"],
       closeButtonText: additionalConfig["closeButtonText"],

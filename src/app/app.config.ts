@@ -65,18 +65,17 @@ export const config: AppConfigInterface = {
     */
   // Using API Proxy for local development (check package.json on how to start it in scripts section)
   applicationBaseUrl: isMobileAppMode
-    //? "https://york.com.sa/api"
-    ? "http://20.50.18.127:2020/api"
-    : "http://20.50.18.127:2020/api",
-    //: "http://87.101.136.180:2019/api",
-    //: "http://localhost:53234/api",
-    // ? "http://localhost:2020/api"
-    // : "http://localhost:2020/api",
+     //? "https://york.com.sa/api"
+     ? "http://20.50.18.127:2020/api"
+     : "http://20.50.18.127:2020/api",
+     //: "http://87.101.136.180:2019/api",
+     //: "http://localhost:53234/api",
+   
   crmBaseUrl: isMobileAppMode
    // ? "https://api.york.com.sa/api"  
-    ? "http://104.46.43.15:8080/api"
-    : "http://104.46.43.15:8080/api",//  or http://87.101.136.180:53234/api
-   // : "http://localhost:56507/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
+    ? "http://20.50.18.127:4080/api"
+    //: "http://20.50.18.127:4080/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
+    : "http://20.50.18.127:4080/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
   developmentMode: false,
   NST_TOKEN:
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJOU1RfS0VZIjoiYm05d1UzUmhkR2x2YmxSdmEyVnUifQ.qdnNFEysRSenoFOmQqPZm5F1VY8Cp5Jmis1d9uFkM-s",
@@ -87,21 +86,21 @@ export const config: AppConfigInterface = {
   PayTabs: isMobileAppMode
     ? {
         SecretKey:
-          "6KLIOpAkQgUoQmiPfKG4Cg2zjNfFQWoWG9FvygQpxKOn66dlQTqs9t2tgh87ex3UGIqfZgFw1tT7A6trZUU9nWCEeLLsiPnZyNfx",
-        MerchantId: "10035962",
+          "PzDXtJZQf612LzjgV0PBThEIvWXl6BXTiSPcnE0bfbaqPEDW9OlvdQDAhIf890mqF3Nr7hHaxFZsCZw03zUo7uEs1TunYYSeSAVq",
+        MerchantId: "3910",
         MerchantEmail: "hind.omar@jci.com",
         DefaultCurrency: "SAR",
         DefaultLocalPort: 21213,
-        BaseUrl: "https://www.paytabs.com/apiv2",
+        BaseUrl: "https://secure.paytabs.sa/apiv2"
       }
     : {
         SecretKey:
-          "LwDN63mJyH6tVGIbXJ9tHAYMpoibl996FMUMQgwpYCSTiA5gjfJ0QHNf65qrfAyVmsIdJeCHRuBa4GqnWaoMSb1Yhspw2YspqaCa",
-        MerchantId: "10037830",
-        MerchantEmail: "fachamieh@netways.com",
+          "PzDXtJZQf612LzjgV0PBThEIvWXl6BXTiSPcnE0bfbaqPEDW9OlvdQDAhIf890mqF3Nr7hHaxFZsCZw03zUo7uEs1TunYYSeSAVq",
+        MerchantId: "3910",
+        MerchantEmail: "hind.omar@jci.com",
         DefaultCurrency: "SAR",
         DefaultLocalPort: 21213,
-        BaseUrl: "https://www.paytabs.com/apiv2",
+        BaseUrl: "https://secure.paytabs.sa/apiv2",
       },
   dateFormat: "DD/MM/YYYY",
   dateTimeFormat: "DD/MM/YYYY h:mm:ss",

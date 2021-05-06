@@ -84,6 +84,7 @@ export class CheckOutService {
     }
 
     getShipmentMethods() {
+        debugger;
         return this.http.doGet(config.applicationBaseUrl + '/checkout/checkoutgetshippingmethods');
     }
 

@@ -81,17 +81,37 @@ export class CheckoutComponent {
     fetchPageData() {
 
         let observables = [];
+        let data: any = {};
         this.isAddressSaved = false;
         debugger;
+        let checkoutOrderInformation=this.checkout.getCheckoutOrderInformation().subscribe(res => {
+            console.log("checkoutOrderInformation",res);
+            data = res;
+         });
+        //console.log("checkoutOrderInformation", checkoutOrderInformation);
         observables.push(this.checkout.getCheckoutOrderInformation());
 
-        let getRemotePropertiesObservable = getRemoteProperties(this.simpleHttp);
-        observables.push(getRemotePropertiesObservable);
+        let getRemotePropertiesObservable = getRemoteProperties(this.simpleHttp).subscribe(res => {
+            console.log("getRemotePropertiesObservable",res);
+            data = res;
+         });
+        //console.log("getRemotePropertiesObservable", getRemotePropertiesObservable);
+        observables.push(getRemoteProperties(this.simpleHttp));
 
-        let checkoutMethodsObvservable = this.checkout.getShipmentMethods();
-        observables.push(checkoutMethodsObvservable);
+        let checkoutMethodsObvservable = this.checkout.getShipmentMethods().subscribe(res => {
+            console.log("checkoutMethodsObvservable", res);
+            data = res;
+         });
+        ///console.log("checkoutMethodsObvservable", checkoutMethodsObvservable);
+        observables.push(this.checkout.getShipmentMethods());
 
         if (this.auth.isAuthenticated()) {
+            let custdata=this.custService.getCustomerAddresses().subscribe(res => {
+                console.log("custdata",res);
+                data = res;
+             });
+          //  console.log("custdata", custdata);
+            debugger;
             observables.push(this.custService.getCustomerAddresses());
         }
 
@@ -100,7 +120,8 @@ export class CheckoutComponent {
         let loaderName = "CHEKOUT.Loading";
 
         this.helper.showLoading(loaderName);
-
+        console.log("shippingMethods started");
+        debugger;
         Observable.forkJoin(observables).subscribe(([orderReview, remoteProps, shippingMethods, addresses]) => {
             this.orderReview = orderReview || { OrderTotalModel: {} };
             let remoteProperties: any = remoteProps || {};
@@ -116,7 +137,7 @@ export class CheckoutComponent {
                 ? this.addresses.ExistingAddresses.find(a => a.Id == shoppingCartModel.OrderReviewData.BillingAddress.Id)
                 : null;
             this.selAddress = selectedAddress ? selectedAddress.Id : null;
-
+            console.log("selAddress", this.selAddress);
             if (selectedAddress && gotAddressFromCheckout) {
                 ['FirstName', 'LastName', 'Address1', 'Address2', 'City', 'Email', 'PhoneNumber'].forEach(prop => {
                     if (!this.checkoutInfo[prop] && selectedAddress[prop])
@@ -127,7 +148,7 @@ export class CheckoutComponent {
             let isEnglish = this.platform.dir() === "ltr";
             const bankTransferKey = "bank-transfer";
             this.isAddressSaved = this.selAddress ? true : false;
-
+            console.log("isAddressSaved", this.isAddressSaved);
             this.discountOnItems = orderReview && shoppingCartModel && shoppingCartModel.Items ? shoppingCartModel.Items.reduce((result, item) => getAmount(item.Discount) + result, 0) : 0;
 
             // Payment Types
@@ -349,7 +370,7 @@ export class CheckoutComponent {
     payWithPayTabs(paymentInfo) {
         this.helper.showLoading("PAYTABS");
         let promise = payTabs.instance.gotoPayment(paymentInfo);
-
+debugger;
         promise.then(
             paymentResultFields => {
                 this.helper.hideLoading("PAYTABS");
