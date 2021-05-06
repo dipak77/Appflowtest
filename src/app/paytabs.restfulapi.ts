@@ -197,7 +197,7 @@ export default class PayTabsRestFulApi {
 
     validateSecretKey(paymentInfo) {
         console.log('Validating Secret Key PayTabs RestFul Api => Call PayTabs RestFul Api Validate Secret Key');
-
+        console.log("paymentInfo: "+paymentInfo);
         this.httpClient.post(config.PayTabs.BaseUrl + "/validate_secret_key",
             {
                 merchant_email: paymentInfo.merchant_email,
@@ -231,17 +231,20 @@ export default class PayTabsRestFulApi {
         };
 
         console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
-
+debugger;
         this.httpClient.post(config.PayTabs.BaseUrl + "/create_pay_page", body.toString(), options)
             .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
                 if (result.response_code === '4012') {
+                    debugger;
                     console.log('Create PayTabs Payment => Success', result);
                     this.openPaymentWindow(paymentInfo, result);
                 } else {
+                    debugger;
                     console.log('Create PayTabs Payment => Error in Response', result);
                     this.reject(result);
                 }
             }, (error) => {
+                debugger;
                 console.log('Create PayTabs Payment => Error', error);
                 this.reject(error);
             });
@@ -282,7 +285,7 @@ export default class PayTabsRestFulApi {
         const isCordovaBased = window["cordova"] && window["cordova"].InAppBrowser;
         let windowManager = (isCordovaBased ? window["cordova"].InAppBrowser : window);
         let verified = false;
-
+debugger;
         this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes,usewkwebview=no');
 
         this.paymentWindowListener = event => {
