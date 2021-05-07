@@ -123,4 +123,5 @@
         </feature>
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     </platform>
+    <plugin name="cordova-plugin-inappbrowser-wkwebview" spec="~1.0.7" />
 </widget>
