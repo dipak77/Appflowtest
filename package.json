@@ -107,7 +107,6 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-webserver": {},
       "phonegap-plugin-multidex": {},
-      "cordova-plugin-uiwebview-engine": {},
       "cordova-plugin-firebasex": {
         "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
         "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "false",
