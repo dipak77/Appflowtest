@@ -125,5 +125,4 @@
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
          <preference name="WKSuspendInBackground" value="false" />
     </platform>
-    <plugin name="cordova-plugin-inappbrowser-wkwebview" spec="~1.0.7" />
 </widget>
