@@ -113,11 +113,16 @@
         <splash height="2688" src="resources/ios/splash/Default-2688h~iphone.png" width="1242" />
         <splash height="1792" src="resources/ios/splash/Default-1792h~iphone.png" width="828" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
+        <!-- <feature name="BPRUIWebViewEngine">
+            <param name="ios-package" value="BPRUIWebViewEngine" />
+        </feature>
+        <preference name="CordovaWebViewEngine" value="BPRUIWebViewEngine" /> -->
         <preference name="WKWebViewOnly" value="true" />
         <feature name="CDVWKWebViewEngine">
-            <param name="ios-package" value="CDVWKWebViewEngine" />
+        <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+         <preference name="WKSuspendInBackground" value="false" />
     </platform>
     <plugin name="cordova-plugin-inappbrowser-wkwebview" spec="~1.0.7" />
 </widget>
