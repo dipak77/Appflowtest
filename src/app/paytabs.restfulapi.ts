@@ -286,7 +286,8 @@ debugger;
         let windowManager = (isCordovaBased ? window["cordova"].InAppBrowser : window);
         let verified = false;
 debugger;
-        this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes,usewkwebview=no');
+       // this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes,usewkwebview=no');
+        this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes');
 
         this.paymentWindowListener = event => {
             console.debug("[payment] InAppBrowser: Loaded", JSON.stringify(event, null, 2));
