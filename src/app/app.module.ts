@@ -6,7 +6,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { RouterModule } from '@angular/router';
 import { config } from './app.config';
 import { MyApp } from './app.component';

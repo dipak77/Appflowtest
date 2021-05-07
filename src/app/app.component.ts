@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SplashComponent } from '../pages/splash/splash';
 import PayTabsRestFulApi from './paytabs.restfulapi';
 import { config, getRemoteProperties } from './app.config';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx/index';
 import { HttpClient } from '@angular/common/http';
 import { AnalyticsHelper } from '../core/services/helper.service';
 import { SimpleHttp } from "../core/services/simple-http.service";
