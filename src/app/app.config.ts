@@ -74,8 +74,9 @@ export const config: AppConfigInterface = {
   crmBaseUrl: isMobileAppMode
    // ? "https://api.york.com.sa/api"  
     ? "http://20.50.18.127:4080/api"
+    : "http://20.50.18.127:4080/api",
     //: "http://20.50.18.127:4080/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
-    : "http://20.50.18.127:4080/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
+    // : "http://20.50.18.127:4080/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
   developmentMode: false,
   NST_TOKEN:
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJOU1RfS0VZIjoiYm05d1UzUmhkR2x2YmxSdmEyVnUifQ.qdnNFEysRSenoFOmQqPZm5F1VY8Cp5Jmis1d9uFkM-s",
