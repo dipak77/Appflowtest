@@ -1,4 +1,4 @@
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx/index';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Platform } from 'ionic-angular';
 import { IPaymentRestFulApiInfo, IPaymentRestFulApiCreateResultCallback, IPaymentRestFulApiVerifyResultCallback, IPaymentResultFields } from './paytabs';
 import { config } from '../app/app.config';
