@@ -24,6 +24,15 @@
     <preference name="Orientation" value="portrait" />
     <preference name="Fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
+
+   <plugin name="cordova-plugin-firebasex" spec="https://github.com/dpa99c/cordova-plugin-firebase" >
+        <variable name="IOS_STRIP_DEBUG" value="true" />
+        <variable name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" value="false" />
+        <variable name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" value="false" />
+        <variable name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" value="false" />
+        <variable name="SETUP_RECAPTCHA_VERIFICATION" value="true" />
+    </plugin>
+
     <platform name="android">
         <config-file parent="/*" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.INTERNET" />
@@ -125,4 +134,5 @@
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
          <preference name="WKSuspendInBackground" value="false" />
     </platform>
+    <plugin name="cordova-plugin-firebasex" spec="latest" />
 </widget>
