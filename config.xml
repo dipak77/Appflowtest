@@ -125,7 +125,8 @@
         <!-- <feature name="BPRUIWebViewEngine">
             <param name="ios-package" value="BPRUIWebViewEngine" />
         </feature>
-        <preference name="CordovaWebViewEngine" value="BPRUIWebViewEngine" /> -->
+        <preference name="CordovaWebViewEngine" value="BPRUIWebViewEngine" /> 
+         <preference name="CordovaWebViewEngine" value="BPRUIWebViewEngine" /> -->
         <preference name="InAppBrowserStatusBarStyle" value="lightcontent" />
         <preference name="WKWebViewOnly" value="true" />
         <feature name="CDVWKWebViewEngine">
