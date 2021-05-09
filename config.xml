@@ -124,13 +124,17 @@
         <splash height="1792" src="resources/ios/splash/Default-1792h~iphone.png" width="828" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
         <preference name="InAppBrowserStatusBarStyle" value="lightcontent" />
+        <preference name="StatusBarOverlaysWebView" value="true" />
         <preference name="WKWebViewOnly" value="true" />
         <feature name="CDVWKWebViewEngine">
             <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarStyle" value="lightcontent" />
+        <preference name="StatusBarDefaultScrollToTop" value="false" />
         <preference name="WKSuspendInBackground" value="false" />
+        <preference name="AutoHideSplashScreen" value="true" />
+        <preference name="ShowSplashScreenSpinner" value="false"/>
     </platform>
     <plugin name="cordova-plugin-firebasex" spec="latest">
         <variable name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" value="false" />
