@@ -2,7 +2,7 @@
 import { Platform, ModalController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { FCM } from '@ionic-native/fcm/ngx';
+
 import { TranslateService } from '@ngx-translate/core';
 import { SplashComponent } from '../pages/splash/splash';
 import PayTabsRestFulApi from './paytabs.restfulapi';
@@ -36,9 +36,7 @@ export class MyApp {
         public inAppBrowser: InAppBrowser,
         private simpleHttp: SimpleHttp,
         public toastCtrl: ToastController,
-        public http: HttpClient,
-        private fcm: FCM
-        ) {
+        public http: HttpClient) {
 
         // Initialize the application
         this.initializeApp();
@@ -70,29 +68,7 @@ export class MyApp {
             AnalyticsHelper.toastCtrl = this.toastCtrl;
 
              // Initialize Analytics
-            // AnalyticsHelper.init();
-              // subscribe to a topic
-            // this.fcm.subscribeToTopic('Deals');
-
-            // get FCM token
-            this.fcm.getToken().then(token => {
-                console.log(token);
-            });
-
-            // ionic push notification example
-            this.fcm.onNotification().subscribe(data => {
-                console.log(data);
-                if (data.wasTapped) {
-                console.log('Received in background');
-                } else {
-                console.log('Received in foreground');
-                }
-            });      
-
-            // refresh the FCM token
-            this.fcm.onTokenRefresh().subscribe(token => {
-                console.log(token);
-            });
+             AnalyticsHelper.init();
 
             // Create our local web server for payment support
             MyApp.webServer = new PayTabsRestFulApi(config.PayTabs.DefaultLocalPort, this.inAppBrowser, this.platform, this.http);

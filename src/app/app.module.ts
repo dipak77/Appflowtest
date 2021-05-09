@@ -7,7 +7,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { FCM } from '@ionic-native/fcm/ngx';
 import { RouterModule } from '@angular/router';
 import { config } from './app.config';
 import { MyApp } from './app.component';
@@ -30,8 +29,6 @@ import { CustomerService } from '../providers/customer.service';
 import { RequestService } from '../providers/request.service';
 import { SimpleHttp } from '../core/services/simple-http.service';
 import { HelperService } from '../core/services/helper.service';
-
-
 
 import { routes, components } from './app.imports';
 import { CustomTranslationsLoader } from '../core/components/multilingual-support/index';
@@ -84,8 +81,7 @@ import { CustomTranslationsLoader } from '../core/components/multilingual-suppor
     SimpleHttp,
     HelperService,
     TranslateService,
-    Device,
-    FCM
+    Device
   ],
   exports: [
     RouterModule,
