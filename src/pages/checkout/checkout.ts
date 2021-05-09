@@ -268,8 +268,8 @@ export class CheckoutComponent {
         let paymentInfo: IPaymentRestFulApiInfo = {
             merchant_email: `${config.PayTabs.MerchantEmail}`,
             secret_key: `${config.PayTabs.SecretKey}`,
-            site_url: 'http://localhost:21213/',
-            return_url: 'http://localhost:21213/PaymentResult/',
+            site_url: 'http://localhost:8100/',
+            return_url: 'http://localhost:8100/PaymentResult/',
             title: "York Store: " + order.ShoppingCartModel.Items.map(item => item.ProductName).join(' | '),
             cc_first_name: this.checkoutInfo.FirstName,
             cc_last_name: this.checkoutInfo.LastName,

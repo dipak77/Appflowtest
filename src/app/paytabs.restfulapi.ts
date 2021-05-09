@@ -229,11 +229,16 @@ export default class PayTabsRestFulApi {
         let options = {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
+        let json = JSON.stringify(body);
+
+       console.log("Request Payload:: "+json);
 
         console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
 debugger;
         this.httpClient.post(config.PayTabs.BaseUrl + "/create_pay_page", body.toString(), options)
             .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
+                let json = JSON.stringify(result);
+                console.log("response Payload:: "+json);
                 if (result.response_code === '4012') {
                     debugger;
                     console.log('Create PayTabs Payment => Success', result);
@@ -245,6 +250,8 @@ debugger;
                 }
             }, (error) => {
                 debugger;
+                let json = JSON.stringify(error);
+                console.log("response Payload:: "+json);
                 console.log('Create PayTabs Payment => Error', error);
                 this.reject(error);
             });

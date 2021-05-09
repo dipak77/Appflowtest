@@ -91,7 +91,7 @@ export const config: AppConfigInterface = {
         MerchantId: "3910",
         MerchantEmail: "hind.omar@jci.com",
         DefaultCurrency: "SAR",
-        DefaultLocalPort: 21213,
+        DefaultLocalPort: 8100,
         BaseUrl: "https://secure.paytabs.sa/apiv2"
       }
     : {
@@ -100,7 +100,7 @@ export const config: AppConfigInterface = {
         MerchantId: "3910",
         MerchantEmail: "hind.omar@jci.com",
         DefaultCurrency: "SAR",
-        DefaultLocalPort: 21213,
+        DefaultLocalPort: 8100,
         BaseUrl: "https://secure.paytabs.sa/apiv2",
       },
   dateFormat: "DD/MM/YYYY",
