@@ -116,13 +116,7 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-      "cordova-plugin-fcm-with-dependecy-updated": {
-        "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher",
-        "ANDROID_FCM_VERSION": "21.0.0",
-        "ANDROID_FIREBASE_BOM_VERSION": "26.0.0",
-        "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4",
-        "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0"
-      }
+      "cordova-plugin-fcm-with-dependecy-updated": {}
     },
     "platforms": [
       "browser",

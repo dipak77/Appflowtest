@@ -132,7 +132,7 @@
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="WKSuspendInBackground" value="false" />
     </platform>
-    <plugin name="cordova-plugin-firebasex" spec="^7.5.0">
+    <plugin name="cordova-plugin-firebasex">
         <variable name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" value="false" />
         <variable name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" value="false" />
         <variable name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" value="false" />
