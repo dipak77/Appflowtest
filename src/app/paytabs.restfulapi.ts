@@ -4,6 +4,7 @@ import { IPaymentRestFulApiInfo, IPaymentRestFulApiCreateResultCallback, IPaymen
 import { config } from '../app/app.config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
 export interface IRequest {
     requestId: string, // : '3jh4-ku34k-k3j4k-k3j42',
     body: string,
