@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { CartService } from '../../providers/cart.service';
 

@@ -24,19 +24,16 @@
     <preference name="Orientation" value="portrait" />
     <preference name="Fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#04558a" />
-
-   <plugin name="cordova-plugin-firebasex" spec="https://github.com/dpa99c/cordova-plugin-firebase" >
+    <plugin name="cordova-plugin-firebasex" spec="https://github.com/dpa99c/cordova-plugin-firebase">
         <variable name="IOS_STRIP_DEBUG" value="true" />
         <variable name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" value="false" />
         <variable name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" value="false" />
         <variable name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" value="false" />
         <variable name="SETUP_RECAPTCHA_VERIFICATION" value="true" />
     </plugin>
-
     <platform name="android">
         <config-file parent="/*" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.INTERNET" />
@@ -126,21 +123,16 @@
         <splash height="2688" src="resources/ios/splash/Default-2688h~iphone.png" width="1242" />
         <splash height="1792" src="resources/ios/splash/Default-1792h~iphone.png" width="828" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
-        <!-- <feature name="BPRUIWebViewEngine">
-            <param name="ios-package" value="BPRUIWebViewEngine" />
-        </feature>
-        <preference name="CordovaWebViewEngine" value="BPRUIWebViewEngine" /> 
-         <preference name="CordovaWebViewEngine" value="BPRUIWebViewEngine" /> -->
         <preference name="InAppBrowserStatusBarStyle" value="lightcontent" />
         <preference name="WKWebViewOnly" value="true" />
         <feature name="CDVWKWebViewEngine">
-        <param name="ios-package" value="CDVWKWebViewEngine" />
+            <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
         <preference name="StatusBarOverlaysWebView" value="false" />
-         <preference name="WKSuspendInBackground" value="false" />
+        <preference name="WKSuspendInBackground" value="false" />
     </platform>
-      <plugin name="cordova-plugin-firebasex" spec="latest">
+    <plugin name="cordova-plugin-firebasex" spec="latest">
         <variable name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" value="false" />
         <variable name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" value="false" />
         <variable name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" value="false" />
