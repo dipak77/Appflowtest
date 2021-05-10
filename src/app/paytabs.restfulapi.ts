@@ -201,13 +201,13 @@ export default class PayTabsRestFulApi {
     validateSecretKey(paymentInfo) {
         console.log('Validating Secret Key PayTabs RestFul Api => Call PayTabs RestFul Api Validate Secret Key');
         console.log("paymentInfo: "+paymentInfo);
-       // this.httpClient.post(config.PayTabs.BaseUrl + "/validate_secret_key",
-        this.httpClient.post(config.PayTabs.BaseUrl + "apiv2/validate_secret_key",
+        //this.httpClient.post(config.PayTabs.BaseUrl + "/validate_secret_key",
+        this.hTTP.post(config.PayTabs.BaseUrl + "/validate_secret_key",
             {
                 merchant_email: paymentInfo.merchant_email,
                 secret_key: paymentInfo.secret_key
             },{})
-            .subscribe(result => {
+            .then(result => {
                 console.log('Validating Secret Key PayTabs RestFul Api => Done Successfully', result);
                 let json = JSON.stringify(result);
                 let json2=JSON.parse(json);
@@ -217,7 +217,7 @@ export default class PayTabsRestFulApi {
                 if (responseCode === '4000') {
                     this.createPayTabsPayment(paymentInfo);
                 } else {
-                    this.reject(result);
+                    this.reject(result.data);
                 }
             }, (error) => {
                 console.log('Validating Secret Key PayTabs RestFul Api => Error', error);
@@ -239,7 +239,7 @@ export default class PayTabsRestFulApi {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
         let headers = {
-            'Content-Type': 'pplication/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded'
         };
         let json = JSON.stringify(body);
 
@@ -288,11 +288,11 @@ debugger;
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
         let headers = {
-            'Content-Type': 'pplication/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded'
         };
 
         // this.httpClient.post(config.PayTabs.BaseUrl + "/verify_payment", body.toString(), options)
-        this.hTTP.post(config.PayTabs.BaseUrl +"verify_payment", body.toString(), headers)
+        this.hTTP.post(config.PayTabs.BaseUrl +"/verify_payment", body.toString(), headers)
             .then(result  => {
                 console.log('Verified PayTabs RestFul Api => ', result, verifyData);
                 let json = JSON.stringify(result);
