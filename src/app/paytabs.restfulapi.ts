@@ -2,7 +2,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Platform } from 'ionic-angular';
 import { IPaymentRestFulApiInfo, IPaymentRestFulApiCreateResultCallback, IPaymentRestFulApiVerifyResultCallback, IPaymentResultFields } from './paytabs';
 import { config } from '../app/app.config';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+ import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http/ngx';
 
 
 export interface IRequest {
@@ -42,7 +43,7 @@ export default class PayTabsRestFulApi {
     constructor(port = PayTabsRestFulApi.defaultPort,
         public iap: InAppBrowser,
         public platform: Platform,        
-        public httpClient: HttpClient) {
+        public httpClient: HTTP) {
 
         this.inAppBrowser = iap;
         this.platform = platform;
@@ -203,10 +204,15 @@ export default class PayTabsRestFulApi {
             {
                 merchant_email: paymentInfo.merchant_email,
                 secret_key: paymentInfo.secret_key
-            })
-            .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
+            },{})
+            .then(result => {
                 console.log('Validating Secret Key PayTabs RestFul Api => Done Successfully', result);
-                if (result.response_code === '4000') {
+                let json = JSON.stringify(result.data);
+                let json2=JSON.parse(json);
+                let responseCode = json2.response_code;
+               
+                  console.log("response_code:: "+responseCode); 
+                if (responseCode === '4000') {
                     this.createPayTabsPayment(paymentInfo);
                 } else {
                     this.reject(result);
@@ -237,17 +243,20 @@ export default class PayTabsRestFulApi {
         console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
 debugger;
         this.httpClient.post(config.PayTabs.BaseUrl + "/create_pay_page", body.toString(), options)
-            .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
+            .then(result => {
                 let json = JSON.stringify(result);
-                console.log("response Payload:: "+json);
-                if (result.response_code === '4012') {
+                let json2=JSON.parse(json);
+                let responseCode = json2.response_code;
+               
+                  console.log("response_code:: "+responseCode); 
+                if (responseCode === '4012') {
                     debugger;
                     console.log('Create PayTabs Payment => Success', result);
-                    this.openPaymentWindow(paymentInfo, result);
+                    this.openPaymentWindow(paymentInfo, result.data);
                 } else {
                     debugger;
                     console.log('Create PayTabs Payment => Error in Response', result);
-                    this.reject(result);
+                    this.reject(result.data);
                 }
             }, (error) => {
                 debugger;
@@ -274,13 +283,18 @@ debugger;
         };
 
         this.httpClient.post(config.PayTabs.BaseUrl + "/verify_payment", body.toString(), options)
-            .subscribe((result: IPaymentRestFulApiVerifyResultCallback) => {
+            .then(result => {
                 console.log('Verified PayTabs RestFul Api => ', result, verifyData);
-                if (result.response_code === '100') {
-                    this.resolve(result);
+                let json = JSON.stringify(result.data);
+                let json2=JSON.parse(json);
+                let responseCode = json2.response_code;
+               
+                  console.log("response_code:: "+responseCode); 
+                if (responseCode === '4012') {
+                    this.resolve(result.data);
                     this.closePaymentWindow();
                 } else {
-                    this.rejectAndCloseWindow(result);
+                    this.rejectAndCloseWindow(result.data);
                 }
             }, (error) => {
                 console.log('Verifying PayTabs RestFul Api => Error', error, verifyData);

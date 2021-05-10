@@ -12,6 +12,7 @@ import { config } from './app.config';
 import { MyApp } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http/ngx';
 import { FilterPipe } from '../core/pipes/filter.pipe';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { Device } from '@ionic-native/device';
@@ -69,6 +70,7 @@ import { CustomTranslationsLoader } from '../core/components/multilingual-suppor
     StatusBar,
     Geolocation,
     SplashScreen,
+    HTTP,
     InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     CartService,

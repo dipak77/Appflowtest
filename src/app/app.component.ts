@@ -11,6 +11,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { HttpClient } from '@angular/common/http';
 import { AnalyticsHelper } from '../core/services/helper.service';
 import { SimpleHttp } from "../core/services/simple-http.service";
+import { HTTP } from '@ionic-native/http/ngx';
 
 function getPreferredLanguage() {
     let language = (navigator.languages != undefined)
@@ -36,7 +37,8 @@ export class MyApp {
         public inAppBrowser: InAppBrowser,
         private simpleHttp: SimpleHttp,
         public toastCtrl: ToastController,
-        public http: HttpClient) {
+        public http: HttpClient,
+        public httpx:HTTP) {
 
         // Initialize the application
         this.initializeApp();
@@ -52,7 +54,7 @@ export class MyApp {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
-
+           // this.splashScreen.hide();
             // Show Custom Splash Screen
             if (window.localStorage.getItem("skip-splash")) {
                 window.localStorage.removeItem("skip-splash");
@@ -71,7 +73,7 @@ export class MyApp {
              AnalyticsHelper.init();
 
             // Create our local web server for payment support
-            MyApp.webServer = new PayTabsRestFulApi(config.PayTabs.DefaultLocalPort, this.inAppBrowser, this.platform, this.http);
+            MyApp.webServer = new PayTabsRestFulApi(config.PayTabs.DefaultLocalPort, this.inAppBrowser, this.platform, this.httpx);
         });
     }
 }
