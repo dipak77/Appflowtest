@@ -12,6 +12,11 @@
     {
       "path": "/api",
       "proxyUrl": "http://20.50.18.127:4080/api"
+    },
+    {
+      "path": "/apiv2",
+      "proxyUrl": "https://secure.paytabs.sa/apiv2"
+      
     }
   ]
 }

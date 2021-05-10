@@ -1,0 +1,8 @@
+{
+  "/apiv2": {
+    "target": "https://secure.paytabs.sa/apiv2",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {"^/apiv2" : ""}
+  }
+}

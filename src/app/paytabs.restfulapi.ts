@@ -43,7 +43,8 @@ export default class PayTabsRestFulApi {
     constructor(port = PayTabsRestFulApi.defaultPort,
         public iap: InAppBrowser,
         public platform: Platform,        
-        public httpClient: HTTP) {
+        public httpClient: HttpClient,
+        public hTTP:HTTP) {
 
         this.inAppBrowser = iap;
         this.platform = platform;
@@ -200,14 +201,15 @@ export default class PayTabsRestFulApi {
     validateSecretKey(paymentInfo) {
         console.log('Validating Secret Key PayTabs RestFul Api => Call PayTabs RestFul Api Validate Secret Key');
         console.log("paymentInfo: "+paymentInfo);
-        this.httpClient.post(config.PayTabs.BaseUrl + "/validate_secret_key",
+       // this.httpClient.post(config.PayTabs.BaseUrl + "/validate_secret_key",
+        this.httpClient.post(config.PayTabs.BaseUrl + "apiv2/validate_secret_key",
             {
                 merchant_email: paymentInfo.merchant_email,
                 secret_key: paymentInfo.secret_key
             },{})
-            .then(result => {
+            .subscribe(result => {
                 console.log('Validating Secret Key PayTabs RestFul Api => Done Successfully', result);
-                let json = JSON.stringify(result.data);
+                let json = JSON.stringify(result);
                 let json2=JSON.parse(json);
                 let responseCode = json2.response_code;
                
@@ -236,13 +238,17 @@ export default class PayTabsRestFulApi {
         let options = {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
+        let headers = {
+            'Content-Type': 'pplication/x-www-form-urlencoded'
+        };
         let json = JSON.stringify(body);
 
        console.log("Request Payload:: "+json);
 
         console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
 debugger;
-        this.httpClient.post(config.PayTabs.BaseUrl + "/create_pay_page", body.toString(), options)
+       // this.httpClient.post(config.PayTabs.BaseUrl +"/create_pay_page", body.toString(), options)
+        this.hTTP.post(config.PayTabs.BaseUrl +"/create_pay_page", body.toString(), headers)
             .then(result => {
                 let json = JSON.stringify(result);
                 let json2=JSON.parse(json);
@@ -256,7 +262,7 @@ debugger;
                 } else {
                     debugger;
                     console.log('Create PayTabs Payment => Error in Response', result);
-                    this.reject(result.data);
+                    this.reject(result);
                 }
             }, (error) => {
                 debugger;
@@ -281,11 +287,15 @@ debugger;
         let options = {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
+        let headers = {
+            'Content-Type': 'pplication/x-www-form-urlencoded'
+        };
 
-        this.httpClient.post(config.PayTabs.BaseUrl + "/verify_payment", body.toString(), options)
-            .then(result => {
+        // this.httpClient.post(config.PayTabs.BaseUrl + "/verify_payment", body.toString(), options)
+        this.hTTP.post(config.PayTabs.BaseUrl +"verify_payment", body.toString(), headers)
+            .then(result  => {
                 console.log('Verified PayTabs RestFul Api => ', result, verifyData);
-                let json = JSON.stringify(result.data);
+                let json = JSON.stringify(result);
                 let json2=JSON.parse(json);
                 let responseCode = json2.response_code;
                
@@ -302,7 +312,7 @@ debugger;
             });
     }
 
-    openPaymentWindow(paymentInfo: IPaymentRestFulApiInfo, createResponse: IPaymentRestFulApiCreateResultCallback) {
+    openPaymentWindow(paymentInfo: IPaymentRestFulApiInfo, createResponse: any) {
 
         const isCordovaBased = window["cordova"] && window["cordova"].InAppBrowser;
         let windowManager = (isCordovaBased ? window["cordova"].InAppBrowser : window);

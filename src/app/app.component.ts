@@ -1,7 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { Platform, ModalController, ToastController } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TranslateService } from '@ngx-translate/core';
 import { SplashComponent } from '../pages/splash/splash';
@@ -73,7 +73,7 @@ export class MyApp {
              AnalyticsHelper.init();
 
             // Create our local web server for payment support
-            MyApp.webServer = new PayTabsRestFulApi(config.PayTabs.DefaultLocalPort, this.inAppBrowser, this.platform, this.httpx);
+            MyApp.webServer = new PayTabsRestFulApi(config.PayTabs.DefaultLocalPort, this.inAppBrowser, this.platform, this.http,this.httpx);
         });
     }
 }
