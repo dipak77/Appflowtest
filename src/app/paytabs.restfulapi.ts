@@ -2,9 +2,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Platform } from 'ionic-angular';
 import { IPaymentRestFulApiInfo, IPaymentRestFulApiCreateResultCallback, IPaymentRestFulApiVerifyResultCallback, IPaymentResultFields } from './paytabs';
 import { config } from '../app/app.config';
- import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HTTP } from '@ionic-native/http/ngx';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export interface IRequest {
     requestId: string, // : '3jh4-ku34k-k3j4k-k3j42',
@@ -22,6 +20,7 @@ export interface IResponse {
 };
 
 const pluginName = "webserver";
+const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
 
 export default class PayTabsRestFulApi {
 
@@ -43,8 +42,7 @@ export default class PayTabsRestFulApi {
     constructor(port = PayTabsRestFulApi.defaultPort,
         public iap: InAppBrowser,
         public platform: Platform,        
-        public httpClient: HttpClient,
-        public hTTP:HTTP) {
+        public httpClient: HttpClient) {
 
         this.inAppBrowser = iap;
         this.platform = platform;
@@ -201,23 +199,17 @@ export default class PayTabsRestFulApi {
     validateSecretKey(paymentInfo) {
         console.log('Validating Secret Key PayTabs RestFul Api => Call PayTabs RestFul Api Validate Secret Key');
         console.log("paymentInfo: "+paymentInfo);
-        //this.httpClient.post(config.PayTabs.BaseUrl + "/validate_secret_key",
-        this.hTTP.post(config.PayTabs.BaseUrl + "/validate_secret_key",
+        this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/validate_secret_key",
             {
                 merchant_email: paymentInfo.merchant_email,
                 secret_key: paymentInfo.secret_key
-            },{})
-            .then(result => {
+            })
+            .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
                 console.log('Validating Secret Key PayTabs RestFul Api => Done Successfully', result);
-                let json = JSON.stringify(result);
-                let json2=JSON.parse(json);
-                let responseCode = json2.response_code;
-               
-                  console.log("response_code:: "+responseCode); 
-                if (responseCode === '4000') {
+                if (result.response_code === '4000') {
                     this.createPayTabsPayment(paymentInfo);
                 } else {
-                    this.reject(result.data);
+                    this.reject(result);
                 }
             }, (error) => {
                 console.log('Validating Secret Key PayTabs RestFul Api => Error', error);
@@ -238,27 +230,20 @@ export default class PayTabsRestFulApi {
         let options = {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
-        let headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        };
         let json = JSON.stringify(body);
 
        console.log("Request Payload:: "+json);
 
         console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
 debugger;
-       // this.httpClient.post(config.PayTabs.BaseUrl +"/create_pay_page", body.toString(), options)
-        this.hTTP.post(config.PayTabs.BaseUrl +"/create_pay_page", body.toString(), headers)
-            .then(result => {
+        this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/create_pay_page", body.toString(), options)
+            .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
                 let json = JSON.stringify(result);
-                let json2=JSON.parse(json);
-                let responseCode = json2.response_code;
-               
-                  console.log("response_code:: "+responseCode); 
-                if (responseCode === '4012') {
+                console.log("response Payload:: "+json);
+                if (result.response_code === '4012') {
                     debugger;
                     console.log('Create PayTabs Payment => Success', result);
-                    this.openPaymentWindow(paymentInfo, result.data);
+                    this.openPaymentWindow(paymentInfo, result);
                 } else {
                     debugger;
                     console.log('Create PayTabs Payment => Error in Response', result);
@@ -287,24 +272,15 @@ debugger;
         let options = {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         };
-        let headers = {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        };
 
-        // this.httpClient.post(config.PayTabs.BaseUrl + "/verify_payment", body.toString(), options)
-        this.hTTP.post(config.PayTabs.BaseUrl +"/verify_payment", body.toString(), headers)
-            .then(result  => {
+        this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/verify_payment", body.toString(), options)
+            .subscribe((result: IPaymentRestFulApiVerifyResultCallback) => {
                 console.log('Verified PayTabs RestFul Api => ', result, verifyData);
-                let json = JSON.stringify(result);
-                let json2=JSON.parse(json);
-                let responseCode = json2.response_code;
-               
-                  console.log("response_code:: "+responseCode); 
-                if (responseCode === '4012') {
-                    this.resolve(result.data);
+                if (result.response_code === '100') {
+                    this.resolve(result);
                     this.closePaymentWindow();
                 } else {
-                    this.rejectAndCloseWindow(result.data);
+                    this.rejectAndCloseWindow(result);
                 }
             }, (error) => {
                 console.log('Verifying PayTabs RestFul Api => Error', error, verifyData);
@@ -312,7 +288,7 @@ debugger;
             });
     }
 
-    openPaymentWindow(paymentInfo: IPaymentRestFulApiInfo, createResponse: any) {
+    openPaymentWindow(paymentInfo: IPaymentRestFulApiInfo, createResponse: IPaymentRestFulApiCreateResultCallback) {
 
         const isCordovaBased = window["cordova"] && window["cordova"].InAppBrowser;
         let windowManager = (isCordovaBased ? window["cordova"].InAppBrowser : window);

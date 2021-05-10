@@ -73,7 +73,7 @@ export class MyApp {
              AnalyticsHelper.init();
 
             // Create our local web server for payment support
-            MyApp.webServer = new PayTabsRestFulApi(config.PayTabs.DefaultLocalPort, this.inAppBrowser, this.platform, this.http,this.httpx);
+            MyApp.webServer = new PayTabsRestFulApi(config.PayTabs.DefaultLocalPort, this.inAppBrowser, this.platform, this.http);
         });
     }
 }
