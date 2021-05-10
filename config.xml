@@ -25,7 +25,6 @@
     <preference name="Fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#04558a" />
     <plugin name="cordova-plugin-firebasex" spec="https://github.com/dpa99c/cordova-plugin-firebase">
         <variable name="IOS_STRIP_DEBUG" value="true" />
@@ -135,7 +134,7 @@
         <preference name="WKSuspendInBackground" value="false" />
         <preference name="ShowSplashScreenSpinner" value="false" />
         <preference name="loadUrlTimeoutValue" value="60000" />
-        <preference name="AutoHideSplashScreen" value="false" />
+        <preference name="AutoHideSplashScreen" value="true" />
         <feature name="StatusBar">
             <param name="ios-package" onload="true" value="CDVStatusBar" />
         </feature>
