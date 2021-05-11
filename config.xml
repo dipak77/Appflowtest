@@ -24,6 +24,21 @@
     <preference name="Fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="InAppBrowserStatusBarStyle" value="lightcontent" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="WKWebViewOnly" value="true" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="StatusBarDefaultScrollToTop" value="false" />
+    <preference name="WKSuspendInBackground" value="false" />
+    <preference name="loadUrlTimeoutValue" value="60000" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
     <preference name="StatusBarBackgroundColor" value="#04558a" />
     <plugin name="cordova-plugin-firebasex" spec="https://github.com/dpa99c/cordova-plugin-firebase">
         <variable name="IOS_STRIP_DEBUG" value="true" />
@@ -121,27 +136,6 @@
         <splash height="2688" src="resources/ios/splash/Default-2688h~iphone.png" width="1242" />
         <splash height="1792" src="resources/ios/splash/Default-1792h~iphone.png" width="828" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
-        <preference name="InAppBrowserStatusBarStyle" value="lightcontent" />
-        <preference name="StatusBarOverlaysWebView" value="true" />
-        <preference name="WKWebViewOnly" value="true" />
-        <feature name="CDVWKWebViewEngine">
-            <param name="ios-package" value="CDVWKWebViewEngine" />
-        </feature>
-        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-        <preference name="StatusBarStyle" value="lightcontent" />
-        <preference name="StatusBarDefaultScrollToTop" value="false" />
-        <preference name="WKSuspendInBackground" value="false" />
-        <preference name="ShowSplashScreenSpinner" value="false" />
-        <preference name="loadUrlTimeoutValue" value="60000" />
-        <preference name="AutoHideSplashScreen" value="true" />
-        <feature name="StatusBar">
-            <param name="ios-package" onload="true" value="CDVStatusBar" />
-        </feature>
+        
     </platform>
-    <plugin name="cordova-plugin-firebasex" spec="latest">
-        <variable name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" value="false" />
-        <variable name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" value="false" />
-        <variable name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" value="false" />
-    </plugin>
-
 </widget>
