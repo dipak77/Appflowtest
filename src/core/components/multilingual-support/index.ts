@@ -28,6 +28,7 @@ import * as address from '../../../pages/customer/customer-address/address/addre
 import * as customerpass from '../../../pages/customer/customer-password/customer-password.translations';
 import * as register from '../../../pages/customer/customer-register/customer-register.translations';
 import * as payment from '../../../pages/payment/payment.translations';
+import * as scart from '../../../pages/scratch-card/scratch-card.translations';
 import * as location from '../../../pages/location/location.translations';
 import * as services from '../../../pages/our-services/our-services.translations';
 
@@ -79,6 +80,7 @@ export class CustomTranslationsLoader implements TranslateLoader {
     this.process("", tracking.default);
     this.process("", userInfo.default);
     this.process("", forgotPassword.default);
+    this.process("", scart.default);
   }
 
   process(path, item) {

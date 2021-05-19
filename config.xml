@@ -40,20 +40,13 @@
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <preference name="StatusBarBackgroundColor" value="#04558a" />
-    <plugin name="cordova-plugin-firebasex" spec="https://github.com/dpa99c/cordova-plugin-firebase">
-        <variable name="IOS_STRIP_DEBUG" value="true" />
-        <variable name="FIREBASE_ANALYTICS_COLLECTION_ENABLED" value="false" />
-        <variable name="FIREBASE_PERFORMANCE_COLLECTION_ENABLED" value="false" />
-        <variable name="FIREBASE_CRASHLYTICS_COLLECTION_ENABLED" value="false" />
-        <variable name="SETUP_RECAPTCHA_VERIFICATION" value="true" />
-    </plugin>
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <platform name="android">
         <config-file parent="/*" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.INTERNET" />
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         </config-file>
-        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <allow-intent href="market:*" />
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
@@ -136,6 +129,5 @@
         <splash height="2688" src="resources/ios/splash/Default-2688h~iphone.png" width="1242" />
         <splash height="1792" src="resources/ios/splash/Default-1792h~iphone.png" width="828" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
-        
     </platform>
 </widget>

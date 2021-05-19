@@ -12,6 +12,10 @@
           "en": "Order Total",
           "ar": "مجموع الطلب"
       },
+      "ViewScratchCard": {
+        "en": "View Scratch Card",
+        "ar": "عرض بطاقة الخدش"
+    },
       "PaymentSucceeded": {
           "en": "Payment Done Successfully",
           "ar": "تم الدفع بنجاح"

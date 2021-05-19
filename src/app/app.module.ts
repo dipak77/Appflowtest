@@ -18,6 +18,7 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { Device } from '@ionic-native/device';
 import { OrderModule } from 'ngx-order-pipe';
 import { ImageViewerModule } from 'ng2-image-viewer';
+import { ScratchCardPageModule } from '../pages/scratch-card/scratch-card.module';
 
 // Services
 import { AuthenticationService } from '../providers/security/auth.service';
@@ -58,7 +59,8 @@ import { CustomTranslationsLoader } from '../core/components/multilingual-suppor
         useClass: CustomTranslationsLoader
       }
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ScratchCardPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
