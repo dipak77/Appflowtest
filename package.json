@@ -74,6 +74,7 @@
     "@types/google-maps": "^3.2.2",
     "@types/node": "^14.14.10",
     "com.adjust.sdk": "^4.23.0",
+    "com.paytabs.cordova.plugin": "^1.1.1",
     "cordova-android": "^9.1.0",
     "cordova-custom-config": "^5.1.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
@@ -132,7 +133,8 @@
       "cordova-plugin-advanced-http": {},
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      }
+      },
+      "com.paytabs.cordova.plugin": {}
     },
     "platforms": [
       "browser",

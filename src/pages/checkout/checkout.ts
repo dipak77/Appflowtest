@@ -268,8 +268,10 @@ export class CheckoutComponent {
         let paymentInfo: IPaymentRestFulApiInfo = {
             merchant_email: `${config.PayTabs.MerchantEmail}`,
             secret_key: `${config.PayTabs.SecretKey}`,
-            site_url: 'http://localhost:8100/',
-            return_url: 'http://localhost:8100/PaymentResult/',
+            site_url: 'http://localhost:8100',
+            //return_url: 'http://localhost:8100/PaymentResult/',
+            return_url: 'http://localhost:8100/#/payment/Paytabs',
+            //return_url: 'https://webhook.site/ec317ae8-fb3d-40ed-bcc1-0d75a03abff5',
             title: "York Store: " + order.ShoppingCartModel.Items.map(item => item.ProductName).join(' | '),
             cc_first_name: this.checkoutInfo.FirstName,
             cc_last_name: this.checkoutInfo.LastName,
@@ -374,6 +376,7 @@ debugger;
         promise.then(
             paymentResultFields => {
                 this.helper.hideLoading("PAYTABS");
+                debugger;
                 console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
                 this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
             },
@@ -405,6 +408,7 @@ debugger;
             if (status == 'success') {
                 AnalyticsHelper.logEvent("CheckoutComplete", {
                     paymentInfo: paymentInfo,
+
                     order: this.orderReview, 
                     setRevenue: paymentInfo.amount,
                     setTransactionId: paymentInfo.reference_no

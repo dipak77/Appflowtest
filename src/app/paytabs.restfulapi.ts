@@ -131,6 +131,7 @@ export default class PayTabsRestFulApi {
     protected getPaymentResultPageResponse(request: IRequest): IResponse {
         let response = this.getDefaultResponse(request);
 
+        debugger;
         let transactionFields = {} as IPaymentResultFields;
 
         // Parse query fields
@@ -141,17 +142,17 @@ export default class PayTabsRestFulApi {
             transactionFields[name] = value;
         });
 
-        // Handle callback
-        // if (this.resolve && this.reject) {
-        //     // Successful transaction? 
-        //     if (transactionFields['response_code'] == '100') {
-        //         this.resolve(transactionFields);
-        //     } 
-        //     // else {
-        //     //     console.log('this.paymentResolveCallback', this.reject)
-        //     //     this.reject(transactionFields);
-        //     // }
-        // }
+        //Handle callback
+        if (this.resolve && this.reject) {
+            // Successful transaction? 
+            if (transactionFields['response_code'] == '100') {
+                this.resolve(transactionFields);
+            } 
+            // else {
+            //     console.log('this.paymentResolveCallback', this.reject)
+            //     this.reject(transactionFields);
+            // }
+        }
 
         if (request.query.indexOf('is_canceled_pt=1') >= 0) {            
             response.status = 404;
@@ -240,6 +241,7 @@ debugger;
             .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
                 let json = JSON.stringify(result);
                 console.log("response Payload:: "+json);
+                debugger;
                 if (result.response_code === '4012') {
                     debugger;
                     console.log('Create PayTabs Payment => Success', result);
@@ -262,7 +264,6 @@ debugger;
         console.log('Verify PayTabs RestFul Api => Call PayTabs RestFul Api Verify Service', verifyData);
 
         let body = new URLSearchParams();
-
         Object.keys(verifyData).map(key => {
             let value = verifyData[key];
             body.set(key, value);
@@ -302,6 +303,7 @@ debugger;
 
             let URL = event.url;
             console.log('openPaymentWindow', URL);
+            debugger;
             if (URL && URL.startsWith(this.paymentInfo.return_url)) {
                 const verifyData = {
                     merchant_email: `${config.PayTabs.MerchantEmail}`,

@@ -33,7 +33,7 @@ debugger;
       containerWidth: scContainer.offsetWidth,
       containerHeight: scContainer.offsetHeight,
       imageForwardSrc: 'assets/scratchcard2.png',
-      imageBackgroundSrc: '',
+      imageBackgroundSrc: 'assets/GiftBackground.png',
       htmlBackground: html,
       clearZoneRadius: 25,
       percentToFinish: 25, // When the percent exceeds 50 on touchend event the callback will be exec.

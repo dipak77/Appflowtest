@@ -85,7 +85,7 @@ export class SimpleHttp {
 
     doGet(url: string, httpOptions?: any): Observable<any> {
         let sentHttpOptions = httpOptions || this.getApiHttpOptions();
-        debugger;
+        //debugger;
         return this.http.get(url, sentHttpOptions)
             // throw error
             .catch((error: HttpErrorResponse) => {

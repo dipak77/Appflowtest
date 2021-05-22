@@ -54,9 +54,10 @@ export class PaymentComponent {
     }
     openScratchCard(v) {
         
-        let popover = this.popoverCtrl.create(ScratchCardPage, { data: v }, {});
-        popover.present({
-        });
+        // let popover = this.popoverCtrl.create(ScratchCardPage, { data: v }, {});
+        // popover.present({
+        // });
+        this.navCtrl.push(ScratchCardPage, { data: v }, {});
       }
     
 }
