@@ -185,17 +185,17 @@ export function getRemoteProperties(simpleHttp) {
         });
         observables.push(observable);
 
-        let popupObservable = simpleHttp.doGet(
-          config.crmBaseUrl + "/JCI/GetPopupImage?language=" + lang.name,
-          simpleHttp.crmHttpOptions
-        );
-        popupObservable.subscribe((res) => {
-          if (res)
-            for (var imageName in res)
-              config.remoteProperties.homepagePopupUrls[lang.id] =
-                res[imageName];
-        });
-        observables.push(popupObservable);
+        // let popupObservable = simpleHttp.doGet(
+        //   config.crmBaseUrl + "/JCI/GetPopupImage?language=" + lang.name,
+        //   simpleHttp.crmHttpOptions
+        // );
+        // popupObservable.subscribe((res) => {
+        //   if (res)
+        //     for (var imageName in res)
+        //       config.remoteProperties.homepagePopupUrls[lang.id] =
+        //         res[imageName];
+        // });
+        // observables.push(popupObservable);
       });
 
       Observable.forkJoin(observables).subscribe(() => {
