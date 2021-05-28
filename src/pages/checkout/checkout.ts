@@ -381,13 +381,14 @@ debugger;
             },
             paymentResultFields => {
                 this.helper.hideLoading("PAYTABS");
+                console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+                this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+                // console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
+                // this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
+                //     this.helper.showToast(val, 'error');
+                // });
 
-                console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
-                this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
-                    this.helper.showToast(val, 'error');
-                });
-
-                this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
+                //  this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
             });
     }
 

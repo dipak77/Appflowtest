@@ -20,7 +20,8 @@ export interface IResponse {
 };
 
 const pluginName = "webserver";
-const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
+const corsAnywhere = "http://20.50.18.127:8040/";
+// const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
 
 export default class PayTabsRestFulApi {
 
@@ -237,7 +238,8 @@ export default class PayTabsRestFulApi {
        console.log("Request Payload:: "+json);
 
         console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
-debugger;
+
+       // console.log('paytabs url'+ corsAnywhere+config.PayTabs.BaseUrl);
         this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/create_pay_page", body.toString(), options)
             .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
                 let json = JSON.stringify(result);

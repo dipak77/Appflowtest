@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+﻿import { ScratchCardPage } from '../scratch-card/scratch-card';
+import { Component } from '@angular/core';
 import { HelperService } from '../../core/services/helper.service';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -38,5 +39,9 @@ export class PaymentComponent {
     navigateToDetailsPage() {
         let paramObj = { orderId: this.orderId };
         this.navCtrl.push(OrderDetailsComponent, paramObj);
+    }
+
+    navigateScratchCardPage() {
+        this.navCtrl.push(ScratchCardPage, {name:'vikram'});
     }
 }

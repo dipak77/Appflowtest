@@ -8,6 +8,10 @@
           "en": "Order ID",
           "ar": "رقم الطلب"
       },
+      "ScratchCard": {
+        "en": "Scratch Card",
+        "ar": "رقم الطلب"
+      },
       "OrderTotal": {
           "en": "Order Total",
           "ar": "مجموع الطلب"

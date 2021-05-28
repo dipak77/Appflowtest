@@ -32,6 +32,8 @@ import { OurServicesComponent } from '../pages/our-services/our-services';
 import { SplashComponent } from '../pages/splash/splash';
 import { TrackingComponent } from '../pages/tracking/tracking';
 
+import { ScratchCardPage } from './../pages/scratch-card/scratch-card';
+
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password';
 
 // Shared Components
@@ -89,7 +91,8 @@ export const components = [
     ContractRequestComponent,
     RequestDetailsComponent,
     ForgotPasswordComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    ScratchCardPage
 ];
 
 export const routes = [
