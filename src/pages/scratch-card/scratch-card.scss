@@ -1,3 +1,235 @@
 page-scratch-card {
 
 }
+// @font-face {
+//   font-family: "Maurea-BoldLf";
+//   src: url("fonts/Maurea-BoldLf.otf") format("opentype");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "MaureaJciLfML-Medium";
+//   src: url("fonts/MaureaJciLfML-Medium.otf") format("opentype");
+//   font-weight: lighter;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "MaureaJciLfML-Regular";
+//   src: url("fonts/MaureaJciLfML-Regular.otf") format("opentype");
+//   font-weight: lighter;
+//   font-style: normal;
+// }
+h1,
+h2,
+h3,
+h4,
+p {
+  color: #085697;
+}
+h2,
+h4 {
+  font-family: "Maurea-BoldLf";
+}
+p {
+  font-family: "MaureaJciLfML-Medium";
+}
+span {
+  font-family: "MaureaJciLfML-Regular";
+}
+.hero-bg {
+  background: url("https://york.com.sa/images/uploaded/media-center/scratch-bg.jpg")
+    center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.thank-you {
+  font-family: "proxima-nova", Arial, sans-serif;
+  color: #151515;
+}
+.thank-you .success-img img,
+.thank-you .flow .winy img {
+  width: 100%;
+  height: 100%;
+}
+.scratch .win {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.scratch .win .des h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+.scratch .win .des p {
+  text-align: center;
+}
+.info h4 {
+  margin-top: 150px;
+}
+.info p {
+  margin: 10px auto;
+}
+.box span {
+  display: block;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  pointer-events: none;
+  border-radius: 50%;
+}
+.box p {
+  padding: 30px 40px 15px;
+  z-index: 1;
+  color: #000;
+}
+.icon-pin::before {
+  content: "\1433";
+}
+
+.thank-you .flow {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.thank-you .num {
+  margin-top: 30px;
+}
+.thank-you .num .serial {
+  font-weight: bold;
+}
+.thank-you .flow .winy {
+  width: 200px;
+  height: auto;
+  margin: 5px auto;
+}
+.flip-bottom {
+  padding-bottom: 10px;
+}
+button.close {
+  padding: 10px;
+}
+.canvas1 {
+  display: none;
+  visibility: hidden;
+}
+.boxs {
+  background: url("https://york.com.sa/images/uploaded/media-center/gift.png")
+    center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  width: 369px;
+  height: 83px;
+  margin: 0 auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.boxs .form p {
+  margin: 30px auto 0;
+}
+.flip h3 {
+  margin-left: 35px;
+}
+@media screen and (max-width: 767px) {
+  .scratch .info h3 {
+    font-size: 32px;
+  }
+  .thank-you .flow {
+    grid-template-columns: 1fr;
+  }
+  .thank-you .flow .winy {
+    margin: 0 auto 20px;
+  }
+  .scratch .box {
+    width: 100%;
+  }
+  .flip {
+    width: 100%;
+    height: 100% !important;
+  }
+  .pins p {
+    text-align: center !important;
+  }
+  .flip img {
+    width: 100% !important;
+    height: 100%;
+    background-size: cover;
+    object-fit: fill;
+  }
+  .shape-img {
+    padding: 10px 10px 60px;
+  }
+  .shape-img,
+  .shape-img img {
+    height: 100% !important;
+  }
+  .shape-btn {
+    bottom: 5px;
+    left: 28px !important;
+  }
+  .pins img {
+    left: 7% !important;
+  }
+}
+
+//scratch card css
+
+#js--sc--container{
+    max-width: 300px;
+    width:100%;
+    height: 300px;
+    margin: auto;
+    position: relative;
+    canvas{
+        position: absolute;
+        top:0px;
+        left:0px;
+        z-index: 99;
+        border-radius: 5px;
+    }
+    .cardamountcss{
+        z-index: 9;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        position: absolute;
+
+        .won-amnt{
+            font-size:5em;
+            color: #424242;
+        }
+        .won-text{
+            font-size: 4em;
+            color: #424242;
+        }
+    }
+    .sc__inner{
+        background-color: #ffffff;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #26005f;
+    }
+}
