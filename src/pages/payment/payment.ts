@@ -21,6 +21,10 @@ export class PaymentComponent {
     orderId: string = '';
     reference_no: string = ''; 
     orderTotal: string = '';
+    data: any = {
+        message : "<br> Congratulation Dear, <br><br> You won the amazing giftcard. <br><br> Please Select from brand list",
+        code :"4422"
+    };
 
     constructor(
         private helper: HelperService,
@@ -42,6 +46,6 @@ export class PaymentComponent {
     }
 
     navigateScratchCardPage() {
-        this.navCtrl.push(ScratchCardPage, {name:'vikram'});
+        this.navCtrl.push(ScratchCardPage, { data: this.data }, {});
     }
 }

@@ -121,5 +121,6 @@ export const routes = [
     { component: TrackingComponent, name: 'tracking', segment: 'tracking' },
     { component: RequestDetailsComponent, name: 'requestDetails', segment: 'requestDetails/:requestType/:requestId' },
     { component: ForgotPasswordComponent, name: 'forgotPassword', segment: 'forgot-password' },
+    { component: ScratchCardPage, name: 'scratchCard', segment: 'scratch-card' },
 ];
 

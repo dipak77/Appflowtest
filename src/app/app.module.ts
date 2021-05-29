@@ -18,6 +18,7 @@ import { Device } from '@ionic-native/device';
 import { OrderModule } from 'ngx-order-pipe';
 import { ImageViewerModule } from 'ng2-image-viewer';
 
+
 // Services
 import { AuthenticationService } from '../providers/security/auth.service';
 import { CartService } from '../providers/cart.service';

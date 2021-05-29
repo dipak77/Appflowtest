@@ -233,3 +233,57 @@ button.close {
         border: 1px solid #26005f;
     }
 }
+
+.flip{
+  width: 100%;
+  height: 300px;
+  position: relative;
+  perspective: 800px;
+  background: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 8px #ccc;
+  -moz-box-shadow: 0 0 8px #ccc;
+  box-shadow: 0 0 8px #ccc;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.flip .flip-left{
+  float: left;
+  border: 1px solid #b408a4;
+  color: #b408a4;
+  font-size: 9px;
+  margin-top: 12px;
+  margin-left: 12px;
+  border-radius: 14px;
+  padding: 2px 5px 2px 5px;
+  background: #fff7fe;
+}
+.flip .flip-right{
+  position: absolute;
+  top: 17px;
+  color: #999;
+  font-size: 10px;
+  position: absolute;
+  right: 20px;
+}
+.flip .pin {
+  background-position: center center;
+  width: 49px;
+  height: 18px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin-left: -25px;
+}
+.flip .flip-bottom{
+  font-size: 13px;
+  color: #666666;
+  text-align: center;
+  line-height: 16px;
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
