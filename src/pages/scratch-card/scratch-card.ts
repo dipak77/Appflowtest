@@ -68,12 +68,12 @@ export class ScratchCardPage {
       console.log(this.order_id);
       
       //this.getScratchCardValue();
-      this.http.get(corsAnywhere+config.applicationBaseUrl+'/order/getbrandslist/'+this.order_id).subscribe(data=>{
+      this.http.get(corsAnywhere+config.applicationBaseUrl+'/order/getbrandslist/'+this.order_id).subscribe((res:any)=>{
         //process the json data
             //this.brandList = data;
-            console.log(data);
-            this.brandList = data.GiftBranding;
-            this.cardValue = data.gift_value;
+            console.log(res);
+            this.brandList = res.GiftBranding;
+            this.cardValue = res.gift_value;
             console.log(this.cardValue);
             this.getScratchCard();
         });
@@ -119,17 +119,17 @@ export class ScratchCardPage {
 
   }
 
-  confirmBrand(){
+  confirmBrand(brand_code){
 
     let randomString = this.makeid(6);
     let sendData = {
       "reference_id": randomString,
       "order_id":"15598",
       "delivery_type": 0,
-      "brand_code": "6THSA",
+      "brand_code": brand_code,
       "notify": 1,
       "currency": "SAR",
-      "amount": 200,
+      "amount": this.cardValue,
       "country": "SA",
       "receiver_name" : "Vikram Sutar",
       "receiver_email" : "vikram.suthar@microexcel.com",
