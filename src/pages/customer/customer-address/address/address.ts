@@ -127,7 +127,6 @@ export class AddressComponent implements OnInit {
         
         Observable.forkJoin(observables).subscribe(([citiesResult]) => {
             // this.districts = this.getMappedAndSorted(districts);
-        
             let cities: any = citiesResult;
             this.cities = this.getMappedAndSorted(cities);
             cities.forEach(x => {

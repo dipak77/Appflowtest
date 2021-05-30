@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { CartService } from '../../providers/cart.service';
 import { CheckOutService } from '../../providers/checkout.service';
-import { HelperService, getAmount, AnalyticsHelper } from '../../core/services/helper.service';;
+import { HelperService, getAmount, AnalyticsHelper } from '../../core/services/helper.service';
 import { AuthenticationService } from '../../providers/security/auth.service';
 import { CustomerService } from '../../providers/customer.service';
 import { PaymentComponent } from '../payment/payment';
