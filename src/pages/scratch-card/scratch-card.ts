@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavController, NavParams, Events, ViewController } from 'ionic-angular';
+import { NavController, NavParams, Events, ViewController, ToastController  } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { ScratchCard, SCRATCH_TYPE } from 'scratchcard-js';
 import { HttpClient } from '@angular/common/http';
@@ -7,10 +7,15 @@ import { config } from "../../app/app.config";
 import { forkJoin, Observable } from 'rxjs';
 import { CustomerService } from '../../providers/customer.service';
 import { HelperService, getAmount, AnalyticsHelper } from '../../core/services/helper.service';
+import { AuthenticationService } from '../../providers/security/auth.service';
+import locationTranslations from '../location/location.translations';
+
 
 declare var  ScratchCard ;  
 declare var  SCRATCH_TYPE ;
+
 const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
+
 @Component({
   selector: 'page-scratch-card',
   templateUrl: 'scratch-card.html',
@@ -21,33 +26,12 @@ export class ScratchCardPage {
   data: any;
   brandList : any = [];
   cardValue :any;
-
-  // Get the modal
-
-// Get the button that opens the modal
- btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
- span = document.getElementsByClassName("close")[0];
+  user: any;
+  userEmail : any;
+  userPhone : any = '+918698108190';
+  userFirstName : any;
+  userLastName : any;
  
-// When the user clicks on the button, open the modal
- 
-
-// When the user clicks on <span> (x), close the modal
-
-
-// When the user clicks anywhere outside of the modal, close it
-
-  // isDrawing;
-  //   lastPoint;
-  //   canvasWidth;
-  //   canvasHeight;
-  //   ctx;
-  //   image = new Image();
-  //   brush;
-  //   container = document.getElementById('js-container');
-  //   canvas :HTMLCanvasElement;
-  // scratchCard : ScratchCard;
   constructor(public navCtrl: NavController,
     public viewCtrl: ViewController,
     public navParams: NavParams,
@@ -55,11 +39,24 @@ export class ScratchCardPage {
     private events: Events,
     public http: HttpClient,
     private helper: HelperService,
-    public translate: TranslateService) {
+    private auth: AuthenticationService,
+    public translate: TranslateService, public toastController: ToastController) {
+      if (this.auth.isAuthenticated()) {
+      
+        this.custService.getCustomerInfo().subscribe((res:any)=>{
+          //process the json data
+              //this.brandList = data;
+                this.userEmail = res.Email;
+                this.userFirstName = res.FirstName;
+                //this.userPhone = res.Phone;
+                console.log(res);
+          });
+    }
+
     this.data = navParams.get("data");
     this.order_id = navParams.get("orderId");
-   
-
+    console.log(this.userEmail);
+    
 
   }
 
@@ -119,9 +116,21 @@ export class ScratchCardPage {
 
   }
 
-  confirmBrand(brand_code){
+  async presentToast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
+  }
 
+  confirmBrand(brand_code, email1, name1, phone1){
+    
     let randomString = this.makeid(6);
+    if(this.userEmail == undefined || this.userPhone == undefined){
+      this.presentToast('Update Your Mobile Number and email to recieve gift card.');
+      return false;
+    }
     let sendData = {
       "reference_id": randomString,
       "order_id":"15598",
@@ -131,8 +140,8 @@ export class ScratchCardPage {
       "currency": "SAR",
       "amount": this.cardValue,
       "country": "SA",
-      "receiver_name" : "Vikram Sutar",
-      "receiver_email" : "vikram.suthar@microexcel.com",
+      "receiver_name" : this.userFirstName,
+      "receiver_email" : this.userEmail,
       "receiver_phone" : "+918698108190",
       "message": "Well Done!,\nI thought you would like this gift!",
       "extra_fields" : {
@@ -146,10 +155,14 @@ export class ScratchCardPage {
       //process the json data
           //this.brandList = data;
             console.log('return response', data);
+            this.presentToast('Gift Card sent to your email and phone number.');
+            location.href = '/';
       });
 
-    this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData);
-    console.log(sendData);
+      console.log(sendData);
+
+    // this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData);
+    //console.log(sendData);
   }
 
   makeid(length) {

@@ -4,6 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
 <ion-header>
   <ion-navbar>
     <ion-title>ScratchCard</ion-title>
@@ -84,143 +85,144 @@
               </span>
             </div>
           </div>
-
-          <div
-        id="modal_{{x.id}}"
-        class="modal fade"
-        style="
-          backdrop-filter: blur(10px);
-          background: rgba(255, 255, 255, 0.2);
-        "
-        tabindex="-1"
-      >
-        <div class="modal-dialog">
-          <div
-            style="display: flex; justify-content: center; align-items: center"
-          >
-            <div
-              class="flip"
-              style="
-                width: 350px;
-                height: 390px;
-                position: relative;
-                background: #fff;
-                -webkit-border-radius: 10px;
-                -moz-border-radius: 10px;
-                -ms-border-radius: 10px;
-                border-radius: 10px;
-                -webkit-box-shadow: 0 0 8px #ccc;
-                -moz-box-shadow: 0 0 8px #ccc;
-                box-shadow: 0 0 8px #ccc;
-                margin-bottom: 15px;
-                margin-top: 15px;
-              "
-            >
-              <div
-                class="pins"
-                style="
-                  position: relative;
-                  height: 18px;
-                  margin-top: 10px;
-                  margin-bottom: 17px;
-                "
-              >
-                <img
-                  style="
-                    background: url('https://york.com.sa/images/uploaded/pin.png')
-                      no-repeat center center;
-                    width: 49px;
-                    height: 18px;
-                    position: absolute;
-                    left: 50%;
-                    margin-left: -25px;
-                    outline: none;
-                  "
-                  alt=""
-                />
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                  (click)=(closeModal(x.id))
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <h3
-                style="
-                  font-size: 16px;
-                  text-align: center;
-                  margin-bottom: 1px;
-                  font-weight: bold;
-                "
-              >
-                eGift Card
-              </h3>
-              <p style="font-size: 14px; text-align: center !important">
-                SAR {{cardValue}}
-              </p>
-              <div
-                style="margin-top: 10px; height: 134px; margin-bottom: 10px"
-                class="shape-img"
-              >
-                <img
-                  style="
-                    width: 330px;
-                    display: block;
-                    margin: 0 auto;
-                    -webkit-box-shadow: -2px 0px 7px 0px #b9b9b9;
-                    box-shadow: -2px 0px 7px 0px #b9b9b9;
-                    border-radius: 6px;
-                  "
-                  src="{{x.logo}}"
-                  alt="Gift"
-                />
-              </div>
-              <div
-                class="shap-btn"
-                style="
-                  position: absolute;
-                  background-color: #3f355a;
-                  height: 50px;
-                  width: 242px;
-                  text-align: center;
-                  left: 50px;
-                  bottom: 0px;
-                  border-radius: 6px;
-                  -webkit-box-shadow: -2px 0px 7px 1px #b9b9b9;
-                  box-shadow: -2px 0px 7px 1px #b9b9b9;
-                  padding-top: 8px;
-                "
-              >
-                <span
-                  style="
-                    background: #b31ba3;
-                    color: white;
-                    height: 34px;
-                    line-height: 34px;
-                    padding: 0;
-                    display: inline-block;
-                    border-radius: 6px;
-                    font-size: 16px !important;
-                    font-family: ygag-arabic-bold, ygag-bold, tahoma, sans-serif;
-                    text-align: center;
-                    width: 90%;
-                    text-decoration: none;
-                  "
-                  (click)=(confirmBrand(x.brand_code))
-                  href="#"
-                  >Confirm
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-
 </ion-content>
+<div *ngFor="let x of brandList;let i=index">
+  <div
+  id="modal_{{x.id}}"
+  class="modal fade"
+  style="
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2);
+  "
+  tabindex="-1"
+>
+  <div class="modal-dialog">
+    <div
+      style="display: flex; justify-content: center; align-items: center"
+    >
+      <div
+        class="flip"
+        style="
+          width: 350px;
+          height: 390px;
+          position: relative;
+          background: #fff;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          border-radius: 10px;
+          -webkit-box-shadow: 0 0 8px #ccc;
+          -moz-box-shadow: 0 0 8px #ccc;
+          box-shadow: 0 0 8px #ccc;
+          margin-bottom: 15px;
+          margin-top: 15px;
+        "
+      >
+        <div
+          class="pins"
+          style="
+            position: relative;
+            height: 18px;
+            margin-top: 10px;
+            margin-bottom: 17px;
+          "
+        >
+          <img
+            style="
+              background: url('https://york.com.sa/images/uploaded/pin.png')
+                no-repeat center center;
+              width: 49px;
+              height: 18px;
+              position: absolute;
+              left: 50%;
+              margin-left: -25px;
+              outline: none;
+            "
+            alt=""
+          />
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)=(closeModal(x.id))
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <h3
+          style="
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 1px;
+            font-weight: bold;
+          "
+        >
+          eGift Card
+        </h3>
+        <p style="font-size: 14px; text-align: center !important">
+          SAR {{cardValue}}
+        </p>
+        <div
+          style="margin-top: 10px; height: 134px; margin-bottom: 10px"
+          class="shape-img"
+        >
+          <img
+            style="
+              width: 330px;
+              display: block;
+              margin: 0 auto;
+              -webkit-box-shadow: -2px 0px 7px 0px #b9b9b9;
+              box-shadow: -2px 0px 7px 0px #b9b9b9;
+              border-radius: 6px;
+            "
+            src="{{x.logo}}"
+            alt="Gift"
+          />
+        </div>
+        <div
+          class="shap-btn"
+          style="
+            position: absolute;
+            background-color: #3f355a;
+            height: 50px;
+            width: 242px;
+            text-align: center;
+            left: 50px;
+            bottom: 0px;
+            border-radius: 6px;
+            -webkit-box-shadow: -2px 0px 7px 1px #b9b9b9;
+            box-shadow: -2px 0px 7px 1px #b9b9b9;
+            padding-top: 8px;
+          "
+        >
+          <span
+            style="
+              background: #b31ba3;
+              color: white;
+              height: 34px;
+              line-height: 34px;
+              padding: 0;
+              display: inline-block;
+              border-radius: 6px;
+              font-size: 16px !important;
+              font-family: ygag-arabic-bold, ygag-bold, tahoma, sans-serif;
+              text-align: center;
+              width: 90%;
+              text-decoration: none;
+            "
+            (click)="confirmBrand(x.brand_code, userEmail, userFirstName, userPhone)"
+            
+            href="#"
+            >Confirm
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
