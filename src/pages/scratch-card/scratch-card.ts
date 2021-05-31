@@ -28,7 +28,7 @@ export class ScratchCardPage {
   cardValue :any;
   user: any;
   userEmail : any;
-  userPhone : any = '+918698108190';
+  userPhone : any;
   userFirstName : any;
   userLastName : any;
  
@@ -48,7 +48,7 @@ export class ScratchCardPage {
               //this.brandList = data;
                 this.userEmail = res.Email;
                 this.userFirstName = res.FirstName;
-                //this.userPhone = res.Phone;
+                this.userPhone = res.Phone;
                 console.log(res);
           });
     }
@@ -156,7 +156,9 @@ export class ScratchCardPage {
           //this.brandList = data;
             console.log('return response', data);
             this.presentToast('Gift Card sent to your email and phone number.');
-            location.href = '/';
+            setTimeout(function(){             
+              location.href = '/';
+          }, 4000);
       });
 
       console.log(sendData);
