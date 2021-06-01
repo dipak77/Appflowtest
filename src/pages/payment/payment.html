@@ -42,8 +42,8 @@
   <button ion-button block color="third" (click)="navigateToDetailsPage()">
     {{"PAYMENT.ShowOrderDetails" | translate}}
   </button>
-
-  <button ion-button block color="third" (click)="navigateScratchCardPage()">
+ 
+  <button *ngIf="paymentType == 'paytabs'" ion-button block color="third" (click)="navigateScratchCardPage()">
     {{"PAYMENT.ScratchCard" | translate}}
   </button>
 </ion-content>
