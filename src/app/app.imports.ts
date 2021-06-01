@@ -33,6 +33,7 @@ import { SplashComponent } from '../pages/splash/splash';
 import { TrackingComponent } from '../pages/tracking/tracking';
 
 import { ScratchCardPage } from './../pages/scratch-card/scratch-card';
+import { ScratchCardThanksPage } from './../pages/scratch-card-thanks/scratch-card-thanks';
 
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password';
 
@@ -92,7 +93,8 @@ export const components = [
     RequestDetailsComponent,
     ForgotPasswordComponent,
     AutocompleteComponent,
-    ScratchCardPage
+    ScratchCardPage,
+    ScratchCardThanksPage
 ];
 
 export const routes = [
@@ -122,5 +124,6 @@ export const routes = [
     { component: RequestDetailsComponent, name: 'requestDetails', segment: 'requestDetails/:requestType/:requestId' },
     { component: ForgotPasswordComponent, name: 'forgotPassword', segment: 'forgot-password' },
     { component: ScratchCardPage, name: 'scratchCard', segment: 'scratch-card/:orderId' },
+    { component: ScratchCardThanksPage, name: 'scratchCardThanks', segment: 'scratch-card-thanks' },
 ];
 

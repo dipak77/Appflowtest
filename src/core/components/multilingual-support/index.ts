@@ -30,6 +30,7 @@ import * as register from '../../../pages/customer/customer-register/customer-re
 import * as payment from '../../../pages/payment/payment.translations';
 import * as location from '../../../pages/location/location.translations';
 import * as services from '../../../pages/our-services/our-services.translations';
+import * as scratchCard from './../../../pages/scratch-card/scratch-card.translations';
 
 import * as customeraddress from '../../../pages/customer/customer-address/customer-address.translations';
 import * as customerInfo from '../../../pages/customer/customer-info/customer-info.translations';
@@ -79,6 +80,7 @@ export class CustomTranslationsLoader implements TranslateLoader {
     this.process("", tracking.default);
     this.process("", userInfo.default);
     this.process("", forgotPassword.default);
+    this.process("", scratchCard.default);
   }
 
   process(path, item) {

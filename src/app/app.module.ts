@@ -1,3 +1,4 @@
+import { ScratchCardThanksPage } from './../pages/scratch-card-thanks/scratch-card-thanks';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,8 +18,6 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { Device } from '@ionic-native/device';
 import { OrderModule } from 'ngx-order-pipe';
 import { ImageViewerModule } from 'ng2-image-viewer';
-
-
 // Services
 import { AuthenticationService } from '../providers/security/auth.service';
 import { CartService } from '../providers/cart.service';

@@ -7,7 +7,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>ScratchCard</ion-title>
+    <ion-title>{{"SCRATCHCARD.ScratchCard" | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -21,15 +21,15 @@
             <div class="win">
               <div class="details">
                 <div class="des">
-                  <h2>Thank you for <br />shopping with us!</h2>
-                  <h4>Your order is confirmed.</h4>
-                  <p>Order number: <span class="serial">500008458</span></p>
+                  <h2>{{ "SCRATCHCARD.ThankYou" | translate }} <br /> {{ "SCRATCHCARD.shopping" | translate }}!</h2>
+                  <h4>{{ "SCRATCHCARD.orderConfirmed" | translate }}.</h4>
+                  <p>{{ "SCRATCHCARD.orderNumber" | translate }}: <span class="serial">{{this.orderNumber}}</span></p>
                 </div>
               </div>
               <div class="info">
                 <h4>
-                  A confirmation email will <br />
-                  be sent to you shortly.
+                  {{ "SCRATCHCARD.emailSent" | translate }} <br />
+                  {{ "SCRATCHCARD.emailSent2" | translate }}.
                 </h4>
               </div>
               <div class="flow">
@@ -46,7 +46,7 @@
                 </div>
               </div>
               <div class="info">
-                <p>Please select your brand</p>
+                <p>{{ "SCRATCHCARD.selectBrand" | translate }}</p>
               </div>
             </div>
           </div>
@@ -90,6 +90,9 @@
     </ion-grid>
   </div>
 </ion-content>
+
+<app-footer></app-footer>
+
 <div *ngFor="let x of brandList;let i=index">
   <div
   id="modal_{{x.id}}"
@@ -218,7 +221,7 @@
             (click)="confirmBrand(x.brand_code, userEmail, userFirstName, userPhone)"
             
             href="#"
-            >Confirm
+            >{{ "SCRATCHCARD.confirm" | translate }}
           </span>
         </div>
       </div>

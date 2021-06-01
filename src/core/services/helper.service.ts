@@ -133,7 +133,7 @@ export function getAmount(text) {
     }
   }
 
-  return amount;
+  return Math.trunc(amount);
 }
 
 const locationChanged = (...args) => {

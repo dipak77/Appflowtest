@@ -1,3 +1,4 @@
+import { ScratchCardThanksPage } from './../scratch-card-thanks/scratch-card-thanks';
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams, Events, ViewController, ToastController  } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,6 +10,7 @@ import { CustomerService } from '../../providers/customer.service';
 import { HelperService, getAmount, AnalyticsHelper } from '../../core/services/helper.service';
 import { AuthenticationService } from '../../providers/security/auth.service';
 import locationTranslations from '../location/location.translations';
+// import { Router } from '@angular/router';
 
 
 declare var  ScratchCard ;  
@@ -31,6 +33,9 @@ export class ScratchCardPage {
   userPhone : any;
   userFirstName : any;
   userLastName : any;
+  orderNumber : any;
+  inprogress :boolean = false;
+
  
   constructor(public navCtrl: NavController,
     public viewCtrl: ViewController,
@@ -41,21 +46,33 @@ export class ScratchCardPage {
     private helper: HelperService,
     private auth: AuthenticationService,
     public translate: TranslateService, public toastController: ToastController) {
+      this.data = navParams.get("data");
+      this.order_id = navParams.get("orderId");   
       if (this.auth.isAuthenticated()) {
-      
-        this.custService.getCustomerInfo().subscribe((res:any)=>{
-          //process the json data
-              //this.brandList = data;
-                this.userEmail = res.Email;
-                this.userFirstName = res.FirstName;
-                this.userPhone = res.Phone;
-                console.log(res);
-          });
+        
+        this.custService.getCustomerOrderDetails(this.order_id).subscribe((result) => {
+            // console.log(result);
+            this.orderNumber=result.CustomOrderNumber;
+            this.userEmail = result.BillingAddress.Email;
+            this.userFirstName = result.BillingAddress.FirstName;
+            this.userLastName = result.BillingAddress.LastName;
+            this.userPhone = result.BillingAddress.PhoneNumber;
+
+          // this.helper.hideLoading(loaderName);
+      }, () => {
+          // this.helper.hideLoading(loaderName);
+      });
+
+        // this.custService.getCustomerOrderDetails(this.order_id).subscribe((res:any)=>{
+        //   //process the json data
+        //      // this.brandList = data;
+        //         // this.userEmail = res.Email;
+        //         // this.userFirstName = res.FirstName;
+        //         // this.userPhone = res.Phone;
+        //         console.log(res);
+        //   });
     }
 
-    this.data = navParams.get("data");
-    this.order_id = navParams.get("orderId");
-    console.log(this.userEmail);
     
 
   }
@@ -68,6 +85,7 @@ export class ScratchCardPage {
       this.http.get(corsAnywhere+config.applicationBaseUrl+'/order/getbrandslist/'+this.order_id).subscribe((res:any)=>{
         //process the json data
             //this.brandList = data;
+            
             console.log(res);
             this.brandList = res.GiftBranding;
             this.cardValue = res.gift_value;
@@ -80,7 +98,7 @@ export class ScratchCardPage {
   getScratchCard(){
     var _this = this;
     // window.addEventListener('load', function ()
-    var html = '<div class="test">' + '' + '<br><br><br>(Gift Value : <strong>SAR' +  this.cardValue + ')</strong></div>'
+    var html = '<div class="test">' + '' + '<br><br><br>(Gift Value : <strong>SAR ' +  this.cardValue + ')</strong></div>'
     var scContainer = document.getElementById('js--sc--container');
     var sc = new ScratchCard('#js--sc--container', {
       enabledPercentUpdate: true,
@@ -124,7 +142,7 @@ export class ScratchCardPage {
     toast.present();
   }
 
-  confirmBrand(brand_code, email1, name1, phone1){
+  confirmBrand(brand_code){
     
     let randomString = this.makeid(6);
     if(this.userEmail == undefined || this.userPhone == undefined){
@@ -140,7 +158,7 @@ export class ScratchCardPage {
       "currency": "SAR",
       "amount": this.cardValue,
       "country": "SA",
-      "receiver_name" : this.userFirstName,
+      "receiver_name" : this.userFirstName+' '+this.userLastName,
       "receiver_email" : this.userEmail,
       "receiver_phone" : "+918698108190",
       "message": "Well Done!,\nI thought you would like this gift!",
@@ -151,15 +169,21 @@ export class ScratchCardPage {
       }
     };
 
-    this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData).subscribe(data=>{
-      //process the json data
-          //this.brandList = data;
-            console.log('return response', data);
-            this.presentToast('Gift Card sent to your email and phone number.');
-            setTimeout(function(){             
-              location.href = '/';
-          }, 4000);
-      });
+    if(!this.inprogress){
+        this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData).subscribe(data=>{
+          //process the json data
+              //this.brandList = data;
+                this.inprogress = false;
+                console.log('return response', data);
+                this.presentToast('Gift Card sent to your email and phone number.');
+                this.navCtrl.push(ScratchCardThanksPage);
+
+          });
+    }
+
+    this.inprogress = true;
+
+    
 
       console.log(sendData);
 

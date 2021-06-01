@@ -5,6 +5,7 @@ import { HelperService } from '../core/services/helper.service';
 import { SimpleHttp } from '../core/services/simple-http.service';
 import { config } from '../app/app.config';
 
+const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
 @Injectable()
 export class CustomerService {
 

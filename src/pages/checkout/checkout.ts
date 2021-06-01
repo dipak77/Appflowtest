@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+﻿import { ScratchCardPage } from './../scratch-card/scratch-card';
+import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,6 +17,7 @@ import { config, getRemoteProperties } from '../../app/app.config';
 import payTabs from '../../app/paytabs.restfulapi';
 import { SimpleHttp } from '../../core/services/simple-http.service';
 import { HelpAndSupport } from '../help-and-support/help-and-support';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 /**
  * Generated class for the CheckoutComponent component.
@@ -265,6 +267,7 @@ export class CheckoutComponent {
 
     getRestFulApiPaymentInfo(order) {
         let address = (this.checkoutInfo.Address1 + " " + this.checkoutInfo.Address2).trim();
+
         let paymentInfo: IPaymentRestFulApiInfo = {
             merchant_email: `${config.PayTabs.MerchantEmail}`,
             secret_key: `${config.PayTabs.SecretKey}`,
@@ -381,14 +384,14 @@ debugger;
             },
             paymentResultFields => {
                 this.helper.hideLoading("PAYTABS");
-                // console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
-                // this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-                console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
-                this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
-                    this.helper.showToast(val, 'error');
-                });
+                console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+                this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+                // console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
+                // this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
+                //     this.helper.showToast(val, 'error');
+                // });
 
-                 this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
+                //  this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
             });
     }
 
@@ -412,14 +415,26 @@ debugger;
                     setRevenue: paymentInfo.amount,
                     setTransactionId: paymentInfo.reference_no
                 });
-                this.navCtrl.setRoot(
-                    PaymentComponent,
-                    {
-                        paymentType: this.selPaymentType,
-                        orderId: this.createOrderReview.OrderId,
-                        reference_no: paymentInfo.reference_no,
-                        orderTotal: paymentInfo.amount
-                    });
+                if(this.selPaymentType == 'paytabs'){
+                    this.navCtrl.setRoot(
+                        ScratchCardPage,
+                        {
+                            paymentType: this.selPaymentType,
+                            orderId: this.createOrderReview.OrderId,
+                            reference_no: paymentInfo.reference_no,
+                            orderTotal: paymentInfo.amount
+                        });
+                }else{
+                    this.navCtrl.setRoot(
+                        PaymentComponent,
+                        {
+                            paymentType: this.selPaymentType,
+                            orderId: this.createOrderReview.OrderId,
+                            reference_no: paymentInfo.reference_no,
+                            orderTotal: paymentInfo.amount
+                        });
+                }
+                
             } else {
                 this.orderReview = orderReview || {};
             }
@@ -428,4 +443,8 @@ debugger;
             this.helper.hideLoading(loaderName);
         });
     }
+}
+
+function ScratchCard(ScratchCard: any, arg1: { paymentType: string; orderId: any; reference_no: string; orderTotal: number; }) {
+    throw new Error('Function not implemented.');
 }
