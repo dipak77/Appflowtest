@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+﻿import { Deeplinks } from '@ionic-native/deeplinks/ngx';
+import { Component } from '@angular/core';
 import { Platform, ModalController, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,6 +37,7 @@ export class MyApp {
         public inAppBrowser: InAppBrowser,
         private simpleHttp: SimpleHttp,
         public toastCtrl: ToastController,
+        public deepLink: Deeplinks,
         public http: HttpClient) {
 
         // Initialize the application
@@ -66,7 +68,7 @@ export class MyApp {
             getRemoteProperties(this.simpleHttp);
 
             AnalyticsHelper.toastCtrl = this.toastCtrl;
-
+            // this.setupDeepLinks();
              // Initialize Analytics
              AnalyticsHelper.init();
 

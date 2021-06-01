@@ -30,7 +30,7 @@ import { CustomerService } from '../providers/customer.service';
 import { RequestService } from '../providers/request.service';
 import { SimpleHttp } from '../core/services/simple-http.service';
 import { HelperService } from '../core/services/helper.service';
-
+import { Deeplinks } from '@ionic-native/deeplinks/ngx';
 import { routes, components } from './app.imports';
 import { CustomTranslationsLoader } from '../core/components/multilingual-support/index';
 
@@ -82,7 +82,8 @@ import { CustomTranslationsLoader } from '../core/components/multilingual-suppor
     SimpleHttp,
     HelperService,
     TranslateService,
-    Device
+    Device,
+    Deeplinks    
   ],
   exports: [
     RouterModule,
