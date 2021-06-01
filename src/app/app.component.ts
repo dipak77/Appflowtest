@@ -58,7 +58,7 @@ export class MyApp {
                 window.localStorage.removeItem("skip-splash");
             } else {
                 let splash = this.modalCtrl.create(SplashComponent, {}, { showBackdrop: false });
-                console.log("Presenting Splash Screen");
+                //console.log("Presenting Splash Screen");
                 splash.present();
             }
 

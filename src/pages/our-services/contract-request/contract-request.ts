@@ -56,7 +56,7 @@ export class ContractRequestComponent {
       ([acTypes, problems]) => {
         this.ACTypes = acTypes;
         this.problems = problems;
-        console.log({ acTypes, problems });
+        //console.log({ acTypes, problems });
         this.helper.hideLoading(loader);
       },
       () => {
@@ -85,7 +85,7 @@ export class ContractRequestComponent {
 
             if (projectDetails.Status === 'Cancelled                     ') {
               this.data.isProjectCanceled = true;
-              //console.log("this.data.isProjectCanceled", this.data.isProjectCanceled);
+              ////console.log("this.data.isProjectCanceled", this.data.isProjectCanceled);
             }
 
             if (this.data.isProjectCanceled === true || this.data.hasProjectDetailsData === 'no') {
@@ -93,7 +93,7 @@ export class ContractRequestComponent {
               this.data.jci_city = '';
             }
 
-            console.log("projectDetails", projectDetails);
+            ////console.log("projectDetails", projectDetails);
 
             if (Object.keys(this.projectDetails).length === 0) {
               this.data.hasProjectDetailsData = 'yes';

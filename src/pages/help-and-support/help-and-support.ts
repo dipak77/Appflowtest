@@ -44,7 +44,7 @@ export class HelpAndSupport {
             this.topic = topic;
             this.helper.hideLoading(loaderName);
             this.isLoading = false;
-            console.log("Got Topic", this.topic);
+            //console.log("Got Topic", this.topic);
         });
     }
 }

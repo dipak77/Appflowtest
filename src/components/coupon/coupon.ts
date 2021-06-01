@@ -36,7 +36,7 @@ export class CouponComponent {
     applyCoupon() {
         let loader = 'COUPON';
         this.helper.showLoading(loader);
-        debugger;
+         
         let cardnum=this.card==null || this.card==undefined? "" : this.card.toString().substring(0,6);
         if(cardnum.length>6)
         {
@@ -46,7 +46,7 @@ export class CouponComponent {
             .subscribe((res) => {
                 AnalyticsHelper.logEvent("Promocode", { coupon: this.coupon });
                 this.helper.hideLoading(loader);
-                console.log("coupan=> "+this.coupon);
+                //console.log("coupan=> "+this.coupon);
                 this.showCouponInput = false;
                 this.card=undefined;
                 this.showcardInput = false;
@@ -63,15 +63,15 @@ export class CouponComponent {
     checkIsNCBPromocode(value){
         //manually launch change detection
         this.cdRef.detectChanges();
-        console.log(value);
-        debugger;
+        //console.log(value);
+         
         this.coupon=this.coupon.toUpperCase();
         if(this.coupon.toUpperCase()=="NCB21")
         {
             this.card=undefined;
             this.showcardInput = true;
             this.isCoupanEnter=false;
-            console.log("NCB card flag=> "+this.showcardInput);
+            //console.log("NCB card flag=> "+this.showcardInput);
         }
         else
         { 
@@ -84,17 +84,17 @@ export class CouponComponent {
     ValidatedCard(value){
         //manually launch change detection
         this.cdRef.detectChanges();
-        console.log("ValidatedCard");
-        console.log(value);
-        debugger;
+        //console.log("ValidatedCard");
+        //console.log(value);
+         
         if(value!=null && value!=undefined)
         {
             if(String(value).length > 6)
             {
-                console.log("this.isValidCard=true;");
+                //console.log("this.isValidCard=true;");
                 this.isValidCard=true;
                 this.isCoupanEnter=true;
-                console.log(this.isValidCard);
+                //console.log(this.isValidCard);
             }
             else
             {

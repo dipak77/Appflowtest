@@ -124,7 +124,7 @@ export class LocationComponent {
                 this.setCurrentPosition(position, true);
             }
             else {
-                console.log('Geocode was not successful for the following reason: ' + status);
+                //console.log('Geocode was not successful for the following reason: ' + status);
                 this.trackingCurrentPosition()
             }
         });

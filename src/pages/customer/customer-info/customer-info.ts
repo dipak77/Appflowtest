@@ -34,7 +34,7 @@ export class CustomerInfoComponent {
     fetchPageData() {
         let loaderName = "CUSTOMERINFO"
         this.helper.showLoading(loaderName);
-        //debugger;
+        // 
         this.custService.getCustomerInfo()
             .subscribe((res) => {
                 this.customer = res;

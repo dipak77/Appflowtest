@@ -146,7 +146,7 @@ export class CartService {
 
         return Observable.create((observer) => {
             let url = config.developmentMode ? 'assets/data/shopping-cart.json' : config.applicationBaseUrl + '/ShoppingCart';
-           debugger;
+            
             this.http.doGet(url)
                 .subscribe((res) => {
                     this.info = res;

@@ -33,7 +33,7 @@ export class SimpleHttp {
         this.platform.ready().then(() => {
             let deviceid = this.device.uuid;
             let custId="";
-//debugger;
+// 
             if (!deviceid
                 || deviceid.length < 10) {
 
@@ -85,7 +85,7 @@ export class SimpleHttp {
 
     doGet(url: string, httpOptions?: any): Observable<any> {
         let sentHttpOptions = httpOptions || this.getApiHttpOptions();
-        debugger;
+         
         return this.http.get(url, sentHttpOptions)
             // throw error
             .catch((error: HttpErrorResponse) => {

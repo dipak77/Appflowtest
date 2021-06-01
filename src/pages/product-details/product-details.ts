@@ -96,7 +96,7 @@ export class ProductDetailsComponent {
     }
 
     productAttributeCheckChanged() {
-        console.log("productAttributeCheckChanged", arguments);
+        //console.log("productAttributeCheckChanged", arguments);
     }
 
     fetchPageData() {
@@ -125,13 +125,13 @@ export class ProductDetailsComponent {
 
                     this.product.brochureUrl = url ? baseUrl + url : null;
                     this.product.FullDescription = desc.substr(0, startIndex) + baseUrl + desc.substr(startIndex);
-                    console.log('this.product.brochureUrl', this.product.brochureUrl);
+                    //console.log('this.product.brochureUrl', this.product.brochureUrl);
                     this.product.FullDescription = this.product.FullDescription.replace(anchorRegEx, fixTarget(this.platform));
                     this.product.FullDescription = this.domSanitizer.bypassSecurityTrustHtml(this.product.FullDescription);
                 }
             }
             this.product.AttributeInfo = this.product.AttributeInfo || {};
-            console.log("Got Product Details", this.product);
+            //console.log("Got Product Details", this.product);
 
             this.helper.hideLoading();
         }, () => {

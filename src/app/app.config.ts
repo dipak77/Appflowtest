@@ -200,7 +200,7 @@ export function getRemoteProperties(simpleHttp) {
 
       Observable.forkJoin(observables).subscribe(() => {
         config.remoteProperties.isFetchComplete = true;
-        console.log("Remote Properties", config.remoteProperties);
+        //console.log("Remote Properties", config.remoteProperties);
         config.remotePropertiesObservers.forEach((registeredObserver) => {
           registeredObserver.next(config.remoteProperties);
           registeredObserver.complete();
@@ -212,4 +212,4 @@ export function getRemoteProperties(simpleHttp) {
   return config.remotePropertiesObservable;
 }
 
-console.log("config", config);
+//console.log("config", config);

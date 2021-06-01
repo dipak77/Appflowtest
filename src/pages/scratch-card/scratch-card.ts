@@ -79,17 +79,17 @@ export class ScratchCardPage {
 
   
   ionViewDidLoad() {
-      console.log(this.order_id);
+      ////console.log(this.order_id);
       
       //this.getScratchCardValue();
       this.http.get(corsAnywhere+config.applicationBaseUrl+'/order/getbrandslist/'+this.order_id).subscribe((res:any)=>{
         //process the json data
             //this.brandList = data;
             
-            console.log(res);
+            //console.log(res);
             this.brandList = res.GiftBranding;
             this.cardValue = res.gift_value;
-            console.log(this.cardValue);
+            //console.log(this.cardValue);
             this.getScratchCard();
         });
       
@@ -115,7 +115,7 @@ export class ScratchCardPage {
       pointSize: 20,
       callback: function () {
         _this.events.publish('cardScratched', _this.data);
-        console.log("Card is scratched");
+        //console.log("Card is scratched");
         document.getElementById('brandListGrid').classList.remove('hide');
         //_this.close();
       }
@@ -130,7 +130,7 @@ export class ScratchCardPage {
   closeModal(id){
     let modal = document.getElementById("modal_"+id);
     modal.style.display = "none";
-    console.log('modalClosed');
+    //console.log('modalClosed');
 
   }
 
@@ -168,13 +168,13 @@ export class ScratchCardPage {
           "pi_12" : "12Ag"
       }
     };
-
+    document.getElementById('confirm_btn').innerHTML="Please Wait..";
     if(!this.inprogress){
         this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData).subscribe(data=>{
           //process the json data
               //this.brandList = data;
                 this.inprogress = false;
-                console.log('return response', data);
+                //console.log('return response', data);
                 this.presentToast('Gift Card sent to your email and phone number.');
                 this.navCtrl.push(ScratchCardThanksPage);
 
@@ -185,10 +185,10 @@ export class ScratchCardPage {
 
     
 
-      console.log(sendData);
+      //console.log(sendData);
 
     // this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData);
-    //console.log(sendData);
+    ////console.log(sendData);
   }
 
   makeid(length) {
@@ -209,7 +209,7 @@ export class ScratchCardPage {
 
   //   this.custService.getCustomerOrderDetails(this.order_id).subscribe((orderDetails: any) => {
   //     this.helper.hideLoading(loaderName);
-  //     console.log(orderDetails);
+  //     //console.log(orderDetails);
   //   }, () => {  
   //   });
 

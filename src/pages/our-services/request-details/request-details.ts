@@ -57,7 +57,7 @@ export class RequestDetailsComponent {
                 this.helper.showToast(val, "error");
               });
           } else this.helper.hideLoading();
-          console.log("this.requestData", this.requestData);
+          //console.log("this.requestData", this.requestData);
           this.helper.hideLoading();
         },
         () => {

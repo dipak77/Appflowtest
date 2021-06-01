@@ -85,52 +85,52 @@ export class CheckoutComponent {
         let observables = [];
         let data: any = {};
         this.isAddressSaved = false;
-        debugger;
+         
         let checkoutOrderInformation=this.checkout.getCheckoutOrderInformation().subscribe(res => {
-            console.log("checkoutOrderInformation",res);
+          //  //console.log("checkoutOrderInformation",res);
             data = res;
          });
-        //console.log("checkoutOrderInformation", checkoutOrderInformation);
+        ////console.log("checkoutOrderInformation", checkoutOrderInformation);
         observables.push(this.checkout.getCheckoutOrderInformation());
 
         let getRemotePropertiesObservable = getRemoteProperties(this.simpleHttp).subscribe(res => {
-            console.log("getRemotePropertiesObservable",res);
+            ////console.log("getRemotePropertiesObservable",res);
             data = res;
          });
-        //console.log("getRemotePropertiesObservable", getRemotePropertiesObservable);
+        ////console.log("getRemotePropertiesObservable", getRemotePropertiesObservable);
         observables.push(getRemoteProperties(this.simpleHttp));
 
         let checkoutMethodsObvservable = this.checkout.getShipmentMethods().subscribe(res => {
-            console.log("checkoutMethodsObvservable", res);
+           // //console.log("checkoutMethodsObvservable", res);
             data = res;
          });
-        ///console.log("checkoutMethodsObvservable", checkoutMethodsObvservable);
+        /////console.log("checkoutMethodsObvservable", checkoutMethodsObvservable);
         observables.push(this.checkout.getShipmentMethods());
 
         if (this.auth.isAuthenticated()) {
             let custdata=this.custService.getCustomerAddresses().subscribe(res => {
-                console.log("custdata",res);
+                ////console.log("custdata",res);
                 data = res;
              });
-          //  console.log("custdata", custdata);
-            debugger;
+          //  //console.log("custdata", custdata);
+             
             observables.push(this.custService.getCustomerAddresses());
         }
 
-        console.log("isAuthenticated()=> ", this.auth.isAuthenticated());
+       // //console.log("isAuthenticated()=> ", this.auth.isAuthenticated());
 
         let loaderName = "CHEKOUT.Loading";
 
         this.helper.showLoading(loaderName);
-        console.log("shippingMethods started");
-        debugger;
+        ////console.log("shippingMethods started");
+         
         Observable.forkJoin(observables).subscribe(([orderReview, remoteProps, shippingMethods, addresses]) => {
             this.orderReview = orderReview || { OrderTotalModel: {} };
             let remoteProperties: any = remoteProps || {};
             let shoppingCartModel = this.orderReview.ShoppingCartModel;
             this.shippingMethods = shippingMethods;
 
-            console.log("shippingMethods", shippingMethods);
+           // //console.log("shippingMethods", shippingMethods);
 
             // Addresses and Selected Address
             let gotAddressFromCheckout = !addresses && shoppingCartModel && shoppingCartModel.OrderReviewData && shoppingCartModel.OrderReviewData.BillingAddress;
@@ -139,7 +139,7 @@ export class CheckoutComponent {
                 ? this.addresses.ExistingAddresses.find(a => a.Id == shoppingCartModel.OrderReviewData.BillingAddress.Id)
                 : null;
             this.selAddress = selectedAddress ? selectedAddress.Id : null;
-            console.log("selAddress", this.selAddress);
+           // //console.log("selAddress", this.selAddress);
             if (selectedAddress && gotAddressFromCheckout) {
                 ['FirstName', 'LastName', 'Address1', 'Address2', 'City', 'Email', 'PhoneNumber'].forEach(prop => {
                     if (!this.checkoutInfo[prop] && selectedAddress[prop])
@@ -150,7 +150,7 @@ export class CheckoutComponent {
             let isEnglish = this.platform.dir() === "ltr";
             const bankTransferKey = "bank-transfer";
             this.isAddressSaved = this.selAddress ? true : false;
-            console.log("isAddressSaved", this.isAddressSaved);
+            ////console.log("isAddressSaved", this.isAddressSaved);
             this.discountOnItems = orderReview && shoppingCartModel && shoppingCartModel.Items ? shoppingCartModel.Items.reduce((result, item) => getAmount(item.Discount) + result, 0) : 0;
 
             // Payment Types
@@ -162,7 +162,7 @@ export class CheckoutComponent {
                 { id: 'banktransfer', imgPaths: [paymentLogos[bankTransferKey] || banktransferImage] }
             ];
 
-            console.log("Checkout", { orderReview, remoteProperties, addresses, selectedAddress })
+            //console.log("Checkout", { orderReview, remoteProperties, addresses, selectedAddress })
 
             this.helper.hideLoading(loaderName);
         }, () => {
@@ -171,7 +171,7 @@ export class CheckoutComponent {
     }
 
     onDDLShippingMethodChange(item) {
-        console.log("onDDLShippingMethodChange", item);
+        //console.log("onDDLShippingMethodChange", item);
         if (item) {
             let component = this;
             component.helper.showLoading("CHECKOUT.ShippingChange");
@@ -221,7 +221,7 @@ export class CheckoutComponent {
         this.helper.showLoading(loaderName);
 
         let isNewAddress = !this.auth.isAuthenticated() || this.selAddress === 'new' || !this.selAddress;
-        console.log("onClickSaveAddress", this.selAddress, "isNewAddress", isNewAddress);
+        //console.log("onClickSaveAddress", this.selAddress, "isNewAddress", isNewAddress);
 
         let observable = !isNewAddress
             ? Observable.forkJoin(
@@ -375,18 +375,18 @@ export class CheckoutComponent {
     payWithPayTabs(paymentInfo) {
         this.helper.showLoading("PAYTABS");
         let promise = payTabs.instance.gotoPayment(paymentInfo);
-debugger;
+ 
         promise.then(
             paymentResultFields => {
                 this.helper.hideLoading("PAYTABS");
-                console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
                 this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
             },
             paymentResultFields => {
                 this.helper.hideLoading("PAYTABS");
-                console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
                 this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-                // console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
+                // //console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
                 // this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
                 //     this.helper.showToast(val, 'error');
                 // });

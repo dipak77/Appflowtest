@@ -60,27 +60,27 @@ export default class PayTabsRestFulApi {
 
         PayTabsRestFulApi.instance = this;
 
-        console.log('PayTabsRestFulApi.instance', this);
-        console.log('window[webserver]', window[pluginName]);    
+        //console.log('PayTabsRestFulApi.instance', this);
+        //console.log('window[webserver]', window[pluginName]);    
         // If there is a webserver instance
         if (window[pluginName]) {
-            console.log("Starting web server at port " + this.port);
+            //console.log("Starting web server at port " + this.port);
 
             window[pluginName].onRequest(this.onRequest);
 
             // Start Web Server and Try to call it
             window[pluginName].start(this.successfulStart, this.failedToStart, this.port);
         } else {
-            console.error("Web Server Not Available as plugin: " + pluginName + ", you need to install https://github.com/bykof/cordova-plugin-webserver");
+            //console.error("Web Server Not Available as plugin: " + pluginName + ", you need to install https://github.com/bykof/cordova-plugin-webserver");
         }
     }
 
     protected successfulStart() {
-        console.log("Started web server at port " + this.port);
+        //console.log("Started web server at port " + this.port);
     }
 
     protected failedToStart() {
-        console.log("Failed to Start web server at port " + this.port);
+        //console.log("Failed to Start web server at port " + this.port);
     }
 
     /**
@@ -88,11 +88,11 @@ export default class PayTabsRestFulApi {
      * @param request 
      */
     protected onRequest(request: IRequest) {
-        console.log("Web Server Got a request", JSON.stringify(request, null, 2));
+        //console.log("Web Server Got a request", JSON.stringify(request, null, 2));
 
         // Get the response details
         let response = this.getPaymentResultPageResponse(request);
-        console.log("Sending Response", JSON.stringify(response, null, 2));
+        //console.log("Sending Response", JSON.stringify(response, null, 2));
 
         // Send Our Response
         try {
@@ -133,7 +133,7 @@ export default class PayTabsRestFulApi {
     protected getPaymentResultPageResponse(request: IRequest): IResponse {
         let response = this.getDefaultResponse(request);
 
-        debugger;
+         
         let transactionFields = {} as IPaymentResultFields;
 
         // Parse query fields
@@ -200,22 +200,22 @@ export default class PayTabsRestFulApi {
     }
 
     validateSecretKey(paymentInfo) {
-        console.log('Validating Secret Key PayTabs RestFul Api => Call PayTabs RestFul Api Validate Secret Key');
-        console.log("paymentInfo: "+paymentInfo);
+        //console.log('Validating Secret Key PayTabs RestFul Api => Call PayTabs RestFul Api Validate Secret Key');
+        //console.log("paymentInfo: "+paymentInfo);
         this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/validate_secret_key",
             {
                 merchant_email: paymentInfo.merchant_email,
                 secret_key: paymentInfo.secret_key
             })
             .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
-                console.log('Validating Secret Key PayTabs RestFul Api => Done Successfully', result);
+                //console.log('Validating Secret Key PayTabs RestFul Api => Done Successfully', result);
                 if (result.response_code === '4000') {
                     this.createPayTabsPayment(paymentInfo);
                 } else {
                     this.reject(result);
                 }
             }, (error) => {
-                console.log('Validating Secret Key PayTabs RestFul Api => Error', error);
+                //console.log('Validating Secret Key PayTabs RestFul Api => Error', error);
                 this.reject(error);
             });
     }
@@ -235,42 +235,42 @@ export default class PayTabsRestFulApi {
         };
         let json = JSON.stringify(body);
 
-       console.log("Request Payload:: "+json);
+       //console.log("Request Payload:: "+json);
 
-        console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
+        //console.log('Creating PayTabs RestFul Api => Call PayTabs RestFul Api Create Service', paymentInfo, body);
 
        // console.log('paytabs url'+ corsAnywhere+config.PayTabs.BaseUrl);
         this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/create_pay_page", body.toString(), options)
             .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
                 let json = JSON.stringify(result);
-                console.log("response Payload:: "+json);
-                debugger;
+                //console.log("response Payload:: "+json);
+                 
                 if (result.response_code === '4012') {
-                    debugger;
-                    console.log('Create PayTabs Payment => Success', result);
+                     
+                    //console.log('Create PayTabs Payment => Success', result);
                     this.openPaymentWindow(paymentInfo, result);
                 } else {
-                    debugger;
-                    console.log('Create PayTabs Payment => Error in Response', result);
+                     
+                   // console.log('Create PayTabs Payment => Error in Response', result);
                     this.reject(result);
                 }
             }, (error) => {
-                debugger;
+                 
                 let json = JSON.stringify(error);
-                console.log("response Payload:: "+json);
-                console.log('Create PayTabs Payment => Error', error);
+                // console.log("response Payload:: "+json);
+                // console.log('Create PayTabs Payment => Error', error);
                 this.reject(error);
             });
     }
 
     verifyPayTabsPayment(verifyData) {
-        console.log('Verify PayTabs RestFul Api => Call PayTabs RestFul Api Verify Service', verifyData);
+        //console.log('Verify PayTabs RestFul Api => Call PayTabs RestFul Api Verify Service', verifyData);
 
         let body = new URLSearchParams();
         Object.keys(verifyData).map(key => {
             let value = verifyData[key];
             body.set(key, value);
-            console.log("Payment Verification Setting", key, value);
+          //  console.log("Payment Verification Setting", key, value);
         });
 
         let options = {
@@ -279,7 +279,7 @@ export default class PayTabsRestFulApi {
 
         this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/verify_payment", body.toString(), options)
             .subscribe((result: IPaymentRestFulApiVerifyResultCallback) => {
-                console.log('Verified PayTabs RestFul Api => ', result, verifyData);
+               // console.log('Verified PayTabs RestFul Api => ', result, verifyData);
                 if (result.response_code === '100') {
                     this.resolve(result);
                     this.closePaymentWindow();
@@ -287,7 +287,7 @@ export default class PayTabsRestFulApi {
                     this.rejectAndCloseWindow(result);
                 }
             }, (error) => {
-                console.log('Verifying PayTabs RestFul Api => Error', error, verifyData);
+               // console.log('Verifying PayTabs RestFul Api => Error', error, verifyData);
                 this.rejectAndCloseWindow(error);
             });
     }
@@ -297,7 +297,7 @@ export default class PayTabsRestFulApi {
         const isCordovaBased = window["cordova"] && window["cordova"].InAppBrowser;
         let windowManager = (isCordovaBased ? window["cordova"].InAppBrowser : window);
         let verified = false;
-debugger;
+ 
        // this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes,usewkwebview=no');
         this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes');
 
@@ -305,8 +305,8 @@ debugger;
             console.debug("[payment] InAppBrowser: Loaded", JSON.stringify(event, null, 2));
 
             let URL = event.url;
-            console.log('openPaymentWindow', URL);
-            debugger;
+           // console.log('openPaymentWindow', URL);
+             
             if (URL && URL.startsWith(this.paymentInfo.return_url)) {
                 const verifyData = {
                     merchant_email: `${config.PayTabs.MerchantEmail}`,
@@ -320,7 +320,7 @@ debugger;
 
         this.paymentWindowOnExit = event => {
             if(!verified){
-                console.log('paymentWindowOnExit', event);
+                //console.log('paymentWindowOnExit', event);
                 this.rejectAndCloseWindow({message: "Canceled"});
             }
         };

@@ -616,7 +616,7 @@ export class RequestService {
 
   getInterestedArea() {
     return Observable.create((observer) => {
-      console.log("getInterestedArea", this.translate.currentLang);
+      //console.log("getInterestedArea", this.translate.currentLang);
       let lcid = this.translate.currentLang == "ar" ? 1025 : 1033;
       let interestedarea: ICrmPayLoad = {
         EntityName: "jci_request",
@@ -648,7 +648,7 @@ export class RequestService {
       this.http
         .doPost(config.applicationBaseUrl + "/topics/" + topicId, null)
         .subscribe((topic) => {
-          console.log(`Topic Result ${topicId}`, topic);
+          //console.log(`Topic Result ${topicId}`, topic);
           resolve(topic);
         }, reject);
     });
@@ -792,7 +792,7 @@ export class RequestService {
         .subscribe(
           (res) => {
             let issues = this.deflateLookup(res["Records"]);
-            console.log("issues", issues);
+            //console.log("issues", issues);
             if (issueId) {
               const issue = issues.find((issue) => {
                 return issue.id == issueId;

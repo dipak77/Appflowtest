@@ -55,7 +55,7 @@ export class ShoppingcartComponent {
         
         let loaderName = "SHOOPINGCART.getItems";
         this.helper.showLoading(loaderName);
-        console.log("IsGuest: "+ this.isGuest);
+        //console.log("IsGuest: "+ this.isGuest);
         Observable.forkJoin(this.checkoutService.checkOutForGuest(), this.cart.getCartItems()).subscribe(([guestCheckoutEnabled, items]) => {
             if (guestCheckoutEnabled && guestCheckoutEnabled.Data)
                 this.canGuestCheckout = guestCheckoutEnabled.Data;
@@ -79,7 +79,7 @@ export class ShoppingcartComponent {
     }
 
     couponActionHandler(orderTotal) {
-        console.log("couponActionHandler call");
+        //console.log("couponActionHandler call");
         this.fetchPageData();
     }
 }

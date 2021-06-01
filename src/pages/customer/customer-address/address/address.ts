@@ -63,7 +63,7 @@ export class AddressComponent implements OnInit {
     cityChanged(city) {
         let cityObject = this.citiesByName[city];
         let observable = null;
-        console.log("City Changed", cityObject);
+        //console.log("City Changed", cityObject);
         if (cityObject) {
             observable = this.requestService.getDistricts(cityObject ? cityObject.id : null);
             observable.subscribe(districts => {
@@ -104,7 +104,7 @@ export class AddressComponent implements OnInit {
             this.custService.getCustomerInfo().subscribe({
                 next(custinfo) {
                     if (custinfo) {
-                        console.log("Customer Info (for New Address)", custinfo);
+                        //console.log("Customer Info (for New Address)", custinfo);
                         address.Email = custinfo['Email'] || address.Email;
                         address.FirstName = custinfo['FirstName'] || address.FirstName;
                         address.LastName = custinfo['LastName'] || address.LastName;
