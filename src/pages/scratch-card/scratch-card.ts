@@ -191,7 +191,7 @@ export class ScratchCardPage {
       "country": "SA",
       "receiver_name" : this.userFirstName+' '+this.userLastName,
       "receiver_email" : this.userEmail,
-      "receiver_phone" : "+918698108190",
+      "receiver_phone" : this.userPhone,
       "message": "Well Done!,\nI thought you would like this gift!",
       "extra_fields" : {
           "department" : "Information Technology",
