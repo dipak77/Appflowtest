@@ -35,8 +35,10 @@ export class ScratchCardPage {
   userLastName : any;
   orderNumber : any;
   inprogress :boolean = false;
+  congratsImg = 'https://york.com.sa/images/uploaded/media-center/congrats-en.png';
+  isSplit : any;
+  loading = 'scratch_card';
 
- 
   constructor(public navCtrl: NavController,
     public viewCtrl: ViewController,
     public navParams: NavParams,
@@ -46,22 +48,26 @@ export class ScratchCardPage {
     private helper: HelperService,
     private auth: AuthenticationService,
     public translate: TranslateService, public toastController: ToastController) {
+      this.helper.showLoading(this.loading);
       this.data = navParams.get("data");
       this.order_id = navParams.get("orderId");   
-      if (this.auth.isAuthenticated()) {
+     // if (this.auth.isAuthenticated()) {
         
         this.custService.getCustomerOrderDetails(this.order_id).subscribe((result) => {
-            // console.log(result);
+
             this.orderNumber=result.CustomOrderNumber;
             this.userEmail = result.BillingAddress.Email;
             this.userFirstName = result.BillingAddress.FirstName;
             this.userLastName = result.BillingAddress.LastName;
             this.userPhone = result.BillingAddress.PhoneNumber;
 
-          // this.helper.hideLoading(loaderName);
+         
       }, () => {
           // this.helper.hideLoading(loaderName);
       });
+      if(this.translate.store.currentLang == "ar"){
+        this.congratsImg = 'https://york.com.sa/images/uploaded/media-center/congrats-ar.png';
+      }
 
         // this.custService.getCustomerOrderDetails(this.order_id).subscribe((res:any)=>{
         //   //process the json data
@@ -71,7 +77,7 @@ export class ScratchCardPage {
         //         // this.userPhone = res.Phone;
         //         console.log(res);
         //   });
-    }
+    //}
 
     
 
@@ -86,41 +92,66 @@ export class ScratchCardPage {
         //process the json data
             //this.brandList = data;
             
-            //console.log(res);
+            // this.isSplit = res.isSlitCategory;
             this.brandList = res.GiftBranding;
             this.cardValue = res.gift_value;
-            //console.log(this.cardValue);
-            this.getScratchCard();
+            console.log(res);
+            if(this.brandList != null){
+              this.isSplit = true;
+                document.getElementById('scractch_card_div').style.display = "block";
+                document.getElementById('home_div').style.display = "none";
+                document.getElementById('brandListHeading').style.display = "block";
+                this.getScratchCard();
+            }else{
+              this.isSplit = true;
+              document.getElementById('scractch_card_div').style.display = "none";
+              document.getElementById('home_div').style.display = "block";
+              document.getElementById('brandListHeading').style.display = "none";
+
+
+            }
+         this.helper.hideLoading(this.loading);
+
         });
       
   }  
 
   getScratchCard(){
     var _this = this;
+    let imagePath = 'assets/scratch-card.png';
+    var html = '<div class="test">' + '' + '<br><br><br>(Gift Value : <strong>SAR ' +  this.cardValue + ')</strong></div>';
+
     // window.addEventListener('load', function ()
-    var html = '<div class="test">' + '' + '<br><br><br>(Gift Value : <strong>SAR ' +  this.cardValue + ')</strong></div>'
-    var scContainer = document.getElementById('js--sc--container');
-    var sc = new ScratchCard('#js--sc--container', {
-      enabledPercentUpdate: true,
-      scratchType: SCRATCH_TYPE.CIRCLE,
-      // brushSrc: './images/brush.png',
-      containerWidth: scContainer.offsetWidth,
-      containerHeight: scContainer.offsetHeight,
-      imageForwardSrc: 'assets/scratch-card.png',
-      // imageBackgroundSrc: 'assets/GiftBackground.png',
-      htmlBackground: html,
-      clearZoneRadius: 25,
-      percentToFinish: 25, // When the percent exceeds 50 on touchend event the callback will be exec.
-      nPoints: 30,
-      pointSize: 20,
-      callback: function () {
-        _this.events.publish('cardScratched', _this.data);
-        //console.log("Card is scratched");
-        document.getElementById('brandListGrid').classList.remove('hide');
-        //_this.close();
-      }
-    })
-    sc.init();
+    if(this.translate.store.currentLang == "ar"){
+        var html = '<div class="test">' + '' + '<br><br><br>(<strong> ريال' +  this.cardValue + ' )</strong></div>';
+        imagePath = 'assets/scratch-card-ar.png';
+    }else{
+    }
+    if(this.isSplit){
+      var scContainer = document.getElementById('js--sc--container');
+      var sc = new ScratchCard('#js--sc--container', {
+        enabledPercentUpdate: true,
+        scratchType: SCRATCH_TYPE.CIRCLE,
+        // brushSrc: './images/brush.png',
+        containerWidth: scContainer.offsetWidth,
+        containerHeight: scContainer.offsetHeight,
+        imageForwardSrc: imagePath,
+        // imageBackgroundSrc: 'assets/GiftBackground.png',
+        htmlBackground: html,
+        clearZoneRadius: 25,
+        percentToFinish: 25, // When the percent exceeds 50 on touchend event the callback will be exec.
+        nPoints: 30,
+        pointSize: 20,
+        callback: function () {
+          _this.events.publish('cardScratched', _this.data);
+          //console.log("Card is scratched");
+          document.getElementById('brandListGrid').classList.remove('hide');
+          //_this.close();
+        }
+      })
+      sc.init();
+    }
+   
   }
 
   openModal(id) {
@@ -168,7 +199,15 @@ export class ScratchCardPage {
           "pi_12" : "12Ag"
       }
     };
-    document.getElementById('confirm_btn').innerHTML="Please Wait..";
+    if(this.translate.store.currentLang == "ar"){
+
+          document.getElementById('confirm_btn').innerHTML="الرجاء الإنتظار";
+
+    }else{
+
+        document.getElementById('confirm_btn').innerHTML="Please Wait..";
+
+    }
     if(!this.inprogress){
         this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData).subscribe(data=>{
           //process the json data

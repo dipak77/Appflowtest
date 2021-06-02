@@ -32,10 +32,10 @@
                   {{ "SCRATCHCARD.emailSent2" | translate }}.
                 </h4>
               </div>
-              <div class="flow">
+              <div class="flow " id="scractch_card_div" style="display:none">
                 <div class="winy">
                   <img
-                    src="https://york.com.sa/images/uploaded/media-center/congrats-en.png"
+                    src="{{congratsImg}}"
                     alt="Scratch"
                   />
                 </div>
@@ -45,7 +45,10 @@
                   </div>
                 </div>
               </div>
-              <div class="info">
+              <div class="flow" id="home_div" style="display:none">
+                  <a href="/">Home</a>
+              </div>
+              <div class="info" id="brandListHeading" style="display:none">
                 <p>{{ "SCRATCHCARD.selectBrand" | translate }}</p>
               </div>
             </div>
@@ -53,13 +56,13 @@
         </div>
       </div>
     </div>
-    <ion-grid id="brandListGrid" class="hide" >
+    <ion-grid id="brandListGrid" class="hide"  *ngIf="isSplit">
       <ion-row   >    
         <ion-col col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3  *ngFor="let x of brandList;let i=index">
           <div margin>
               <div class="flip"  >
-              <span class="flip-left" >Gift </span>
-              <span class="flip-right">SAR {{cardValue}}</span>
+              <span class="flip-left" > {{ "SCRATCHCARD.gift" | translate }} </span>
+              <span class="flip-right">{{ "SCRATCHCARD.sar" | translate }} {{cardValue}}</span>
               <span class="pin">
                 <img
                   src="https://york.com.sa/images/uploaded/pin.png"
@@ -81,7 +84,7 @@
               </div>
               <span
                 class="flip-bottom"
-                >Hypermarket
+                >{{x.name}}
               </span>
             </div>
           </div>
@@ -165,10 +168,10 @@
             font-weight: bold;
           "
         >
-          eGift Card
+        {{ "SCRATCHCARD.egiftCard" | translate }}
         </h3>
         <p style="font-size: 14px; text-align: center !important">
-          SAR {{cardValue}}
+          {{ "SCRATCHCARD.sar" | translate }} {{cardValue}}
         </p>
         <div
           style="margin-top: 10px; height: 134px; margin-bottom: 10px"

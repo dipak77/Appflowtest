@@ -35,11 +35,15 @@ export default {
         },
         "gift":{
             "en" : "Gift",
-            "ar" : "اختار الماركة المفضلة إليك"
+            "ar" : "هدية"
+        },
+        "egiftCard":{
+            "en" : "e Gift Card",
+            "ar" : "بطاقة الهدايا الإلكترونية"
         },
         "sar":{
             "en" : "SAR",
-            "ar" : "اختار الماركة المفضلة إليك"
+            "ar" : "ريال"
         },
         "confirm":{
             "en" : "confirm",
