@@ -1,33 +1,62 @@
 {
   "project_info": {
-    "project_number": "190776862301",
-    "project_id": "york-mobile-app-test",
-    "storage_bucket": "york-mobile-app-test.appspot.com"
+    "project_number": "49492851836",
+    "project_id": "jsc-ionic",
+    "storage_bucket": "jsc-ionic.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:190776862301:android:72caa5b3352cb414634fb4",
+        "mobilesdk_app_id": "1:49492851836:android:4a309910b28a6ca502ddf9",
         "android_client_info": {
           "package_name": "sa.com.yorkmobilestore"
         }
       },
       "oauth_client": [
         {
-          "client_id": "190776862301-i6rv54djqd2tbj5ie1seo80hd1elniv8.apps.googleusercontent.com",
+          "client_id": "49492851836-2vpmb6665etqt9eme4v2il0bme1r256h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyANhB3wFmfJxBoKzPw6A54cus2ibRtP7uY"
+          "current_key": "AIzaSyAe4ewjA49uXbZ41yAJ72mquU0YXUTJazA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "190776862301-i6rv54djqd2tbj5ie1seo80hd1elniv8.apps.googleusercontent.com",
+              "client_id": "49492851836-2vpmb6665etqt9eme4v2il0bme1r256h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49492851836:android:32954fc2274848f202ddf9",
+        "android_client_info": {
+          "package_name": "sa.com.yorkmobilestore2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49492851836-2vpmb6665etqt9eme4v2il0bme1r256h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe4ewjA49uXbZ41yAJ72mquU0YXUTJazA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49492851836-2vpmb6665etqt9eme4v2il0bme1r256h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
