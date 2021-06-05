@@ -48,12 +48,15 @@ export class HomePage {
 
   ionViewDidLoad(){
     this.fcm.getToken();
-    this.fcm.listenNotifications().pipe(tap( msg => {
-                      const toast = this.toastCtrl.create({
-                        message :msg.body,
-                        duration : 3000
-                      });
-                      toast.present();
+    this.fcm.listenNotifications().pipe(tap({
+      next: x => {
+        const toast = this.toastCtrl.create({
+          message :x.body,
+          duration : 3000
+        });
+        toast.present();
+      },
+      error: err => { console.error(err); }
     })).subscribe();
   }
 

@@ -35,7 +35,7 @@ import { CustomTranslationsLoader } from '../core/components/multilingual-suppor
 import { FcmProvider } from '../providers/fcm/fcm';
 import { AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {Firebase} from "@ionic-native/firebase/ngx";
+import {Firebase} from "@ionic-native/firebase";
 
 const firebase = {
   apiKey: "AIzaSyBSI51X85J_puvNeNBzLprLMFpC9V9h_dI",
