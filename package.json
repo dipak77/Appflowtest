@@ -20,7 +20,7 @@
     "@agm/core": "1.0.0",
     "@angular/animations": "^5.2.11",
     "@angular/common": "^5.2.11",
-    "@angular/compiler": "^5.2.11",
+    "@angular/compiler": "^6.0.8",
     "@angular/compiler-cli": "^11.2.12",
     "@angular/core": "^6.0.3",
     "@angular/fire": "^6.1.5",
