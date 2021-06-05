@@ -285,7 +285,7 @@ export class CheckoutComponent {
             unit_price: order.ShoppingCartModel.Items.map(item => getAmount(item.UnitPrice)).join(' || '),
             quantity: order.ShoppingCartModel.Items.map(item => item.Quantity).join(' || '),
             other_charges: getAmount(order.OrderTotalModel.Shipping),
-            amount: getAmount(order.OrderTotalModel.OrderTotal || order.OrderTotalModel.SubTotal),
+            amount: order.OrderTotalModel.OrderTotal,
             discount: getAmount(order.OrderTotalModel.OrderTotalDiscount || order.OrderTotalModel.SubTotalDiscount),
             currency: 'SAR',
             reference_no: "CART-" + (new Date()).getTime(),
@@ -374,27 +374,27 @@ export class CheckoutComponent {
 
     payWithPayTabs(paymentInfo) {
         this.helper.showLoading("PAYTABS");
-      //  let promise = payTabs.instance.gotoPayment(paymentInfo);
-        this.setOrderStatus(paymentInfo, 'success', {});
-        this.helper.hideLoading("PAYTABS");
-            console.log(paymentInfo);
-        // promise.then(
-        //     paymentResultFields => {
-        //         this.helper.hideLoading("PAYTABS");
-        //         //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
-        //         this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-        //     },
-        //     paymentResultFields => {
-        //         this.helper.hideLoading("PAYTABS");
-        //         //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
-        //         this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-        //         // //console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
-        //         // this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
-        //         //     this.helper.showToast(val, 'error');
-        //         // });
+        let promise = payTabs.instance.gotoPayment(paymentInfo);
+        //this.setOrderStatus(paymentInfo, 'success', {});
+       // this.helper.hideLoading("PAYTABS");
+         //   console.log(paymentInfo);
+        promise.then(
+            paymentResultFields => {
+                this.helper.hideLoading("PAYTABS");
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+                this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+            },
+            paymentResultFields => {
+                this.helper.hideLoading("PAYTABS");
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+               // this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+                console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
+                this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
+                    this.helper.showToast(val, 'error');
+                });
 
-        //         //  this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
-        //     });
+                this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
+            });
     }
 
     setOrderStatus(paymentInfo = { amount: 0, reference_no: "" }, status: string = 'success', paymentResultFields = {}) {
