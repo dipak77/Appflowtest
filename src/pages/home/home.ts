@@ -1,5 +1,7 @@
+import { FcmProvider } from './../../providers/fcm/fcm';
+import { tap } from 'rxjs/operators';
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, ToastController } from "ionic-angular";
 import { Platform } from "ionic-angular";
 import { StoreComponent } from "../store/store";
 import {
@@ -10,7 +12,6 @@ import { OurServicesComponent } from "../../pages/our-services/our-services";
 import { getRemoteProperties } from "../../app/app.config";
 import { SimpleHttp } from "../../core/services/simple-http.service";
 import { TranslateService } from "@ngx-translate/core";
-
 @Component({
   selector: "page-home",
   templateUrl: "home.html",
@@ -23,7 +24,9 @@ export class HomePage {
     private navCtrl: NavController,
     public platform: Platform,
     private simpleHttp: SimpleHttp,
-    private helper: HelperService
+    private helper: HelperService,
+    public fcm : FcmProvider,
+    public toastCtrl : ToastController
   ) {
 
   }
@@ -42,6 +45,19 @@ export class HomePage {
       },
     });
   }
+
+  ionViewDidLoad(){
+    this.fcm.getToken();
+    this.fcm.listenNotifications().pipe(tap( msg => {
+                      const toast = this.toastCtrl.create({
+                        message :msg.body,
+                        duration : 3000
+                      });
+                      toast.present();
+    })).subscribe();
+  }
+
+
 
   onLanguageChange() {
     this.loadPromotPopup(0);

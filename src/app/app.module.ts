@@ -32,6 +32,21 @@ import { HelperService } from '../core/services/helper.service';
 
 import { routes, components } from './app.imports';
 import { CustomTranslationsLoader } from '../core/components/multilingual-support/index';
+import { FcmProvider } from '../providers/fcm/fcm';
+import { AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {Firebase} from "@ionic-native/firebase/ngx";
+
+const firebase = {
+  apiKey: "AIzaSyBSI51X85J_puvNeNBzLprLMFpC9V9h_dI",
+  authDomain: "york-store-app.firebaseapp.com",
+  projectId: "york-store-app",
+  storageBucket: "york-store-app.appspot.com",
+  messagingSenderId: "519553487235",
+  appId: "1:519553487235:web:e39554004b89a9fa44a6b6"
+};
+
+
 
 @NgModule({
   declarations: [
@@ -43,6 +58,8 @@ import { CustomTranslationsLoader } from '../core/components/multilingual-suppor
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(firebase),
+    AngularFirestoreModule,
     AgmCoreModule.forRoot({
       apiKey: config.googleMapsKey,
       libraries: ["places"]
@@ -81,7 +98,9 @@ import { CustomTranslationsLoader } from '../core/components/multilingual-suppor
     SimpleHttp,
     HelperService,
     TranslateService,
-    Device
+    Device,
+    Firebase,
+    FcmProvider
   ],
   exports: [
     RouterModule,

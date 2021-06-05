@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>190776862301-9tdpf40qrdips17cjggm450ro8k60f85.apps.googleusercontent.com</string>
+	<string>519553487235-4r3sq8o72r007pvnf7tclebgn9pvtbbd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.190776862301-9tdpf40qrdips17cjggm450ro8k60f85</string>
+	<string>com.googleusercontent.apps.519553487235-4r3sq8o72r007pvnf7tclebgn9pvtbbd</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCoNKrq4K3bO7_0NT27UBQ-UoBdA9S9Zg4</string>
+	<string>AIzaSyDo98v7moSv-NMGM9_j3uW2k3CnoT7edQM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>190776862301</string>
+	<string>519553487235</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>sa.com.yorkmobilestore</string>
 	<key>PROJECT_ID</key>
-	<string>york-mobile-app-test</string>
+	<string>york-store-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>york-mobile-app-test.appspot.com</string>
+	<string>york-store-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:190776862301:ios:8f35417a6ec57045634fb4</string>
+	<string>1:519553487235:ios:4a0bd6047a889d6d44a6b6</string>
 </dict>
 </plist>
