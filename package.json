@@ -22,7 +22,7 @@
     "@angular/common": "^5.2.11",
     "@angular/compiler": "^5.2.11",
     "@angular/compiler-cli": "^11.2.12",
-    "@angular/core": "^5.2.11",
+    "@angular/core": "^6.0.3",
     "@angular/fire": "^6.1.5",
     "@angular/forms": "^5.2.11",
     "@angular/http": "^5.2.11",
