@@ -48,6 +48,7 @@
     "angular-font-awesome": "^3.1.2",
     "build": "^0.1.4",
     "cordova-res": "^0.15.3",
+    "firebase": "^4.8.0",
     "font-awesome": "^4.7.0",
     "ionic": "^5.4.16",
     "ionic-angular": "^3.9.10",
