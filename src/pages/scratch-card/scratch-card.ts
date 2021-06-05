@@ -37,7 +37,7 @@ export class ScratchCardPage {
   inprogress :boolean = false;
   congratsImg = 'https://york.com.sa/images/uploaded/media-center/congrats-en.png';
   isSplit : any;
-  loading = 'scratch_card';
+  // loading = 'scratch_card';
 
   constructor(public navCtrl: NavController,
     public viewCtrl: ViewController,
@@ -48,7 +48,7 @@ export class ScratchCardPage {
     private helper: HelperService,
     private auth: AuthenticationService,
     public translate: TranslateService, public toastController: ToastController) {
-      this.helper.showLoading(this.loading);
+    //  this.helper.showLoading(this.loading);
       this.data = navParams.get("data");
       this.order_id = navParams.get("orderId");   
      // if (this.auth.isAuthenticated()) {
@@ -110,7 +110,7 @@ export class ScratchCardPage {
 
 
             }
-         this.helper.hideLoading(this.loading);
+        // this.helper.hideLoading(this.loading);
 
         });
       
