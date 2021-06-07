@@ -30,7 +30,7 @@ export class PaymentComponent {
             
         this.orderId = this.navParams.get('orderId');
         this.reference_no = this.navParams.get('reference_no');
-        this.orderTotal = this.navParams.get('orderTotal');
+        this.orderTotal = this.navParams.get('orderTotal').replace('SAR','');;
         this.paymentType = this.navParams.get('paymentType');
         if(this.paymentType == 'paytabs'){
             this.navigateScratchCardPage();

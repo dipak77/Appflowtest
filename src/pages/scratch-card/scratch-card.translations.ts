@@ -59,7 +59,7 @@ export default {
         },
         "customer_care":{
             "en" : "Your E-Gift has been sent to your email with more information on how to redeem your e-voucher. For assistance, please call our customer care",
-            "ar" : "تم إرسال الهدية إلى بريدك الإلكتروني مع المزيد من المعلومات حولكيفية إستخدام قسيمتك الإلكترونية. للمساعدة يرجى الإتصال على خدمةالعملاء"
+            "ar" : "تم إرسال الهدية إلى بريدك الإلكتروني مع المزيد من المعلومات حول كيفية إستخدام قسيمتك الإلكترونية. للمساعدة يرجى الإتصال على خدمة العملاء"
         },
         "back_to_home":{
             "en" : "Back To Home",

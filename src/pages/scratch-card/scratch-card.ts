@@ -119,11 +119,11 @@ export class ScratchCardPage {
   getScratchCard(){
     var _this = this;
     let imagePath = 'assets/scratch-card.png';
-    var html = '<div class="test">' + '' + '<br><br><br>(Gift Value : <strong>SAR ' +  this.cardValue + ')</strong></div>';
+    var html = '<div class="test">' + '' + '<br><br><br><strong>SAR ' +  this.cardValue + '</strong></div>';
 
     // window.addEventListener('load', function ()
     if(this.translate.store.currentLang == "ar"){
-        var html = '<div class="test">' + '' + '<br><br><br>(<strong> ريال' +  this.cardValue + ' )</strong></div>';
+        var html = '<div class="test">' + '' + '<br><br><br><strong> ريال' +  this.cardValue + ' </strong></div>';
         imagePath = 'assets/scratch-card-ar.png';
     }else{
     }
@@ -209,12 +209,15 @@ export class ScratchCardPage {
 
     }
     if(!this.inprogress){
+      this.helper.showLoading('scratchCard');
         this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData).subscribe(data=>{
           //process the json data
               //this.brandList = data;
                 this.inprogress = false;
                 //console.log('return response', data);
                 this.presentToast('Gift Card sent to your email and phone number.');
+                this.helper.hideLoading('scratchCard');
+
                 this.navCtrl.push(ScratchCardThanksPage);
 
           });
