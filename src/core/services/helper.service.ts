@@ -120,7 +120,7 @@ export class HelperService {
 
 export function getAmount(text) {
   let amount = 0;
-
+  
   if (text) {
     text = text.replace(",", "");
     const regex = /\d+([.]\d+){0,1}/m;
@@ -133,7 +133,8 @@ export function getAmount(text) {
     }
   }
 
-  return Math.trunc(amount);
+
+  return amount;
 }
 
 const locationChanged = (...args) => {

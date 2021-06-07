@@ -87,7 +87,7 @@ export class CheckoutComponent {
         this.isAddressSaved = false;
          
         let checkoutOrderInformation=this.checkout.getCheckoutOrderInformation().subscribe(res => {
-          //  //console.log("checkoutOrderInformation",res);
+           console.log("checkoutOrderInformation",res);
             data = res;
          });
         ////console.log("checkoutOrderInformation", checkoutOrderInformation);
@@ -125,6 +125,7 @@ export class CheckoutComponent {
         ////console.log("shippingMethods started");
          
         Observable.forkJoin(observables).subscribe(([orderReview, remoteProps, shippingMethods, addresses]) => {
+            debugger;
             this.orderReview = orderReview || { OrderTotalModel: {} };
             let remoteProperties: any = remoteProps || {};
             let shoppingCartModel = this.orderReview.ShoppingCartModel;
@@ -267,7 +268,7 @@ export class CheckoutComponent {
 
     getRestFulApiPaymentInfo(order) {
         let address = (this.checkoutInfo.Address1 + " " + this.checkoutInfo.Address2).trim();
-
+        let totalAmount = order.ShoppingCartModel.Items.reduce((mutator, item) => {mutator * getAmount(item.UnitPrice)}, 1 );
         let paymentInfo: IPaymentRestFulApiInfo = {
             merchant_email: `${config.PayTabs.MerchantEmail}`,
             secret_key: `${config.PayTabs.SecretKey}`,
@@ -285,7 +286,7 @@ export class CheckoutComponent {
             unit_price: order.ShoppingCartModel.Items.map(item => getAmount(item.UnitPrice)).join(' || '),
             quantity: order.ShoppingCartModel.Items.map(item => item.Quantity).join(' || '),
             other_charges: getAmount(order.OrderTotalModel.Shipping),
-            amount: order.OrderTotalModel.OrderTotal, 
+            amount: getAmount(totalAmount) , 
             discount: getAmount(order.OrderTotalModel.OrderTotalDiscount || order.OrderTotalModel.SubTotalDiscount),
             currency: 'SAR',
             reference_no: "CART-" + (new Date()).getTime(),
