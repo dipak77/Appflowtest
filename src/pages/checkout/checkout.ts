@@ -383,27 +383,27 @@ export class CheckoutComponent {
     payWithPayTabs(paymentInfo) {
         
         this.helper.showLoading("PAYTABS");
-        this.setOrderStatus(paymentInfo, 'success', {});
-        this.helper.hideLoading("PAYTABS");
+        // this.setOrderStatus(paymentInfo, 'success', {});
+        // this.helper.hideLoading("PAYTABS");
          //   console.log(paymentInfo);
-       // let promise = payTabs.instance.gotoPayment(paymentInfo);
-        // promise.then(
-        //     paymentResultFields => {
-        //         this.helper.hideLoading("PAYTABS");
-        //         //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
-        //         this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-        //     },
-        //     paymentResultFields => {
-        //         this.helper.hideLoading("PAYTABS");
-        //         //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
-        //        // this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-        //         console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
-        //         this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
-        //             this.helper.showToast(val, 'error');
-        //         });
+        let promise = payTabs.instance.gotoPayment(paymentInfo);
+        promise.then(
+            paymentResultFields => {
+                this.helper.hideLoading("PAYTABS");
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+                this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+            },
+            paymentResultFields => {
+                this.helper.hideLoading("PAYTABS");
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+               // this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+                console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
+                this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
+                    this.helper.showToast(val, 'error');
+                });
 
-        //         this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
-        //     });
+                this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
+            });
     }
 
     setOrderStatus(paymentInfo = { amount: 0, reference_no: "" }, status: string = 'success', paymentResultFields = {}) {
