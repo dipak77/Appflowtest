@@ -125,7 +125,7 @@ export class CheckoutComponent {
         ////console.log("shippingMethods started");
          
         Observable.forkJoin(observables).subscribe(([orderReview, remoteProps, shippingMethods, addresses]) => {
-            debugger;
+            
             this.orderReview = orderReview || { OrderTotalModel: {} };
             let remoteProperties: any = remoteProps || {};
             let shoppingCartModel = this.orderReview.ShoppingCartModel;
@@ -151,7 +151,7 @@ export class CheckoutComponent {
             let isEnglish = this.platform.dir() === "ltr";
             const bankTransferKey = "bank-transfer";
             this.isAddressSaved = this.selAddress ? true : false;
-            ////console.log("isAddressSaved", this.isAddressSaved);
+           
             this.discountOnItems = orderReview && shoppingCartModel && shoppingCartModel.Items ? shoppingCartModel.Items.reduce((result, item) => getAmount(item.Discount) + result, 0) : 0;
 
             // Payment Types
@@ -268,7 +268,13 @@ export class CheckoutComponent {
 
     getRestFulApiPaymentInfo(order) {
         let address = (this.checkoutInfo.Address1 + " " + this.checkoutInfo.Address2).trim();
-        let totalAmount = order.ShoppingCartModel.Items.reduce((mutator, item) => {mutator * getAmount(item.UnitPrice)}, 1 );
+        let products = order.ShoppingCartModel.Items;
+        let total = 0;
+        products.forEach(element => {
+                total = total + getAmount(element.UnitPrice) * element.Quantity;
+        });
+        total = parseFloat(total.toFixed(2));
+       
         let paymentInfo: IPaymentRestFulApiInfo = {
             merchant_email: `${config.PayTabs.MerchantEmail}`,
             secret_key: `${config.PayTabs.SecretKey}`,
@@ -286,7 +292,7 @@ export class CheckoutComponent {
             unit_price: order.ShoppingCartModel.Items.map(item => getAmount(item.UnitPrice)).join(' || '),
             quantity: order.ShoppingCartModel.Items.map(item => item.Quantity).join(' || '),
             other_charges: getAmount(order.OrderTotalModel.Shipping),
-            amount: getAmount(totalAmount) , 
+            amount:  total, 
             discount: getAmount(order.OrderTotalModel.OrderTotalDiscount || order.OrderTotalModel.SubTotalDiscount),
             currency: 'SAR',
             reference_no: "CART-" + (new Date()).getTime(),
@@ -350,6 +356,7 @@ export class CheckoutComponent {
                     this.payWithPayTabs(paymentInfo);
                 else
                     this.setOrderStatus(paymentInfo);
+                    
             }, () => {
                 this.helper.hideLoading(loaderName);
 
@@ -379,7 +386,7 @@ export class CheckoutComponent {
         this.setOrderStatus(paymentInfo, 'success', {});
         this.helper.hideLoading("PAYTABS");
          //   console.log(paymentInfo);
-        // let promise = payTabs.instance.gotoPayment(paymentInfo);
+        let promise = payTabs.instance.gotoPayment(paymentInfo);
         // promise.then(
         //     paymentResultFields => {
         //         this.helper.hideLoading("PAYTABS");
@@ -412,6 +419,7 @@ export class CheckoutComponent {
         Observable.forkJoin(observers).subscribe(([cart, orderReviewObj]) => {
             this.helper.hideLoading(loaderName);
             let orderReview: any = orderReviewObj;
+            console.log('payment info', paymentInfo.amount);
             if (status == 'success') {
                 AnalyticsHelper.logEvent("CheckoutComplete", {
                     paymentInfo: paymentInfo,
