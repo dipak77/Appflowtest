@@ -386,7 +386,7 @@ export class CheckoutComponent {
         this.setOrderStatus(paymentInfo, 'success', {});
         this.helper.hideLoading("PAYTABS");
          //   console.log(paymentInfo);
-        let promise = payTabs.instance.gotoPayment(paymentInfo);
+       // let promise = payTabs.instance.gotoPayment(paymentInfo);
         // promise.then(
         //     paymentResultFields => {
         //         this.helper.hideLoading("PAYTABS");
