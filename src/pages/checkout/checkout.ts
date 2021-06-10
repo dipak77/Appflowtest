@@ -274,7 +274,7 @@ export class CheckoutComponent {
                 total = total + getAmount(element.UnitPrice) * element.Quantity;
         });
         total = parseFloat(total.toFixed(2));
-       
+        debugger;
         let paymentInfo: IPaymentRestFulApiInfo = {
             merchant_email: `${config.PayTabs.MerchantEmail}`,
             secret_key: `${config.PayTabs.SecretKey}`,
@@ -292,7 +292,7 @@ export class CheckoutComponent {
             unit_price: order.ShoppingCartModel.Items.map(item => getAmount(item.UnitPrice)).join(' || '),
             quantity: order.ShoppingCartModel.Items.map(item => item.Quantity).join(' || '),
             other_charges: getAmount(order.OrderTotalModel.Shipping),
-            amount:  total, 
+            amount: total, //getAmount(order.OrderTotalModel.OrderTotal || order.OrderTotalModel.SubTotal), //total,
             discount: getAmount(order.OrderTotalModel.OrderTotalDiscount || order.OrderTotalModel.SubTotalDiscount),
             currency: 'SAR',
             reference_no: "CART-" + (new Date()).getTime(),
@@ -429,7 +429,7 @@ export class CheckoutComponent {
                 });
                 if(this.selPaymentType == 'paytabs'){
                     this.navCtrl.setRoot(
-                        ScratchCardPage,
+                        PaymentComponent,
                         {
                             paymentType: this.selPaymentType,
                             orderId: this.createOrderReview.OrderId,

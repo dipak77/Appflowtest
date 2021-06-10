@@ -293,17 +293,17 @@ export default class PayTabsRestFulApi {
     }
 
     openPaymentWindow(paymentInfo: IPaymentRestFulApiInfo, createResponse: IPaymentRestFulApiCreateResultCallback) {
-
+        
         const isCordovaBased = window["cordova"] && window["cordova"].InAppBrowser;
         let windowManager = (isCordovaBased ? window["cordova"].InAppBrowser : window);
         let verified = false;
- 
+        console.log(createResponse.payment_url);
        // this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes,usewkwebview=no');
         this.paymentWindow = windowManager.open(createResponse.payment_url, '_blank', 'location=no,toolbar=no,fullscreen=yes');
 
         this.paymentWindowListener = event => {
             console.debug("[payment] InAppBrowser: Loaded", JSON.stringify(event, null, 2));
-
+            debugger;
             let URL = event.url;
            // console.log('openPaymentWindow', URL);
              
