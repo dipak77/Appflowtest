@@ -429,7 +429,7 @@ export class CheckoutComponent {
                 });
                 if(this.selPaymentType == 'paytabs'){
                     this.navCtrl.setRoot(
-                        PaymentComponent,
+                        ScratchCardPage,
                         {
                             paymentType: this.selPaymentType,
                             orderId: this.createOrderReview.OrderId,
