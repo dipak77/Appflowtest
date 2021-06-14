@@ -180,6 +180,11 @@ export class ScratchCardPage {
       this.presentToast('Update Your Mobile Number and email to recieve gift card.');
       return false;
     }
+    if(this.userPhone.substring(0,2) == "05"){
+        this.userPhone = this.userPhone.substring(1);
+        this.userPhone = "00966"+this.userPhone;
+        console.log(this.userPhone);
+    }
     let sendData = {
       "reference_id": randomString,
       "order_id":"15598",
