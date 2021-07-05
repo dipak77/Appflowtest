@@ -36,8 +36,6 @@ export class HomePage {
 
   ionViewDidEnter() {
     let component = this;
-    alert(config.applicationBaseUrl);
-    alert(config.crmBaseUrl);
     getRemoteProperties(component.simpleHttp).subscribe({
       next(remoteProperties) {
         component.remoteProperties = remoteProperties;
