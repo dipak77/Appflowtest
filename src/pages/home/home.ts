@@ -10,6 +10,7 @@ import { OurServicesComponent } from "../../pages/our-services/our-services";
 import { getRemoteProperties } from "../../app/app.config";
 import { SimpleHttp } from "../../core/services/simple-http.service";
 import { TranslateService } from "@ngx-translate/core";
+import { config } from "../../app/app.config";
 
 @Component({
   selector: "page-home",
@@ -35,6 +36,8 @@ export class HomePage {
 
   ionViewDidEnter() {
     let component = this;
+    alert(config.applicationBaseUrl);
+    alert(config.crmBaseUrl);
     getRemoteProperties(component.simpleHttp).subscribe({
       next(remoteProperties) {
         component.remoteProperties = remoteProperties;
