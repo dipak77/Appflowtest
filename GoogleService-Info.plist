@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>190776862301-9tdpf40qrdips17cjggm450ro8k60f85.apps.googleusercontent.com</string>
+	<string>759857519813-1i6k8f3lgfdeadjtfgmbsfksdbocsmak.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.190776862301-9tdpf40qrdips17cjggm450ro8k60f85</string>
+	<string>com.googleusercontent.apps.759857519813-1i6k8f3lgfdeadjtfgmbsfksdbocsmak</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>759857519813-cr3a0sqrgseco32lros3kc6br5ig7avq.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCoNKrq4K3bO7_0NT27UBQ-UoBdA9S9Zg4</string>
+	<string>AIzaSyCioQkjgbmhZvpAWEUp4xDx4iF-yXgOmN4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>190776862301</string>
+	<string>759857519813</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>sa.com.yorkmobilestore</string>
 	<key>PROJECT_ID</key>
-	<string>york-mobile-app-test</string>
+	<string>york-mobile-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>york-mobile-app-test.appspot.com</string>
+	<string>york-mobile-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:190776862301:ios:8f35417a6ec57045634fb4</string>
+	<string>1:759857519813:ios:22e319641b524e53b764ac</string>
+	<key>DATABASE_URL</key>
+	<string>https://york-mobile-app.firebaseio.com</string>
 </dict>
 </plist>
