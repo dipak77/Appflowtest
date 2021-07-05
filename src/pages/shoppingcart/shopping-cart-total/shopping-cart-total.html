@@ -19,17 +19,17 @@
       {{ Shipping || totalProperties?.Shipping || ("CARTTOTAL.Unknown" | translate) }}
     </div>
     <div *ngIf="!RequiresShipping && !totalProperties?.RequiresShipping">
-      {{ Shipping || totalProperties?.Shipping || ("CARTTOTAL.ShippingIncluded" | translate) }}
+      {{ Shipping || totalProperties?.Shipping || ("CARTTOTAL.Free" | translate) }}
     </div>
   </div>
 
   <!-- Discount -->
   <div class="total-row sub-total"
-    *ngIf="OrderTotalDiscount || SubTotalDiscount || totalProperties?.OrderTotalDiscount || totalProperties?.SubTotalDiscount">
+    >
     <div class="price">
       {{ "CARTTOTAL.Discount" | translate }}
     </div>
-    <div class="price">
+    <div class="price" *ngIf="OrderTotalDiscount || SubTotalDiscount || totalProperties?.OrderTotalDiscount || totalProperties?.SubTotalDiscount">
       {{ OrderTotalDiscount || SubTotalDiscount || totalProperties?.OrderTotalDiscount || totalProperties?.SubTotalDiscount }}
     </div>
   </div>

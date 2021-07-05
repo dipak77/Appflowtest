@@ -28,6 +28,10 @@
             "en": "Included",
             "ar": "شامل التوصيل"
         },
+        "Free": {
+            "en": "Free",
+            "ar": "مجاني"
+        },
         "deliveryAndInstallation": {
             "en": "Delivery",
             "ar": "التوصيل"
