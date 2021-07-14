@@ -215,7 +215,7 @@ export class ScratchCardPage {
     }
     if(!this.inprogress){
       this.helper.showLoading('scratchCard');
-        this.http.post(corsAnywhere+config.applicationBaseUrl + '/order/orderforgiftcard', sendData).subscribe(data=>{
+        this.http.doPost(config.applicationBaseUrl + '/order/orderforgiftcard', sendData).subscribe(data=>{
           //process the json data
               //this.brandList = data;
                 this.inprogress = false;
