@@ -268,12 +268,12 @@ export class CheckoutComponent {
 
     getRestFulApiPaymentInfo(order) {
         let address = (this.checkoutInfo.Address1 + " " + this.checkoutInfo.Address2).trim();
-        let products = order.ShoppingCartModel.Items;
-        let total = 0;
-        products.forEach(element => {
-                total = total + getAmount(element.UnitPrice) * element.Quantity;
-        });
-        total = parseFloat(total.toFixed(2));
+        // let products = order.ShoppingCartModel.Items;
+        // let total = 0;
+        // products.forEach(element => {
+        //         total = total + getAmount(element.UnitPrice) * element.Quantity;
+        // });
+        // total = parseFloat(total.toFixed(2));
         debugger;
         let paymentInfo: IPaymentRestFulApiInfo = {
             merchant_email: `${config.PayTabs.MerchantEmail}`,
@@ -292,7 +292,7 @@ export class CheckoutComponent {
             unit_price: order.ShoppingCartModel.Items.map(item => getAmount(item.UnitPrice)).join(' || '),
             quantity: order.ShoppingCartModel.Items.map(item => item.Quantity).join(' || '),
             other_charges: getAmount(order.OrderTotalModel.Shipping),
-            amount: total, //getAmount(order.OrderTotalModel.OrderTotal || order.OrderTotalModel.SubTotal), //total,
+            amount: getAmount(order.OrderTotalModel.OrderTotal || order.OrderTotalModel.SubTotal), //total,
             discount: getAmount(order.OrderTotalModel.OrderTotalDiscount || order.OrderTotalModel.SubTotalDiscount),
             currency: 'SAR',
             reference_no: "CART-" + (new Date()).getTime(),
