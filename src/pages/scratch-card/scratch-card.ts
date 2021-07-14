@@ -11,12 +11,12 @@ import { HelperService, getAmount, AnalyticsHelper } from '../../core/services/h
 import { AuthenticationService } from '../../providers/security/auth.service';
 import locationTranslations from '../location/location.translations';
 // import { Router } from '@angular/router';
-
+import { SimpleHttp } from '../../core/services/simple-http.service';
 
 declare var  ScratchCard ;  
 declare var  SCRATCH_TYPE ;
 
-const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
+// const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
 
 @Component({
   selector: 'page-scratch-card',
@@ -44,7 +44,7 @@ export class ScratchCardPage {
     public navParams: NavParams,
     private custService: CustomerService,
     private events: Events,
-    public http: HttpClient,
+    public http: SimpleHttp,
     private helper: HelperService,
     private auth: AuthenticationService,
     public translate: TranslateService, public toastController: ToastController) {
@@ -88,7 +88,7 @@ export class ScratchCardPage {
       ////console.log(this.order_id);
       
       //this.getScratchCardValue();
-      this.http.get(corsAnywhere+config.applicationBaseUrl+'/order/getbrandslist/'+this.order_id).subscribe((res:any)=>{
+      this.http.doGet(config.applicationBaseUrl+'/order/getbrandslist/'+this.order_id).subscribe((res:any)=>{
         //process the json data
             //this.brandList = data;
             
