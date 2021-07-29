@@ -21,8 +21,8 @@ export interface IResponse {
 
 const pluginName = "webserver";
 // const corsAnywhere = "http://20.50.18.127:8040/";
-const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
-
+//const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
+const corsAnywhere = "https://dev-jci-yorkapp-proxy.herokuapp.com/";
 export default class PayTabsRestFulApi {
 
     static defaultPort: number = config.PayTabs.DefaultLocalPort;

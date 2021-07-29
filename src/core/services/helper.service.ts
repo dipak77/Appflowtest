@@ -123,12 +123,16 @@ export function getAmount(text) {
   
   if (text) {
     debugger;
-    text = text.replace('SAR', '');
+   
+  
+   // const regex = /\d+[+-]?([0-9]*[.])?[0-9]+;
+   text = text.replace(",", "");
+ text = text.replace('SAR', '');
     text = text.replace('ريال', '');
-    if(1 > parseFloat(text)){
+   if(1 > parseFloat(text)){
       text = parseFloat(text);
     }
-   //const regex = /\d+[+-]?([0-9]*[.])?[0-9]+;
+
     const regex = /\d+([.]\d+){0,1}/m;
     let m;
     if ((m = regex.exec(text)) !== null) {
@@ -147,7 +151,12 @@ export function getAmount(text) {
   //     }
   // }
 
+
+  // return Math.trunc(amount);
+
   return amount;
+
+  // return amount;
 }
 
 const locationChanged = (...args) => {
