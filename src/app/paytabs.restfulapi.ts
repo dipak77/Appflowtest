@@ -22,7 +22,8 @@ export interface IResponse {
 const pluginName = "webserver";
 // const corsAnywhere = "http://20.50.18.127:8040/";
 //const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
-const corsAnywhere = "https://dev-jci-yorkapp-proxy.herokuapp.com/";
+const corsAnywhere = "http://20.50.18.127:8085/fetch/";
+
 export default class PayTabsRestFulApi {
 
     static defaultPort: number = config.PayTabs.DefaultLocalPort;
@@ -202,11 +203,18 @@ export default class PayTabsRestFulApi {
     validateSecretKey(paymentInfo) {
         //console.log('Validating Secret Key PayTabs RestFul Api => Call PayTabs RestFul Api Validate Secret Key');
         //console.log("paymentInfo: "+paymentInfo);
+        let options = {
+            headers: new HttpHeaders().set('X-Requested-With', 'XMLHttpRequest')
+        };
+       
+
         this.httpClient.post(corsAnywhere+config.PayTabs.BaseUrl + "/validate_secret_key",
             {
                 merchant_email: paymentInfo.merchant_email,
                 secret_key: paymentInfo.secret_key
-            })
+            },
+            options          
+            )
             .subscribe((result: IPaymentRestFulApiCreateResultCallback) => {
                 //console.log('Validating Secret Key PayTabs RestFul Api => Done Successfully', result);
                 if (result.response_code === '4000') {
@@ -232,6 +240,7 @@ export default class PayTabsRestFulApi {
 
         let options = {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+                                      .set('X-Requested-With', 'XMLHttpRequest')
         };
         let json = JSON.stringify(body);
 

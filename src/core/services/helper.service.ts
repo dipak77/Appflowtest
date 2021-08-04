@@ -122,7 +122,7 @@ export function getAmount(text) {
   let amount = 0;
   
   if (text) {
-    debugger;
+    // debugger;
    
   
    // const regex = /\d+[+-]?([0-9]*[.])?[0-9]+;
