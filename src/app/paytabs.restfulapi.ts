@@ -22,7 +22,7 @@ export interface IResponse {
 const pluginName = "webserver";
 // const corsAnywhere = "http://20.50.18.127:8040/";
 //const corsAnywhere = "https://cors-anywhere-eabz.herokuapp.com/";
-const corsAnywhere = "http://20.50.18.127:8085/fetch/";
+const corsAnywhere = "http://cors.york.com.sa:8085/fetch/";
 
 export default class PayTabsRestFulApi {
 
