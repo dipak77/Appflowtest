@@ -48,9 +48,11 @@ import { UserInfoComponent } from '../components/user-info/user-info';
 import { PageImageComponent } from '../components/page-image/page-image';
 import { ImageViewerComponent } from '../components/image-viewer/image-viewer';
 import { QuantityBtnComponent } from '../components/quantity-btn/quantity-btn';
+import { SuccessPage } from '../pages/success/success';
 
 export const components = [
     HomePage,
+    SuccessPage, 
     MywishlistComponent,
     ShoppingcartComponent,
     HelpAndSupport,
@@ -125,5 +127,6 @@ export const routes = [
     { component: ForgotPasswordComponent, name: 'forgotPassword', segment: 'forgot-password' },
     { component: ScratchCardPage, name: 'scratchCard', segment: 'scratch-card/:orderId' },
     { component: ScratchCardThanksPage, name: 'scratchCardThanks', segment: 'scratch-card-thanks' },
+    { component: SuccessPage, name: 'sucessPage', segment: 'success-page/:orderId' },
 ];
 
