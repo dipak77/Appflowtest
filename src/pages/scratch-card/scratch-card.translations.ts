@@ -24,7 +24,7 @@ export default {
           "Rajhi": {
             "en": "For Rajhi Bank: Please contact the bank to opt in for Tasaheal program.",
             "ar": "لعملاء البنك الرجحي: برجاء التواصل مع البنك للإستفادة من خدمة برنامج تساهيل."
-          }
+          },
         // "ScratchCard": {
         //     "en": "Scratch Card",
         //     "ar":"اظهار تفاصيل الطلب"
@@ -86,10 +86,10 @@ export default {
         //     "en" : "Your E-Gift has been sent to your email with more information on how to redeem your e-voucher. For assistance, please call our customer care",
         //     "ar" : "تم إرسال الهدية إلى بريدك الإلكتروني مع المزيد من المعلومات حول كيفية إستخدام قسيمتك الإلكترونية. للمساعدة يرجى الإتصال على خدمة العملاء"
         // },
-        // "back_to_home":{
-        //     "en" : "Back To Home",
-        //     "ar" : "الرجوع الي الرئيسية"
-        // }
+        "back_to_home":{
+            "en" : "Back To Home",
+            "ar" : "الرجوع الي الرئيسية"
+        }
         
     }
   }

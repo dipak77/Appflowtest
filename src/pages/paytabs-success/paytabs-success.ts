@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HelperService } from '../../core/services/helper.service';
 import { CustomerService } from '../../providers/customer.service';
+import { HomePage } from '../home/home';
 
 /**
- * Generated class for the SuccessPage page.
+ * Generated class for the PaytabsSuccessPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,14 +14,15 @@ import { CustomerService } from '../../providers/customer.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-success',
-  templateUrl: 'success.html',
+  selector: 'page-paytabs-success',
+  templateUrl: 'paytabs-success.html',
 })
-export class SuccessPage {
-  
+export class PaytabsSuccessPage {
+
+  loading = 'success_page';
   @Input() order_id: any;
   private orderNumber : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public translate: TranslateService,
+  constructor(public navCtrl: NavController, private helper: HelperService,public navParams: NavParams, public translate: TranslateService,
     private custService: CustomerService) {
     this.order_id = navParams.get("orderId"); 
     this.custService.getCustomerOrderDetails(this.order_id).subscribe((result) => {
@@ -35,6 +38,12 @@ export class SuccessPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SuccessPage');
+  }
+
+  navigateHomePage() {
+    this.helper.showLoading(this.loading);
+    this.helper.hideLoading(this.loading);
+    this.navCtrl.push(HomePage);
   }
 
 }

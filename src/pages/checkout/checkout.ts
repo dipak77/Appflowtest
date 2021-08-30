@@ -18,7 +18,7 @@ import payTabs from '../../app/paytabs.restfulapi';
 import { SimpleHttp } from '../../core/services/simple-http.service';
 import { HelpAndSupport } from '../help-and-support/help-and-support';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
-import { SuccessPage } from '../success/success';
+import { PaytabsSuccessPage } from '../paytabs-success/paytabs-success';
 
 /**
  * Generated class for the CheckoutComponent component.
@@ -383,28 +383,28 @@ export class CheckoutComponent {
 
     payWithPayTabs(paymentInfo) {
         
-        this.helper.showLoading("PAYTABS");
-        this.setOrderStatus(paymentInfo, 'success', {});
-        this.helper.hideLoading("PAYTABS");
+        // this.helper.showLoading("PAYTABS");
+        // this.setOrderStatus(paymentInfo, 'success', {});
+        // this.helper.hideLoading("PAYTABS");
         //  console.log(paymentInfo);
-        // let promise = payTabs.instance.gotoPayment(paymentInfo);
-        // promise.then(
-        //     paymentResultFields => {
-        //         this.helper.hideLoading("PAYTABS");
-        //         //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
-        //         this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-        //     },
-        //     paymentResultFields => {
-        //         this.helper.hideLoading("PAYTABS");
-        //         //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
-        //        // this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
-        //         console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
-        //         this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
-        //             this.helper.showToast(val, 'error');
-        //         });
+        let promise = payTabs.instance.gotoPayment(paymentInfo);
+        promise.then(
+            paymentResultFields => {
+                this.helper.hideLoading("PAYTABS");
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+                this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+            },
+            paymentResultFields => {
+                this.helper.hideLoading("PAYTABS");
+                //console.log("Successful Payment Transaction", paymentResultFields, paymentInfo);
+               // this.setOrderStatus(paymentInfo, 'success', paymentResultFields);
+                console.log("Error in Payment Transaction", paymentResultFields, paymentInfo);
+                this.translate.get('CHECKOUT.PaymentError').subscribe((val) => {
+                    this.helper.showToast(val, 'error');
+                });
 
-        //         this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
-        //     });
+                this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
+            });
     }
 
     setOrderStatus(paymentInfo = { amount: 0, reference_no: "" }, status: string = 'success', paymentResultFields = {}) {
@@ -430,7 +430,7 @@ export class CheckoutComponent {
                 });
                 if(this.selPaymentType == 'paytabs'){
                     this.navCtrl.setRoot(
-                        SuccessPage,
+                        PaytabsSuccessPage,
                         {
                             paymentType: this.selPaymentType,
                             orderId: this.createOrderReview.OrderId,
