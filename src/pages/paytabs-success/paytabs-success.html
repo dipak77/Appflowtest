@@ -19,23 +19,38 @@
             <div class="win">
               <div class="details">
                 <div class="des">
-                  <h2>{{'SCRATCHCARD.thankYou' | translate}} <br />{{'SCRATCHCARD.shop' | translate}}</h2>
-                  <h4>{{'SCRATCHCARD.confirmed' | translate}}</h4>
-                  <p>{{'SCRATCHCARD.orderNumber' | translate}}<span class="serial">{{ this.orderNumber }}</span></p>
+                  <h2> {{"SCRATCHCARD.thankYou" | translate}} <br />{{"SCRATCHCARD.shop" | translate}}</h2>
+                  <h4><b>{{"SCRATCHCARD.confirmed" | translate}}</b></h4>
+                  <p>{{"SCRATCHCARD.orderNumber" | translate}} <span class="serial">500008458</span></p>
                 </div>
               </div>
               <div class="infos">
-                <h4>
-                  {{'SCRATCHCARD.SNB' | translate}}
-                </h4>
-                <h4>
-                  {{'SCRATCHCARD.Rajhi' | translate}}
-                </h4>
+                <h4><b>{{"SCRATCHCARD.ApplyInstallment" | translate}} </b></h4>
               </div>
-              <div class="back"> 
-                <a (click)="navigateHomePage()" href="#"
-                  >{{ "SCRATCHCARD.back_to_home" | translate }}</a
-                >
+              <div class="bank-img">
+                <div>
+                  
+                  <img
+                    src="https://york.com.sa/images/uploaded/media-center/snb.png"
+                    alt="NCB"
+                  />
+                  <a
+                    href="{{SNBurl}}"
+                    target="_blank"
+                    >{{"SCRATCHCARD.Clickhere" | translate}}</a
+                  >
+                </div>
+                <div>
+                  <img
+                    src="https://york.com.sa/images/uploaded/media-center/rajhi.png"
+                    alt="Rajhi"
+                  />
+                  <a
+                    href="{{rajhiBank}}"
+                    target="_blank"
+                    >{{"SCRATCHCARD.Clickhere" | translate}}</a
+                  >
+                </div>
               </div>
             </div>
           </div>

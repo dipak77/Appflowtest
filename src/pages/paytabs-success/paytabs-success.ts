@@ -20,11 +20,21 @@ import { HomePage } from '../home/home';
 export class PaytabsSuccessPage {
 
   loading = 'success_page';
+  rajhiBank = '';
+  SNBurl = '';
   @Input() order_id: any;
   private orderNumber : any;
   constructor(public navCtrl: NavController, private helper: HelperService,public navParams: NavParams, public translate: TranslateService,
     private custService: CustomerService) {
     this.order_id = navParams.get("orderId"); 
+    if(this.translate.store.currentLang == "ar"){
+      this.rajhiBank = 'https://www.alrajhibank.com.sa/ar/personal/accounts-and-cards/credit-card-offers/tasaheal-program';
+      this.SNBurl = 'https://www.alahli.com/ar-sa/personal-banking/credit-cards/Pages/Smart-Payment-Plan.aspx';
+    }else{
+      this.rajhiBank = 'https://www.alrajhibank.com.sa/en/personal/accounts-and-cards/credit-card-offers/tasaheal-program';
+      this.SNBurl = 'https://www.alahli.com/en-us/personal-banking/credit-cards/Pages/Smart-Payment-Plan.aspx';
+    }
+
     this.custService.getCustomerOrderDetails(this.order_id).subscribe((result) => {
 
       this.orderNumber=result.CustomOrderNumber;

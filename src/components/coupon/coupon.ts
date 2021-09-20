@@ -50,6 +50,7 @@ export class CouponComponent {
                 this.showCouponInput = false;
                 this.card=undefined;
                 this.showcardInput = false;
+                console.log(res)
                 this.translate.get('COUPON.CouponAppliedSuccessfully').subscribe((val) => {
                    
                     this.helper.showToast(val);

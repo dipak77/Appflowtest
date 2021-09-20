@@ -25,6 +25,14 @@ export default {
             "en": "For Rajhi Bank: Please contact the bank to opt in for Tasaheal program.",
             "ar": "لعملاء البنك الرجحي: برجاء التواصل مع البنك للإستفادة من خدمة برنامج تساهيل."
           },
+          "ApplyInstallment": {
+            "en": "To apply for installments, please contact your bank.",
+            "ar": "لتقديم طلب التقسيط ، يرجى الاتصال بالبنك الذي تتعامل معه."
+          },
+          "Clickhere": {
+            "en": "Click here",
+            "ar": "اضغط هنا"
+          },
         // "ScratchCard": {
         //     "en": "Scratch Card",
         //     "ar":"اظهار تفاصيل الطلب"
