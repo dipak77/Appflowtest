@@ -24,6 +24,7 @@ export class HeaderComponent {
     langConfig: any;
     @Input() showCart: boolean = true;
     @Input() showExtraMenuButton: boolean = true;
+    @Input() showLangauage: boolean = true;
     @Output() onLanguageChange = new EventEmitter();
 
     constructor(

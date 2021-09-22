@@ -56,4 +56,6 @@ export class PaytabsSuccessPage {
     this.navCtrl.push(HomePage);
   }
 
+  
+
 }

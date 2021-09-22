@@ -225,9 +225,12 @@ page-paytabs-success {
     }
   }
   @media screen and (max-width: 340px) {
+    .hero-bg{
+      height: 110%;
+    }
     .thank-you {
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -63%);
       width: 100%;

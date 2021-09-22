@@ -15,8 +15,8 @@
     </ion-row>
     <ion-row class="header-buttons" align-items-center justify-content-end>
       <!-- Language -->
-      <div *ngFor="let lang of langConfig?.AvailableLanguages">
-        <div class="header-button lang" *ngIf="langConfig?.CurrentLanguageId != lang.Id"
+      <div *ngFor="let lang of langConfig?.AvailableLanguages" >
+        <div class="header-button lang" *ngIf="showLangauage && langConfig?.CurrentLanguageId != lang.Id"
           (click)="changeCurrentLanguage(lang.Id)" [ngClass]="{'active': langConfig?.CurrentLanguageId == lang.Id}">
           {{lang.Name}}</div>
       </div>
