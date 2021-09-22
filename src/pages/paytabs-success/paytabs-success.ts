@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HelperService } from '../../core/services/helper.service';
 import { CustomerService } from '../../providers/customer.service';
 import { HomePage } from '../home/home';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 /**
  * Generated class for the PaytabsSuccessPage page.
@@ -24,8 +25,10 @@ export class PaytabsSuccessPage {
   SNBurl = '';
   @Input() order_id: any;
   private orderNumber : any;
-  constructor(public navCtrl: NavController, private helper: HelperService,public navParams: NavParams, public translate: TranslateService,
-    private custService: CustomerService) {
+  constructor(public navCtrl: NavController, private helper: HelperService,
+
+              public navParams: NavParams, public translate: TranslateService,
+    private custService: CustomerService, private inAppBrowser: InAppBrowser ) {
     this.order_id = navParams.get("orderId"); 
     if(this.translate.store.currentLang == "ar"){
       this.rajhiBank = 'https://www.alrajhibank.com.sa/ar/personal/accounts-and-cards/credit-card-offers/tasaheal-program';
@@ -56,6 +59,11 @@ export class PaytabsSuccessPage {
     this.navCtrl.push(HomePage);
   }
 
-  
+  rajhiRedirect() {
+        this.inAppBrowser.create(this.rajhiBank);    
+   }
+   snbRedirect(){
+        this.inAppBrowser.create(this.SNBurl);
+   }
 
 }
