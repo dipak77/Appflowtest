@@ -60,10 +60,14 @@ export class PaytabsSuccessPage {
   }
 
   rajhiRedirect() {
-        this.inAppBrowser.create(this.rajhiBank);    
+        this.helper.showLoading(this.loading);
+        this.inAppBrowser.create(this.rajhiBank);
+        this.helper.hideLoading(this.loading);    
    }
    snbRedirect(){
+        this.helper.showLoading(this.loading);
         this.inAppBrowser.create(this.SNBurl);
+        this.helper.hideLoading(this.loading); 
    }
 
 }
