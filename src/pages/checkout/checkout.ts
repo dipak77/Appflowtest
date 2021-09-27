@@ -383,7 +383,7 @@ export class CheckoutComponent {
 
     payWithPayTabs(paymentInfo) {
         
-        // this.helper.showLoading("PAYTABS");
+        this.helper.showLoading("PAYTABS");
         // this.setOrderStatus(paymentInfo, 'success', {});
         // this.helper.hideLoading("PAYTABS");
         //  console.log(paymentInfo);
