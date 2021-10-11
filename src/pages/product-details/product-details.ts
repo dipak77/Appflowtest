@@ -7,7 +7,7 @@ import { ImageViewerComponent } from '../../components/image-viewer/image-viewer
 import { NavController } from 'ionic-angular';
 import { ShoppingcartComponent } from '../shoppingcart/shoppingcart';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CartItem } from '../../models/cart.model';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -64,7 +64,8 @@ export class ProductDetailsComponent {
     isLoading: boolean = false;
     product: any;
     selectedInfoIndex: number;
-
+    checkExchange : boolean = false;
+    something = "disabled";
     constructor(
         public navParams: NavParams,
         public modalCtrl: ModalController,
@@ -75,7 +76,8 @@ export class ProductDetailsComponent {
         public translate: TranslateService,
         private navCtrl: NavController,
         private platform: Platform,
-        private domSanitizer: DomSanitizer
+        private domSanitizer: DomSanitizer,
+        private inAppBrowser: InAppBrowser
     ) {
         this.selectedInfoIndex = 0;
         this.productId = this.navParams.get('productId');
@@ -103,7 +105,14 @@ export class ProductDetailsComponent {
         this.helper.showLoading();
         this.catalog.getProductDetails(this.productId).subscribe((result) => {
             this.product = result['Data'];
-
+            if(this.product.ProductAttributes[0]){
+                let values = this.product.ProductAttributes[0].Values;
+                values.forEach(element => {
+                    if(element.Name.includes('Exchange') || element.Name.includes('وكيّف')){
+                        this.checkExchange = true;
+                    }
+                });
+            }
             AnalyticsHelper.logEvent("ProductView", {
                 item_id: this.productId,
                 item_name: this.product.Name,
@@ -137,6 +146,40 @@ export class ProductDetailsComponent {
         }, () => {
             this.helper.hideLoading();
         });
+    }
+    opneLinkAr(){
+        this.helper.showLoading();
+        this.inAppBrowser.create("https://york.com.sa/ar/terms-conditions");
+        this.helper.hideLoading();   
+    }
+
+    opneLinkEn(){
+        this.helper.showLoading();
+        this.inAppBrowser.create("https://york.com.sa/en/terms-conditions");
+        this.helper.hideLoading();   
+    }
+    unCheckDisable(e){
+        var ckName = document.getElementsByClassName("checkboxesItem");
+        //console.log(id)
+        // var checker1 = document.getElementById(id);
+        //console.log(id)
+        console.log(e.currentTarget.checked);
+        if(e.currentTarget.checked){
+
+            for(let i =0; i < ckName.length; i++){
+                ckName[i].setAttribute("disabled","true");
+                ckName[i].setAttribute("checked","false");
+            }
+        }else{
+            
+            for(let i =0; i < ckName.length; i++){
+                ckName[i].removeAttribute("disabled");
+            }
+        }
+
+    
+
+        console.log(ckName)
     }
 
     showSliderFullScreen() {

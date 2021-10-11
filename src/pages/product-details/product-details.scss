@@ -204,4 +204,91 @@
     background-color: color($colors, background);
     padding-bottom: 16px;
   }
+
+  .offer-new {
+    font-family: "Tahoma" !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    margin-top: 20px;
+  }
+  .offer-new .inner-info {
+    display: flex;
+    padding: 10px 20px;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(245, 247, 254);
+    position: relative;
+  }
+  .offer-new .inner-info .inner-img {
+    width: 25px;
+    height: 25px;
+  }
+  .offer-new .inner-info .inner-img img {
+    width: 100%;
+    height: auto;
+  }
+  .offer-new .inner-info .inner-details {
+    padding: 0 10px;
+    font-weight: 400;
+  }
+
+  .offer-new .inner-info .inner-details .old-price {
+    color: rgb(126, 133, 155);
+    text-decoration: line-through;
+  }
+  .offer-new .inner-info .inner-tip .inner-des {
+    cursor: pointer;
+  }
+  .offer-new .inner-info .inner-tip .show-tip {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    right: 0px;
+    border: 1px solid rgb(227, 229, 240);
+    top: 70px;
+    box-sizing: border-box;
+    z-index: 2;
+    box-shadow: rgb(58, 58, 58 / 8%) 0px 0px 16px 8px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 270px;
+    visibility: hidden;
+    transition: all 0.1s ease-in-out;
+  }
+  .offer-new .inner-info .inner-tip:hover .show-tip {
+    visibility: visible;
+  }
+
+  .offer-new .inner-info .inner-tip .show-tip .close-offer .cross {
+    width: 6px;
+    height: 6px;
+  }
+
+  .offer-new .inner-info .inner-tip .show-tip .show-text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+  .offer-new .inner-info .inner-tip .show-tip .show-text p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .offer-new .inner-info .inner-tip .show-tip .show-text a {
+    color: #00539e;
+    z-index: 2;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .offer-new
+    .inner-info
+    .inner-tip
+    .show-tip
+    .show-text
+    .text-free
+    .text-infoy {
+    margin-left: 15px;
+    font-size: 14px;
+  }
 }

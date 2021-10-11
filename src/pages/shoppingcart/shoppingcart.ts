@@ -30,6 +30,7 @@ export class ShoppingcartComponent {
     discountOnItems = 0;
     isGuest: boolean = true;
     canGuestCheckout: boolean = false;
+    exchangeTaken = false;
 
     constructor(public translate: TranslateService,
         public navCtrl: NavController,
@@ -60,6 +61,12 @@ export class ShoppingcartComponent {
             if (guestCheckoutEnabled && guestCheckoutEnabled.Data)
                 this.canGuestCheckout = guestCheckoutEnabled.Data;
             this.items = items;
+            items.forEach(element => {
+                if(element.AttributeInfo.includes("Stay Cool Offer") || element.AttributeInfo.includes("وكيّف")){
+                    this.exchangeTaken = true;
+                }
+            });
+            console.log(this.exchangeTaken)
             this.discountOnItems = items ? items.reduce((result, item) => getAmount(item.Discount) + result, 0) : 0;
             this.helper.hideLoading(loaderName);
         }, () => {

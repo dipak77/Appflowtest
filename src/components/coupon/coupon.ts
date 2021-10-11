@@ -25,15 +25,21 @@ export class CouponComponent {
 
     @Input() couponInfo: any = {};
     @Input() cardInfo: any = {};
+    @Input() extraTaken: boolean ;
     @Output() actionHandler: EventEmitter<any> = new EventEmitter();
 
     constructor(public translate: TranslateService,
         private cart: CartService,
         private helper: HelperService,
         private cdRef: ChangeDetectorRef) {
+            
     }
 
     applyCoupon() {
+        if(this.extraTaken){
+            alert("Can not apply promo code with exchange offer.");
+            return;
+        }
         let loader = 'COUPON';
         this.helper.showLoading(loader);
          

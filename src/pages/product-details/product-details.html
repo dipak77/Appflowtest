@@ -59,7 +59,23 @@
     <div class="padding-8"></div>
 
     <!--  Product Attributes  -->
+
+
     <div class="section-content product-info-section">
+      <div class="img-offer" *ngIf="checkExchange && translate.store.currentLang == 'en'">
+        <img
+          src="https://york.com.sa/images/uploaded/exchange-en.gif"
+          alt="Exchange Offer"
+        />
+      </div>
+
+      <div class="img-offer" *ngIf="checkExchange && translate.store.currentLang == 'ar'">
+        <img
+          src="https://york.com.sa/images/uploaded/exchange-ar.gif"
+          alt="Exchange Offer"
+        />
+      </div>
+
       <div *ngFor="let item of product.ProductAttributes">
         <div *ngIf="item.AttributeControlType == 3">
           <div class="name">{{item.Name}}</div>
@@ -68,9 +84,101 @@
             <div class="padding-8">
               <label>
                 <ion-row align-items-center>
-                  <ion-checkbox slot="end"  [(ngModel)]="product.AttributeInfo['product_attribute_'+product.Id+'_'+item.ProductAttributeId+'_'+item.Id + '_' + value.Id]"></ion-checkbox>
+                
+                  <ion-col slot="start" style="flex:0.1;" >
+                    <input type="checkbox" name="" id="" style="height:25px" *ngIf="value.Name.includes('Exchange') || value.Name.includes('وكيّف')" slot="end"  [(ngModel)]="product.AttributeInfo['product_attribute_'+product.Id+'_'+item.ProductAttributeId+'_'+item.Id + '_' + value.Id]" [id]=value.Id (change)="unCheckDisable($event)" >
+                    <input type="checkbox" name="" class="checkboxesItem" id="" style="height:25px" *ngIf="!(value.Name.includes('Exchange') || value.Name.includes('وكيّف'))" slot="end"  [(ngModel)]="product.AttributeInfo['product_attribute_'+product.Id+'_'+item.ProductAttributeId+'_'+item.Id + '_' + value.Id]" [id]=value.Id >
+                  </ion-col>
+                  <!-- <ion-checkbox  *ngIf="value.Name.includes('Exchange')" slot="end"  [(ngModel)]="product.AttributeInfo['product_attribute_'+product.Id+'_'+item.ProductAttributeId+'_'+item.Id + '_' + value.Id]" [id]=value.Id (ionChange)="unCheckDisable($event)"></ion-checkbox> -->
+                  <!-- <ion-checkbox [disabled]="true" class="checkboxesItem" *ngIf="!value.Name.includes('Exchange')"  slot="end"  [(ngModel)]="product.AttributeInfo['product_attribute_'+product.Id+'_'+item.ProductAttributeId+'_'+item.Id + '_' + value.Id]" id="value.Id"></ion-checkbox> -->
+                  
+                  <ng-container
+                  *ngIf="value.Name.includes('Exchange') || value.Name.includes('وكيّف'); then showExchange; else showOtherItems" >
+                  </ng-container>
+
                   <div class="padding-4"></div>
-                  {{value.Name}} [ {{value.PriceAdjustment}} ]
+             
+                    <ng-template #showExchange>
+                      <ion-col *ngIf="translate.store.currentLang == 'en'">
+                      <li class="offer-new" style="margin-left:6px; width: 90%;">
+                        <!-- <ion-checkbox slot="end"  [(ngModel)]="product.AttributeInfo['product_attribute_'+product.Id+'_'+item.ProductAttributeId+'_'+item.Id + '_' + value.Id]"></ion-checkbox> -->
+
+                        <div class="inner-offer">
+                        <div class="inner-info">
+                        <div class="inner-img">
+                        <img
+                        src="https://york.com.sa/images/uploaded/flash-sale.png"
+                        alt="flash sale"
+                        />
+                        </div>
+                        <div class="inner-details">
+                        <p>
+                          {{value.Name}}
+                        </p>
+                        </div>
+                        <div class="inner-tip">
+                        <div class="inner-des">
+                        <img src="https://york.com.sa/images/uploaded/help-tip.png" />
+                        </div>
+                        <div class="show-tip">
+                        <div class="show-text">
+                        <p>
+                        This offer cannot be combined with other offers. For more
+                        details
+                        <a
+                       
+                        (click) = "opneLinkEn()"
+                        >Click Here</a
+                        >
+                        </p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                      </li>
+                    </ion-col>
+
+                    <ion-col *ngIf="translate.store.currentLang == 'ar'">
+                      <li class="offer-new">
+                        <div class="inner-offer">
+                          <div class="inner-info">
+                            <div class="inner-img">
+                              <img
+                                src="https://york.com.sa/images/uploaded/flash-sale.png"
+                                alt="flash sale"
+                              />
+                            </div>
+                            <div class="inner-details" style="text-align: right">
+                              <p> {{value.Name}}</p>
+                            </div>
+                            <div class="inner-tip">
+                              <div class="inner-des">
+                                <img src="https://york.com.sa/images/uploaded/help-tip.png" />
+                              </div>
+                              <div class="show-tip" style="left: 0">
+                                <div class="show-text" style="text-align: right">
+                                  <p>
+                                    للمزيد من المعلومات
+                                    <a
+                                      target="_blank"
+                                      >اضغط هنا</a
+                                    >
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ion-col>
+                    </ng-template>
+                   
+                    <ng-template #showOtherItems>
+                      <ion-col style="margin-left:6px">
+                        {{value.Name}} [ {{value.PriceAdjustment}} ]
+                      </ion-col>
+                    </ng-template>
                 </ion-row>
               </label>
             </div>

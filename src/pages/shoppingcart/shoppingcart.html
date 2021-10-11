@@ -23,7 +23,7 @@
     <div class="padding-8"></div>
 
     <div>
-      <coupon (actionHandler)="couponActionHandler($event)" [couponInfo]="cart?.info?.DiscountBox"></coupon>
+      <coupon (actionHandler)="couponActionHandler($event)" [couponInfo]="cart?.info?.DiscountBox" [extraTaken]="exchangeTaken"></coupon>
     </div>
 
     <ion-row class="btns" align-items-center justify-content-between nowrap>
