@@ -37,7 +37,11 @@ export class CouponComponent {
 
     applyCoupon() {
         if(this.extraTaken){
-            alert("Can not apply promo code with exchange offer.");
+            if(this.translate.store.currentLang=="en"){
+                alert("Promocode cannot be applied with the replacement offer, to get the activate the Promo Code remove the replacement offer");
+            }else{
+                alert("لا يمكن جمع كود الخصم مع عرض الاستبدال، للحصول على الخصم أزل عرض الاستبدال");
+            }
             return;
         }
         let loader = 'COUPON';

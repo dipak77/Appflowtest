@@ -159,20 +159,23 @@ export class ProductDetailsComponent {
         this.helper.hideLoading();   
     }
     unCheckDisable(e){
-        var ckName = document.getElementsByClassName("checkboxesItem");
+        var ckName =<HTMLInputElement> <unknown>document.getElementsByClassName("checkboxesItem");
+        var numberOfCheckboxes = document.getElementsByClassName("checkboxesItem").length;
+        //@ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
         //console.log(id)
         // var checker1 = document.getElementById(id);
         //console.log(id)
-        console.log(e.currentTarget.checked);
+     
         if(e.currentTarget.checked){
 
-            for(let i =0; i < ckName.length; i++){
-                ckName[i].setAttribute("disabled","true");
-                ckName[i].setAttribute("checked","false");
+            for(let i =0; i < numberOfCheckboxes; i++){
+                ckName[i].checked = false;
+                console.log(ckName[i])
+                ckName[i].setAttribute("disabled","true");                
             }
         }else{
             
-            for(let i =0; i < ckName.length; i++){
+            for(let i =0; i < numberOfCheckboxes; i++){
                 ckName[i].removeAttribute("disabled");
             }
         }
