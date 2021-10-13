@@ -35,6 +35,14 @@ export class ShoppingCartItemsComponent {
         private cart: CartService,
         private wish: WishService,
         public translate: TranslateService) {
+
+            this.items.map(element => {
+                    console.log(element)
+                    if(element.AttributeInfo.includes('Exchange')){
+                        return "Exchange & Cool Offer (Delivery + Dismantling + Installation + Copper Pipes + Warranty) SR478 FREE";
+                    }
+                    return element;
+            });
     }
 
     onClickRemoveCartItem(item: CartItem, index) {

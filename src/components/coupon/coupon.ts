@@ -38,9 +38,9 @@ export class CouponComponent {
     applyCoupon() {
         if(this.extraTaken){
             if(this.translate.store.currentLang=="en"){
-                alert("Promocode cannot be applied with the replacement offer, to get the activate the Promo Code remove the replacement offer");
+                alert("Replacement offer can not be combined with any other offer or promocode");
             }else{
-                alert("لا يمكن جمع كود الخصم مع عرض الاستبدال، للحصول على الخصم أزل عرض الاستبدال");
+                alert(" رمز ترويجي لا يمكن دمج عرض الإستبدال مع أي عروض أخرى ");
             }
             return;
         }

@@ -66,6 +66,16 @@ export class ShoppingcartComponent {
                     this.exchangeTaken = true;
                 }
             });
+
+            items.map(element => {
+                if(element.AttributeInfo.includes("Stay Cool Offer")){
+                    return element.AttributeInfo = "Exchange & Cool Offer (Delivery + Dismantling + Installation + Copper Pipes + Warranty) SR<strike>478</strike> FREE";
+                }
+                if(element.AttributeInfo.includes("وكيّف")){
+                    return element.AttributeInfo = "عرض بدّل و كيّف (توصيل+ إزالة + تركيب + أنابيب نحاسية + ضمان)<strike> 478</strike> ر.س مجاناً";
+                }
+                return element;
+            });
             console.log(this.exchangeTaken)
             this.discountOnItems = items ? items.reduce((result, item) => getAmount(item.Discount) + result, 0) : 0;
             this.helper.hideLoading(loaderName);
