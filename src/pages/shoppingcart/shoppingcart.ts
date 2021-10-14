@@ -69,10 +69,10 @@ export class ShoppingcartComponent {
 
             items.map(element => {
                 if(element.AttributeInfo.includes("Stay Cool Offer")){
-                    return element.AttributeInfo = "Exchange & Cool Offer (Delivery + Dismantling + Installation + Copper Pipes + Warranty) SR<strike>478</strike> FREE";
+                    return element.AttributeInfo = "Exchange & Cool Offer (Delivery + Dismantling + Installation + Copper Pipes + Warranty) SR<strike>478</strike> <span class='free_text'>FREE</span>";
                 }
                 if(element.AttributeInfo.includes("وكيّف")){
-                    return element.AttributeInfo = "عرض بدّل و كيّف (توصيل+ إزالة + تركيب + أنابيب نحاسية + ضمان)<strike> 478</strike> ر.س مجاناً";
+                    return element.AttributeInfo = "عرض بدّل و كيّف (توصيل+ إزالة + تركيب + أنابيب نحاسية + ضمان)<strike> 478</strike> ر.س  <span class='free_text'>مجاناً</span>";
                 }
                 return element;
             });

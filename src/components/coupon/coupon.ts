@@ -38,9 +38,9 @@ export class CouponComponent {
     applyCoupon() {
         if(this.extraTaken){
             if(this.translate.store.currentLang=="en"){
-                alert("Replacement offer can not be combined with any other offer or promocode");
+                alert("Promo Code cannot be combined with Exchange & Stay Cool offer, to activate the Promo Code remove the offer.");
             }else{
-                alert(" رمز ترويجي لا يمكن دمج عرض الإستبدال مع أي عروض أخرى ");
+                alert("لا يمكن جمع كود الخصم مع عرض بدّل وكيّف، للحصول على الخصم قم بإزالة العرض");
             }
             return;
         }

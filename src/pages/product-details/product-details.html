@@ -113,7 +113,7 @@
                         </div>
                         <div class="inner-details">
                         <p>
-                          {{value.Name}} [+SAR <span style="text-decoration: line-through;">478 SAR</span> FREE ]
+                          {{value.Name.replace('Region','')}} [+<span style="text-decoration: line-through;">478 SAR</span> <span style="color: red; font-weight: bolder;">FREE</span> ]
                         </p>
                         </div>
                         <div class="inner-tip">
@@ -150,7 +150,7 @@
                               />
                             </div>
                             <div class="inner-details" style="text-align: right">
-                              <p> {{value.Name}} [ ر.س مجاناً<span style="text-decoration: line-through;"> 478+</span>]</p>
+                              <p> {{value.Name.replace('منطقة', '')}} [<span style="font-weight: bolder; color: red; "> مجاناً</span><span style="text-decoration: line-through;">+ 478</span> ر.س]</p>
                             </div>
                             <div class="inner-tip">
                               <div class="inner-des">
