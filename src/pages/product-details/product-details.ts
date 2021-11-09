@@ -64,7 +64,8 @@ export class ProductDetailsComponent {
     isLoading: boolean = false;
     product: any;
     selectedInfoIndex: number;
-    checkExchange : boolean = false;
+    //checkExchange : boolean = false;
+    checkPipes : boolean = false;
     something = "disabled";
     constructor(
         public navParams: NavParams,
@@ -108,8 +109,8 @@ export class ProductDetailsComponent {
             if(this.product.ProductAttributes[0]){
                 let values = this.product.ProductAttributes[0].Values;
                 values.forEach(element => {
-                    if(element.Name.includes('Exchange') || element.Name.includes('وكيّف')){
-                        this.checkExchange = true;
+                    if(element.Name.includes('Pipes') || element.Name.includes('أنابيب')){
+                        this.checkPipes = true;
                     }
                 });
             }
@@ -159,30 +160,16 @@ export class ProductDetailsComponent {
         this.helper.hideLoading();   
     }
     unCheckDisable(e){
-        var ckName =<HTMLInputElement> <unknown>document.getElementsByClassName("checkboxesItem");
-        var numberOfCheckboxes = document.getElementsByClassName("checkboxesItem").length;
-        //@ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
-        //console.log(id)
-        // var checker1 = document.getElementById(id);
-        //console.log(id)
-     
-        if(e.currentTarget.checked){
 
-            for(let i =0; i < numberOfCheckboxes; i++){
-                ckName[i].checked = false;
-                console.log(ckName[i])
-                ckName[i].setAttribute("disabled","true");                
-            }
+        var ckName =<HTMLInputElement> <unknown>document.getElementById("pipes_checkbox");     
+        if(e.currentTarget.checked){    
+                ckName.style.display = "block";
+                document.getElementById("pipes_col").style.display = "block";         
         }else{
-            
-            for(let i =0; i < numberOfCheckboxes; i++){
-                ckName[i].removeAttribute("disabled");
-            }
+                ckName.checked = false;
+                ckName.style.display = "none";
+                document.getElementById("pipes_col").style.display = "none";
         }
-
-    
-
-        console.log(ckName)
     }
 
     showSliderFullScreen() {
@@ -233,3 +220,31 @@ export class ProductDetailsComponent {
         window.open(encodeURI(url), '_system', 'location=yes')
     }
 }
+
+
+// unCheckDisable(e){
+//     var ckName =<HTMLInputElement> <unknown>document.getElementsByClassName("checkboxesItem");
+//     var numberOfCheckboxes = document.getElementsByClassName("checkboxesItem").length;
+//     //@ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
+//     //console.log(id)
+//     // var checker1 = document.getElementById(id);
+//     //console.log(id)
+ 
+//     if(e.currentTarget.checked){
+
+//         for(let i =0; i < numberOfCheckboxes; i++){
+//             ckName[i].checked = false;
+//             console.log(ckName[i])
+//             ckName[i].setAttribute("disabled","true");                
+//         }
+//     }else{
+        
+//         for(let i =0; i < numberOfCheckboxes; i++){
+//             ckName[i].removeAttribute("disabled");
+//         }
+//     }
+
+
+
+//     console.log(ckName)
+// }
