@@ -68,8 +68,8 @@ export const config: AppConfigInterface = {
   //new Staging URls applicationBaseUrl - http://20.50.18.127:2020/api
   // New crmBaseUrl - http://20.50.18.127:4080/api
   applicationBaseUrl: isMobileAppMode
-       ? "http://20.50.18.127:2020/api"
-     : "http://20.50.18.127:2020/api",
+       ? "http://20.50.18.127:2050/api"
+     :  "http://20.50.18.127:2050/api",
 
    
   crmBaseUrl: isMobileAppMode 

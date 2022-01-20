@@ -142,6 +142,10 @@ export class CartService {
         this.orderTotal = {};
     }
 
+    getNCBCodeList(){
+        return this.http.doGet(config.applicationBaseUrl + '/ShoppingCart/getpromocodemapping');
+    }
+
     getCartItems(forceLoading: boolean = false): Observable<CartItem[]> {
 
         return Observable.create((observer) => {
@@ -177,12 +181,12 @@ export class CartService {
         });
     }
 
-    applyDiscountCoupon(code,card="") {
+    applyDiscountCoupon(code,card="",bankName="") {
 
         if(card!=undefined && card!=null && card!="")
         {
             return Observable.create((observer) => {
-                this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon?cardNumber='+card, { value: code }).subscribe((res: any) => {
+                this.http.doPost(config.applicationBaseUrl + '/ShoppingCart/ApplyDiscountCoupon?cardNumber='+card+'&bankName='+bankName, { value: code }).subscribe((res: any) => {
                     AnalyticsHelper.logEvent("Promocode", {
                         promocode: code
                     });
