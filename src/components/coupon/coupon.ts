@@ -25,6 +25,7 @@ export class CouponComponent {
     showcardInput: boolean = false;
     promoCodes = [];
     bankName="";
+    errorMessage = "";
 
     @Input() couponInfo: any = {};
     @Input() cardInfo: any = {};
@@ -111,7 +112,6 @@ export class CouponComponent {
         let seriesNumber = [];
         let max:number;
         let min:number;
-        let errroMessage:string;
         Object.entries(bankData).forEach(element => {
             let checkCoupon = false;
             let promocodes = element[1]['PromoCode'];
@@ -126,7 +126,7 @@ export class CouponComponent {
                 seriesNumber = [...element[1]['Validate']['startSeries']];
                 max = element[1]['Validate']['Max'];
                 min = element[1]['Validate']['Min'];
-                errroMessage = element[1]['Validate']['ErrorMessage'];
+                this.errorMessage = element[1]['Validate']['ErrorMessage'];
                 return null;
             }
         });
@@ -135,7 +135,6 @@ export class CouponComponent {
         if(value!=null && value!=undefined)
         {
             let seriescheck = false;
-            debugger
             seriesNumber.forEach(element => {
                 let valueStr = String(value);
                 if(parseInt(valueStr.substring(0,2)) == element){
@@ -152,8 +151,7 @@ export class CouponComponent {
             }
             else
             {
-                console.log(errroMessage);
-                this.isValidCard=true;
+                this.isValidCard=false;
             }
         }
       }
