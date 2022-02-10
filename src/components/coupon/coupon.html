@@ -10,9 +10,9 @@
   </div>
   <div *ngIf="showcardInput">
     <div>
-      <input type="number" min="6" max="25" placeholder="{{'COUPON.Card' | translate}}" required  [(ngModel)]="card" (ngModelChange)="ValidatedCard($event)" />
+      <input type="number" min="6" max="25" [placeholder]="placeHolder" required  [(ngModel)]="card" (ngModelChange)="ValidatedCard($event)" />
     </div>
-    <div *ngIf="!isValidCard && card > 1">
+    <div *ngIf="showError && card > 1">
       <!-- <p color="danger"  style="color: rgb(248, 0, 0); font-size: 80%;"><b>{{"COUPON.CardValidationMsg" | translate}} </b></p> -->
       <p color="danger"  style="color: rgb(248, 0, 0); font-size: 80%;"><b>{{errorMessage}} </b></p>
     </div>

@@ -4,7 +4,7 @@ import { CartService } from '../../providers/cart.service';
 import { HelperService, AnalyticsHelper } from '../../core/services/helper.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ValueTransformer } from '@angular/compiler/src/util';
-import * as bankData from './PromoCodeReusableDetails.json';
+// import * as bankData from './PromoCodeReusableDetails.json';
 /**
  * Generated class for the ShoppingCartTotalComponent component.
  *
@@ -21,12 +21,15 @@ export class CouponComponent {
     isCoupanEnter:  boolean = false;
     showCouponInput: boolean = false;
     isValidCard: boolean = false;
+    showError: boolean = false;
     card: string = '';
     showcardInput: boolean = false;
     promoCodes = [];
     bankName="";
     errorMessage = "";
-
+    bankData= "";
+    minCardNumber:number = 6;
+    placeHolder = "";
     @Input() couponInfo: any = {};
     @Input() cardInfo: any = {};
     @Input() extraTaken: boolean ;
@@ -36,9 +39,11 @@ export class CouponComponent {
         private cart: CartService,
         private helper: HelperService,
         private cdRef: ChangeDetectorRef,
-        private SimpleHttp:  SimpleHttp) {
+        private SimpleHttp:  SimpleHttp,
+        ) {
            
         this.cart.getNCBCodeList().subscribe((res)=>{
+            this.bankData = res;
             Object.entries(res).forEach(element => {
                 this.promoCodes = [...this.promoCodes, ...element[1]['PromoCode']];
                 });
@@ -91,7 +96,27 @@ export class CouponComponent {
         this.coupon=this.coupon.toUpperCase();
         //if(this.coupon.toUpperCase()=="NCB21")
         if(this.promoCodes.includes(this.coupon.toUpperCase()))
-        {
+        {   
+            debugger
+            Object.entries(this.bankData).forEach(element => {
+                let checkCoupon = false;
+                let promocodes = element[1]['PromoCode'];
+                promocodes.forEach(el => {
+                    if(el == this.coupon){
+                        checkCoupon = true;
+                        return null;
+                    }
+                });
+                if(checkCoupon){
+                    if(this.translate.store.currentLang == "ar"){
+                        this.placeHolder = element[1]['Validate']['ErrorMessage'][3];
+                    }else{
+                        this.placeHolder = element[1]['Validate']['ErrorMessage'][2];
+                    }
+                    return null;
+                }
+            });
+
             this.card=undefined;
             this.showcardInput = true;
             this.isCoupanEnter=false;
@@ -108,11 +133,10 @@ export class CouponComponent {
     ValidatedCard(value){
         //manually launch change detection
         this.cdRef.detectChanges();
-        
         let seriesNumber = [];
         let max:number;
         let min:number;
-        Object.entries(bankData).forEach(element => {
+        Object.entries(this.bankData).forEach(element => {
             let checkCoupon = false;
             let promocodes = element[1]['PromoCode'];
             promocodes.forEach(el => {
@@ -126,7 +150,11 @@ export class CouponComponent {
                 seriesNumber = [...element[1]['Validate']['startSeries']];
                 max = element[1]['Validate']['Max'];
                 min = element[1]['Validate']['Min'];
-                this.errorMessage = element[1]['Validate']['ErrorMessage'];
+                if(this.translate.store.currentLang == "ar"){
+                    this.errorMessage = element[1]['Validate']['ErrorMessage'][1];
+                }else{
+                    this.errorMessage = element[1]['Validate']['ErrorMessage'][0];
+                }
                 return null;
             }
         });
@@ -142,18 +170,30 @@ export class CouponComponent {
                 }
 
             });
+            
 
             if(String(value).length >= min && String(value).length <= max && seriescheck)
             {
                 this.isValidCard=true;
                 this.isCoupanEnter=true;
+                this.showError=false;
                 //console.log(this.isValidCard);
             }
             else
-            {
-                this.isValidCard=false;
+            {   
+               
+              if(String(value).length > min){
+                this.showError=true;
+                this.isValidCard = false;
+                this.isCoupanEnter=false;
+              }
+              
             }
+        }else{
+            this.isValidCard = false;
+            this.isCoupanEnter=false;
         }
+       
       }
 
     removeCoupon(couponId) {
