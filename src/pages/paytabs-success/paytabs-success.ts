@@ -61,12 +61,12 @@ export class PaytabsSuccessPage {
 
   rajhiRedirect() {
         this.helper.showLoading(this.loading);
-        this.inAppBrowser.create(this.rajhiBank);
+        this.inAppBrowser.create(this.rajhiBank, '_blank', 'location=yes');
         this.helper.hideLoading(this.loading);    
    }
    snbRedirect(){
         this.helper.showLoading(this.loading);
-        this.inAppBrowser.create(this.SNBurl);
+        this.inAppBrowser.create(this.SNBurl, '_blank', 'location=yes');
         this.helper.hideLoading(this.loading); 
    }
 

@@ -14,11 +14,11 @@
     },
     "Submit": {
       "en": "Submit",
-      "ar": "ارسال"
+      "ar": "إرسال"
     },
     "SuccessMsg": {
       "en": "Your request submitted successfully",
-      "ar": "تم ارسال طلبك بنجاح"
+      "ar": "تم إرسال طلبك بنجاح"
     },
     "InterestedArea": {
         "en": "Interested Area",

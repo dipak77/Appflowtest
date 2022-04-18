@@ -10,7 +10,7 @@ export default {
     },
     "CheckoutAsGuest": {
       "en": "GUEST CHECKOUT",
-      "ar": "اتمام الشراء كضيف"
+      "ar": "إتمام الشراء كضيف"
     },
     "RegisterToCheckout": {
       "en": "Register to CHECKOUT",

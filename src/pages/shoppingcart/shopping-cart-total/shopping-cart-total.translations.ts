@@ -18,7 +18,7 @@
         },
         "Total": {
             "en": "Total",
-            "ar": "الاجمالي"
+            "ar": "الإجمالي"
         },
         "Unknown": {
             "en": "Calculated during Checkout",

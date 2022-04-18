@@ -64,6 +64,7 @@
         {{"CHECKOUT.SelectPaymentType" | translate}}
         <span *ngIf="!selPaymentType" style="color: red">*</span>
       </div>
+      
       <ion-list radio-group required [(ngModel)]="selPaymentType" (ionChange)="onDDLPaymentTypeChange($event)"
         name="paymentType">
 

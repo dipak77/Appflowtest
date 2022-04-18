@@ -6,7 +6,7 @@
     },
     "alSalem": {
       "en": "Al Salem Johnson Controls",
-      "ar": "ال سالم جونسون كنترولز"
+      "ar": "آل سالم جونسون كنترولز"
     },
     "ContactUs": {
       "en": "Contact Us",

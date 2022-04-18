@@ -2,7 +2,7 @@
   "PAYMENT": {
       "ShowOrderDetails": {
           "en": "Show Order Details",
-          "ar":"اظهار تفاصيل الطلب"
+          "ar":"إظهار تفاصيل الطلب"
       },
       "OrderId": {
           "en": "Order ID",
@@ -26,11 +26,11 @@
       },
       "SAR": {
           "en": "SAR",
-          "ar": "رس"
+          "ar": "ر.س."
       },
       "OrderCreatedSuccessfully":{
         "en": "Your order has been successfully created!",
-        "ar": "تم انشاء طلبك بنجاح!"
+        "ar": "تم إنشاء طلبك بنجاح!"
       },
       "OrderProceedOnceThePaymentDone":{
           "en":"Your order will be processed once the payment is done",
@@ -50,15 +50,15 @@
       },
       "Bank":{
           "en":"Bank Name: Arab National Bank",
-          "ar":"البنك العربي الوطني"
+          "ar":"اسم البنك: البنك العربي الوطني"
       },
       "AccountNumber":{
           "en":"Account Number: 0108 0039 8946 0033",
-         "ar":"رقم الحساب : 0108003989460033 "
+         "ar":"رقم الحساب: 0108003989460033 "
       },
       "IBAN":{
           "en":"IBAN: SA 873 040 010 800 3989 460033",
-          "ar":"الأيبان : SA8730400108003989460033"
+          "ar":"الآيبان: SA8730400108003989460033"
       }
   }
 }

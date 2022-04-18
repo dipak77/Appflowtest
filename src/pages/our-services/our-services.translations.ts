@@ -176,11 +176,11 @@ export default {
       },
       ACType: {
         en: "AC Type",
-        ar: "نوع المكيف",
+        ar: "نوع المنتج",
       },
       SelectACType: {
         en: "Please Select AC Type",
-        ar: " اختر نوع المكيف",
+        ar: " اختر نوع المنتج",
       },
       ProjectCode: {
         en: "Project Code",
@@ -252,7 +252,7 @@ export default {
       },
       Submit: {
         en: "Submit",
-        ar: "ارسال",
+        ar: "إرسال",
       },
       SubmitSuccessfully: {
         en: "Service Submitted Successfully",
@@ -338,7 +338,7 @@ export default {
       },
       Submit: {
         en: "Submit",
-        ar: "ارسال",
+        ar: "إرسال",
       },
       SubmitSuccessfully: {
         en: "Complaint Submitted Successfully.",

@@ -384,10 +384,10 @@ export class CheckoutComponent {
     payWithPayTabs(paymentInfo) {
         
         this.helper.showLoading("PAYTABS");
-        // this.setOrderStatus(paymentInfo, 'success', {});
-        // this.helper.hideLoading("PAYTABS");
-        //  console.log(paymentInfo);
-        let promise = payTabs.instance.gotoPayment(paymentInfo);
+        this.setOrderStatus(paymentInfo, 'success', {});
+        this.helper.hideLoading("PAYTABS");
+         console.log(paymentInfo);
+        /*let promise = payTabs.instance.gotoPayment(paymentInfo);
         promise.then(
             paymentResultFields => {
                 this.helper.hideLoading("PAYTABS");
@@ -405,6 +405,7 @@ export class CheckoutComponent {
 
                 this.setOrderStatus(paymentInfo, 'fail', paymentResultFields);
             });
+            */
     }
 
     setOrderStatus(paymentInfo = { amount: 0, reference_no: "" }, status: string = 'success', paymentResultFields = {}) {
