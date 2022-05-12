@@ -18,7 +18,7 @@ export default {
     },
     "WhatDoYouNeedToTrack": {
       "en": "What Do You Need to Track?",
-      "ar": "ماذا تريد ان تتابع؟"
+      "ar": "ماذا تريد أن تتابع؟"
     },
     "ChooseType": {
       "en": "Choose Type",

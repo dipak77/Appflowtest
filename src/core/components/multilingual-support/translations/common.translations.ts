@@ -62,7 +62,7 @@ export default {
     },
     "cancel": {
       "en": "Cancel",
-      "ar": "الغاء"
+      "ar": "إلغاء"
     }
   }
 };

@@ -2,7 +2,7 @@
     "CARTTOTAL": {
         "Subtotal": {
             "en": "Subtotal",
-            "ar": "المجموع"
+            "ar": "الإجمالي"
         },
         "Shipping": {
             "en": "Shipping",

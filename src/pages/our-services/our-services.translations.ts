@@ -272,7 +272,7 @@ export default {
       },
       ProjectCanceled: {
         en: "this project is cancelled",
-        ar: "لقد تم الغاء هذا المشروع",
+        ar: "لقد تم إلغاء هذا المشروع",
       },
       ProjectEndBeforeSixtyDays: {
         en: "this project will end in less than 60 days",

@@ -10,7 +10,7 @@
     },
     "Cancel": {
       "en": "Cancel",
-      "ar": "الغاء"
+      "ar": "إلغاء"
     },
     "Choose": {
       "en": "Choose Location",

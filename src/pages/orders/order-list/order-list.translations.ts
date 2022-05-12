@@ -18,7 +18,7 @@
         },
         "Total": {
             "en": "Total",
-            "ar": "المجموع"
+            "ar": "الإجمالي"
         },
         "Details": {
             "en": "Details",
