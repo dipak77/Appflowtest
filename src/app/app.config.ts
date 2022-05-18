@@ -68,13 +68,13 @@ export const config: AppConfigInterface = {
   //new Staging URls applicationBaseUrl - http://20.50.18.127:2020/api
   // New crmBaseUrl - http://20.50.18.127:4080/api
   applicationBaseUrl: isMobileAppMode
-       ? "http://20.50.18.127:2050/api"
-     :  "http://20.50.18.127:2050/api",
+       ? "https://york.com.sa/api"
+     :  "https://york.com.sa/api",
 
    
   crmBaseUrl: isMobileAppMode 
-  ? "http://104.46.43.15:8080/api"  
-    : "http://104.46.43.15:8080/api", 
+  ? "https://api.york.com.sa/api"  
+    : "https://api.york.com.sa/api", 
     
   developmentMode: false,
   NST_TOKEN:

@@ -23,6 +23,7 @@ export class PaytabsSuccessPage {
   loading = 'success_page';
   rajhiBank = '';
   SNBurl = '';
+  Riyadurl = '';
   @Input() order_id: any;
   private orderNumber : any;
   constructor(public navCtrl: NavController, private helper: HelperService,
@@ -33,9 +34,11 @@ export class PaytabsSuccessPage {
     if(this.translate.store.currentLang == "ar"){
       this.rajhiBank = 'https://www.alrajhibank.com.sa/ar/personal/accounts-and-cards/credit-card-offers/tasaheal-program';
       this.SNBurl = 'https://www.alahli.com/ar-sa/personal-banking/credit-cards/Pages/Smart-Payment-Plan.aspx';
+      this.Riyadurl = 'https://www.riyadbank.com/ar/personal-banking/credit-cards/qasset-installment-offers';
     }else{
       this.rajhiBank = 'https://www.alrajhibank.com.sa/en/personal/accounts-and-cards/credit-card-offers/tasaheal-program';
       this.SNBurl = 'https://www.alahli.com/en-us/personal-banking/credit-cards/Pages/Smart-Payment-Plan.aspx';
+      this.Riyadurl = 'https://www.riyadbank.com/en/personal-banking/credit-cards/qasset-installment-offers';
     }
 
     this.custService.getCustomerOrderDetails(this.order_id).subscribe((result) => {
@@ -67,6 +70,11 @@ export class PaytabsSuccessPage {
    snbRedirect(){
         this.helper.showLoading(this.loading);
         this.inAppBrowser.create(this.SNBurl, '_blank', 'location=yes');
+        this.helper.hideLoading(this.loading); 
+   }
+   riyadRedirect(){
+        this.helper.showLoading(this.loading);
+        this.inAppBrowser.create(this.Riyadurl, '_blank', 'location=yes');
         this.helper.hideLoading(this.loading); 
    }
 
