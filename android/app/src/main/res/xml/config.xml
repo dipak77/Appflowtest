@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <access origin="*" />
+  
+  <feature name="Adjust">
+    <param name="android-package" value="com.adjust.sdk.AdjustCordova"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  <feature name="CordovaHttpPlugin">
+    <param name="android-package" value="com.silkimen.cordovahttp.CordovaHttpPlugin"/>
+  </feature>
+
+  <feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device"/>
+  </feature>
+
+  <feature name="File">
+    <param name="android-package" value="org.apache.cordova.file.FileUtils"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  <feature name="Geolocation">
+    <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
+  </feature>
+
+  <feature name="InAppBrowser">
+    <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
+  </feature>
+
+  <feature name="NetworkStatus">
+    <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager"/>
+  </feature>
+
+  <feature name="StatusBar">
+    <param name="android-package" value="org.apache.cordova.statusbar.StatusBar"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  <feature name="Webserver">
+    <param name="android-package" value="org.apache.cordova.plugin.Webserver"/>
+  </feature>
+
+  <feature name="Whitelist">
+    <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin"/>
+    <param name="onload" value="true"/>
+  </feature>
+
+  
+  <preference name="ScrollEnabled" value="true" />
+  <preference name="BackupWebStorage" value="none" />
+  <preference name="SplashMaintainAspectRatio" value="true" />
+  <preference name="FadeSplashScreenDuration" value="0" />
+  <preference name="SplashShowOnlyFirstTime" value="false" />
+  <preference name="SplashScreen" value="screen" />
+  <preference name="SplashScreenDelay" value="1000" />
+  <preference name="FadeSplashScreen" value="false" />
+  <preference name="Orientation" value="portrait" />
+  <preference name="Fullscreen" value="false" />
+  <preference name="DisallowOverscroll" value="true" />
+  <preference name="ShowSplashScreenSpinner" value="false" />
+  <preference name="InAppBrowserStatusBarStyle" value="lightcontent" />
+  <preference name="StatusBarOverlaysWebView" value="false" />
+  <preference name="WKWebViewOnly" value="true" />
+  <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+  <preference name="StatusBarStyle" value="lightcontent" />
+  <preference name="StatusBarDefaultScrollToTop" value="false" />
+  <preference name="WKSuspendInBackground" value="false" />
+  <preference name="loadUrlTimeoutValue" value="60000" />
+  <preference name="AutoHideSplashScreen" value="true" />
+  <preference name="StatusBarBackgroundColor" value="#04558a" />
+  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+</widget>
