@@ -65,16 +65,16 @@ export const config: AppConfigInterface = {
     */// http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
     //: "http://87.101.136.180:53234/api", // http://10.153.0.175:53234/api  or http://87.101.136.180:53234/api
   // Using API Proxy for local development (check package.json on how to start it in scripts section)
-  //new Staging URls applicationBaseUrl - http://20.50.18.127:2020/api
-  // New crmBaseUrl - http://20.50.18.127:4080/api
+  //new Staging URls applicationBaseUrl - http://20.50.18.127:2050/api
+  // New crmBaseUrl - http://104.46.43.15:8080/api
   applicationBaseUrl: isMobileAppMode
-       ? "https://york.com.sa/api"
-     :  "https://york.com.sa/api",
+       ? "http://20.50.18.127:2050/api"
+     :  "http://20.50.18.127:2050/api",
 
    
   crmBaseUrl: isMobileAppMode 
-  ? "https://api.york.com.sa/api"  
-    : "https://api.york.com.sa/api", 
+  ? "http://104.46.43.15:8080/api"  
+    : "http://104.46.43.15:8080/api", 
     
   developmentMode: false,
   NST_TOKEN:

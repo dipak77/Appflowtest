@@ -1,0 +1,290 @@
+[
+    {
+     "EN": "Residential",
+     "AR": null,
+     "Department": null,
+     "Warranty": null,
+     "Fees if non warranty": null,
+     "en_message": null,
+     "ar_message": null
+    },
+    {
+     "EN": "High Wall Split",
+     "AR": "سبليت",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Window Room Air Conditioner RAC",
+     "AR": "شباك",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Free Stand",
+     "AR": "دولابي",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Cassette",
+     "AR": "كاسيت",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Floor Ceiling",
+     "AR": "أرضي\/سقفي",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Ducted Split \/Concealed lower than 6 tons",
+     "AR": "مخفي\/دكت (اصغر من 6 طن)",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Ducted Split \/Concealed more than 6 tons",
+     "AR": "مخفي\/دكت (اكبر من 6 طن)",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Packaged Units\/Rooftop Units",
+     "AR": "مركزي مدمج",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "VRF",
+     "AR": "وحدة تبريد متغيرة التدفق",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "DX AHU",
+     "AR": "وحدة مناولة الهواء - وحدة تمدد مباشر ",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Air Curtain",
+     "AR": "ستارة هوائية ",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": null,
+     "AR": null,
+     "Department": null,
+     "Warranty": null,
+     "Fees if non warranty": null,
+     "en_message": null,
+     "ar_message": null
+    },
+    {
+     "EN": "Commercial",
+     "AR": null,
+     "Department": null,
+     "Warranty": null,
+     "Fees if non warranty": null,
+     "en_message": null,
+     "ar_message": null
+    },
+    {
+     "EN": "High Wall Split",
+     "AR": "سبليت",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Window Room Air Conditioner RAC",
+     "AR": "شباك",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Free Stand",
+     "AR": "دولابي",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Cassette",
+     "AR": "كاسيت",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Floor Ceiling",
+     "AR": "أرضي\/سقفي",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Ducted Split \/Concealed lower than 6 tons",
+     "AR": "مخفي\/دكت (اصغر من 6 طن)",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Ducted Split \/Concealed more than 6 tons",
+     "AR": "مخفي\/دكت (اكبر من 6 طن)",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Packaged Units\/Rooftop Units",
+     "AR": "مركزي مدمج",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "VRF",
+     "AR": "وحدة تبريد متغيرة التدفق",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "DX AHU",
+     "AR": "وحدة مناولة الهواء - وحدة تمدد مباشر ",
+     "Department": "DP&amp;C",
+     "Warranty": "1",
+     "Fees if non warranty": "383 SAR",
+     "en_message": "You will be charged 383 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 383 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    },
+    {
+     "EN": "Chiller-Air Cooled",
+     "AR": "شيلر -  تبريد ذات مكثف مبرد بالهواء",
+     "Department": "ESG",
+     "Warranty": "1",
+     "Fees if non warranty": "Depends",
+     "en_message": "No Message",
+     "ar_message": "لا توجد رسالة"
+    },
+    {
+     "EN": "Chiller-Water Cooled Centrifugal",
+     "AR": "شيلر - التبريد بواسطة المياه الباردة",
+     "Department": "ESG",
+     "Warranty": "1",
+     "Fees if non warranty": "Depends",
+     "en_message": "No Message",
+     "ar_message": "لا توجد رسالة"
+    },
+    {
+     "EN": "AHU- Air Handling Unit",
+     "AR": "وحدة مناولة الهواء",
+     "Department": "ESG",
+     "Warranty": "1",
+     "Fees if non warranty": "Depends",
+     "en_message": "No Message",
+     "ar_message": "لا توجد رسالة"
+    },
+    {
+     "EN": "FCU - Fan Coil Unit",
+     "AR": "وحدة لفائف مروحة",
+     "Department": "ESG",
+     "Warranty": "1",
+     "Fees if non warranty": "Depends",
+     "en_message": "No Message",
+     "ar_message": "لا توجد رسالة"
+    },
+    {
+     "EN": "CRAC- Computer Room AC Unit",
+     "AR": "وحدة تكييف غرف الحاسب الآلي",
+     "Department": "ESG",
+     "Warranty": "1",
+     "Fees if non warranty": "Depends",
+     "en_message": "No Message",
+     "ar_message": "لا توجد رسالة"
+    },
+    {
+     "EN": "Condensing Unit",
+     "AR": "المكثفات ووحدات التكثيف",
+     "Department": "ESG",
+     "Warranty": "1",
+     "Fees if non warranty": "Depends",
+     "en_message": "No Message",
+     "ar_message": "لا توجد رسالة"
+    },
+    {
+     "EN": "Surgical Hygienic",
+     "AR": "وحدة معالجة الهواء لغرف العمليات",
+     "Department": "ESG",
+     "Warranty": "1",
+     "Fees if non warranty": "Depends",
+     "en_message": "No Message",
+     "ar_message": "لا توجد رسالة"
+    },
+    {
+     "EN": "Air Curtain",
+     "AR": "ستارة هوائية ",
+     "Department": "DP&amp;C",
+     "Warranty": "2",
+     "Fees if non warranty": "274 SAR",
+     "en_message": "You will be charged 274 SAR inspection fees + spare parts replacement value, if needed, at the time of the visit, as this unit is out of warranty.",
+     "ar_message": "عند  الزيارة سيتم تحصيل 274 ريال سعودي مصاريف فحص + مصاريف تغيير قطع الغيار المطلوبة ,  لأن هذه الوحدة خارج الضمان."
+    }
+   ]

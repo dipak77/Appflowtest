@@ -39,6 +39,19 @@
 
     <ion-row *ngIf="showCityAndRegion">
       <ion-col class="state">
+
+        <ion-label class="app-label required">{{"ADDRESS.District" | translate}}</ion-label>
+
+        <ion-select  [(ngModel)]="valueModel.District" name="valueModel.Distric">
+          <ion-option *ngFor="let item of districts" [value]="item">{{ item }}</ion-option>
+        </ion-select>
+        <!-- <autocomplete  [items]="districts" [(value)]="valueModel.Distric"></autocomplete> -->
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="showCityAndRegion">
+      <ion-col class="state">
         <ion-label class="app-label required">{{"USERINFO.City" | translate}}</ion-label>
         <ion-select [disabled]="!valueModel.Region" okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}"
           placeholder="{{'USERINFO.CityPlaceholder' | translate}}" multiple="false" name="city" required

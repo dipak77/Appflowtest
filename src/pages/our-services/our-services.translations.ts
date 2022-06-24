@@ -182,6 +182,10 @@ export default {
         en: "Please Select AC Type",
         ar: " اختر نوع المنتج",
       },
+      SelectACTypeYork: {
+        en: "Please Select if AC Type is York",
+        ar: " اختر نوع المنتج",
+      },
       ProjectCode: {
         en: "Project Code",
         ar: "كود المشروع",
@@ -245,6 +249,22 @@ export default {
       InvoiceDate: {
         en: "Invoice Date",
         ar: "تاريخ الشراء",
+      },
+      SerialNumber: {
+        en: "Serial Number",
+        ar: "رقم سري",
+      },
+      InvoiceNo: {
+        en: "Invoice No.",
+        ar: "رقم الفاتورة",
+      },
+      ACTypeYork: {
+        en: "Is AC type York?",
+        ar: "هو نوع AC يورك",
+      },
+      NumberOfUnits: {
+        en: "Number of Units",
+        ar: "عدد الوحدات",
       },
       Description: {
         en: "Description",

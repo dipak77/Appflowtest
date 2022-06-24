@@ -6,7 +6,7 @@ import { HelperService } from '../../../core/services/helper.service';
 import { TranslateService } from '@ngx-translate/core';
 
 import { forkJoin } from 'rxjs';
-
+import ACwarrantyData from './warranty_details.json';
 /**
  * Generated class for the ServiceRequestComponent component.
  *
@@ -25,7 +25,16 @@ export class ServiceRequestComponent {
     isUserInfoValid: boolean = false;
     acIssues: any;
     contractType: any;
-
+    acWarrantyData = ACwarrantyData;
+    yearsOfWarranty: number;
+    showErrorMessage: boolean = false;
+    warrantyErrorMessage: string;
+    acWarrantyInfo : any;
+    department: any;
+    acTypeYork : boolean;
+    enableSerialNumber : boolean =  false;
+    showDPCErrorMsg : boolean = false;
+    disableButton : boolean = true;
     constructor(
         private nav: NavController,
         private helper: HelperService,
@@ -43,7 +52,58 @@ export class ServiceRequestComponent {
     onLanguageChange() {
         this.fetchPageData();
     }
-
+    acTypeChanged(id){
+        let ac = this.ACTypes.filter(el=>el.id == id)[0].name;
+        
+        this.acWarrantyInfo = this.acWarrantyData.filter(el=>el.EN == ac)[0];
+        this.yearsOfWarranty = parseInt(this.acWarrantyInfo.Warranty); 
+        this.department = this.acWarrantyInfo.Department;
+        this.checkAcWarranty();
+    }
+    acTypeYorkChanged(val){
+        if(val == "yes"){
+            this.acTypeYork = true;
+        }else{
+            this.acTypeYork = false;
+        }
+        this.checkAcWarranty();
+    }
+    checkAcWarranty(){
+        if(this.data.jci_purchasedate && this.yearsOfWarranty){
+            const date1:any = new Date(this.data.jci_purchasedate);
+            const date2:any = new Date();
+            const diffTime = Math.abs(date2 - date1);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if(this.yearsOfWarranty * 365 < diffDays){
+                this.showErrorMessage = true;
+                console.log(this.department);
+                if(!this.acTypeYork && this.department == "DP&amp;C" ){
+                   this.showDPCErrorMsg = true;
+                   this.disableButton = true;
+                }else{
+                    this.showDPCErrorMsg = false;
+                   this.disableButton = false;
+                    if(this.department == "ESG" && this.acTypeYork){
+                        this.showErrorMessage = false;
+                        this.enableSerialNumber = true;
+                        this.warrantyErrorMessage = '';
+                    }else{
+                        this.enableSerialNumber = false;
+                        if(this.translate.store.currentLang=="en"){
+                            this.warrantyErrorMessage = this.acWarrantyInfo.en_message;
+                        }else{
+                            this.warrantyErrorMessage = this.acWarrantyInfo.ar_message;
+                        }
+                    }
+                    
+                }
+                
+                
+            }else{
+                this.showErrorMessage = false;
+            }
+        }
+    }
     fetchPageData() {
         const loader = 'CASEREQUEST';
         this.helper.showLoading(loader);
