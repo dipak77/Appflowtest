@@ -252,7 +252,7 @@ export default {
       },
       SerialNumber: {
         en: "Serial Number",
-        ar: "رقم سري",
+        ar: "الرقم التسلسلي",
       },
       InvoiceNo: {
         en: "Invoice No.",

@@ -24,6 +24,10 @@
             "en": "City",
             "ar": "المدينة"
         },
+        "District": {
+            "en": "District",
+            "ar": "منطقة"
+        },
         "Region": {
             "en": "Region",
             "ar": "المنطقة"

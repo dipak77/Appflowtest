@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import { RequestService } from '../../../providers/request.service';
 import { HelperService } from '../../../core/services/helper.service';
 import { TranslateService } from '@ngx-translate/core';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { forkJoin } from 'rxjs';
 import ACwarrantyData from './warranty_details.json';
 /**
@@ -34,12 +34,14 @@ export class ServiceRequestComponent {
     acTypeYork : boolean;
     enableSerialNumber : boolean =  false;
     showDPCErrorMsg : boolean = false;
-    disableButton : boolean = true;
+    disableButton : boolean = false;
+    loading = 'success_page';
     constructor(
         private nav: NavController,
         private helper: HelperService,
         private requestService: RequestService,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private inAppBrowser: InAppBrowser 
         ) {
     }
 
@@ -69,6 +71,8 @@ export class ServiceRequestComponent {
         this.checkAcWarranty();
     }
     checkAcWarranty(){
+        console.log("date changes")
+        debugger
         if(this.data.jci_purchasedate && this.yearsOfWarranty){
             const date1:any = new Date(this.data.jci_purchasedate);
             const date2:any = new Date();
@@ -77,6 +81,7 @@ export class ServiceRequestComponent {
             if(this.yearsOfWarranty * 365 < diffDays){
                 this.showErrorMessage = true;
                 console.log(this.department);
+                console.log(this.acTypeYork);
                 if(!this.acTypeYork && this.department == "DP&amp;C" ){
                    this.showDPCErrorMsg = true;
                    this.disableButton = true;
@@ -100,10 +105,28 @@ export class ServiceRequestComponent {
                 
                 
             }else{
+                console.log("In else condition")
                 this.showErrorMessage = false;
+                this.disableButton = false;
             }
         }
     }
+
+    urlRedirect(){
+        let enURL = "https://york.com.sa/en/aftermarket";
+        let arURL = "https://york.com.sa/ar/aftermarket";
+        if(this.translate.currentLang == 'en'){
+            this.helper.showLoading(this.loading);
+            this.inAppBrowser.create(enURL, '_blank', 'location=yes');
+            this.helper.hideLoading(this.loading); 
+        }else{
+            this.helper.showLoading(this.loading);
+            this.inAppBrowser.create(arURL, '_blank', 'location=yes');
+            this.helper.hideLoading(this.loading); 
+        }
+       
+   }
+
     fetchPageData() {
         const loader = 'CASEREQUEST';
         this.helper.showLoading(loader);
@@ -131,7 +154,7 @@ export class ServiceRequestComponent {
                     .subscribe((translateVal) => {
                         this.helper.showToast(translateVal);
                         this.helper.hideLoading(loaderName);
-
+                        alert("Service Request sent successfully")
                         this.nav.push(RequestDetailsComponent, { requestType: 'CaseRequest',requestId: res });
                     });
             }, () => {

@@ -11,10 +11,10 @@
     <userInfo [valueModel]="data" (isValid)="isUserInfoValid = $event"></userInfo>
     <div class="padding-8"></div>
     <!-- OTHER DETAILS -->
-    <ion-row align-items-center>
+    <!-- <ion-row align-items-center>
       <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.UnitWarranty" | translate}}</ion-label>
       <ion-checkbox name="isUnderWarranty" [(ngModel)]="data.jci_isunderwarranty"></ion-checkbox>
-    </ion-row>
+    </ion-row> -->
     <div class="padding-8"></div>
 
     <div class="page-subTitle">{{"SERVICES.SERVICE-REQUEST.InquiryInfo" | translate}}</div>
@@ -22,7 +22,7 @@
     <ion-row>
       <ion-col>
         <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.ACType" | translate}}</ion-label>
-        <ion-select (ngModelChange)="acTypeChanged($event)"  okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACType"
+        <ion-select (ionChange)="acTypeChanged($event)"  okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACType"
           [(ngModel)]="data.jci_actype" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectACType' | translate}}" required>
           <ion-option *ngFor="let type of ACTypes" [value]="type?.id">{{type?.name}}</ion-option>
         </ion-select>
@@ -30,31 +30,31 @@
     </ion-row>
     <div class="padding-4"></div>
 
-    <ion-row>
+    <!-- <ion-row>
       <ion-col>
         <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.Units" | translate}}</ion-label>
         <input type="number" name="NumberOfUnits" min="1" class="input" required [(ngModel)]="data.jci_unitscount">
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
     <ion-row>
       <ion-col>
         <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.InvoiceNo" | translate}}</ion-label>
-          <input type="text" name="jci_invoiceno" class="input" required [(ngModel)]="data.jci_invoiceno">
+          <input type="text" name="jci_unitscount" class="input" required [(ngModel)]="data.jci_invoiceno">
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.ACTypeYork" | translate}}</ion-label>
-        <ion-select (ngModelChange)="acTypeYorkChanged($event)" okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACTypeYork"
+        <ion-select (ionChange)="acTypeYorkChanged($event)" okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACTypeYork"
         [(ngModel)]="data.jci_yorkbrand" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectACTypeYork' | translate}}" required>
         <ion-option value="yes">{{"SERVICES.yes" | translate}}</ion-option>
         <ion-option value="no">{{"SERVICES.no" | translate}}</ion-option>
       </ion-select>
       </ion-col>
     </ion-row>
-    <input type="hidden" name="jci_warranty">
-    <input type="hidden" name="jci_department">
+    <input type="hidden" name="jci_warranty" [(ngModel)]="data.jci_warranty">
+    <input type="hidden" name="jci_department" [(ngModel)]="data.jci_department">
     <!-- <ion-row>
       <ion-col>
         <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.NumberOfUnits" | translate}}</ion-label>
@@ -65,8 +65,8 @@
     <ion-row>
       <ion-col>
         <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.InvoiceDate" | translate}}</ion-label>
-        <ion-datetime doneText="{{'COMMON.done'|translate}}" (ngModelChange)="checkAcWarranty()"  cancelText="{{'COMMON.cancel'|translate}}" displayFormat="DD/MM/YYYY"
-          name="InvoiceDate" [(ngModel)]="data.jci_purchasedate"></ion-datetime>
+        <ion-datetime doneText="{{'COMMON.done'|translate}}" (ionChange)="checkAcWarranty()"  cancelText="{{'COMMON.cancel'|translate}}" displayFormat="DD/MM/YYYY"
+          name="InvoiceDate" [(ngModel)]="data.jci_invoicedate"></ion-datetime>
       </ion-col>
     </ion-row>
 
@@ -101,8 +101,8 @@
     <ion-row *ngIf="showErrorMessage">
       <ion-col>
         <div class="required-msg" *ngIf="showDPCErrorMsg">
-          <div *ngIf="translate.currentLang == 'en'">Please note that we only perform residential service visits for YORK branded air conditioners. If you own a different brand of air conditioners, please check out our preventative maintenance contracts that we provide for all brands from <a href="https://york.com.sa/en/aftermarket">here.</a></div>
-          <div *ngIf="translate.currentLang == 'ar'">برجاء العمل اننا نقوم بزيارات الصيانة للمكيفات السكنية التي تحمل علامة يورك التجارية فقط, اذا كتت تمتلك وحدة مكيف منزلي من علامة تجارية اخرى يمكنك الاطلاع على عقود الصيانة الوقائية التي نوفرها لجميع العلامات التجارية من <a href="https://york.com.sa/ar/aftermarket"> هنا </a></div>
+          <div *ngIf="translate.currentLang == 'en'">Please note that we only perform residential service visits for YORK branded air conditioners. If you own a different brand of air conditioners, please check out our preventative maintenance contracts that we provide for all brands from <a (click)="urlRedirect()">here.</a></div>
+          <div *ngIf="translate.currentLang == 'ar'">برجاء العلماننا نقوم بزيارات الصيانة للمكيفات السكنية التي تحمل علامة يورك التجارية فقط, اذا كتت تمتلك وحدة مكيف منزلي من علامة تجارية اخرى يمكنك الاطلاع على عقود الصيانة الوقائية التي نوفرها لجميع العلامات التجارية من <a (click)="urlRedirect()"> هنا </a></div>
         </div>
         <div class="required-msg" *ngIf="showErrorMessage && !showDPCErrorMsg">{{warrantyErrorMessage}}</div>
       </ion-col>

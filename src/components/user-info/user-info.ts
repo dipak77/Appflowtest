@@ -23,6 +23,7 @@ export class UserInfoComponent implements OnInit {
 
     regions: any = [];
     cities: any = [];
+    districts: any = [];
 
     disableUserInfo: boolean = false;
 
@@ -77,6 +78,19 @@ export class UserInfoComponent implements OnInit {
 
         this.reqService.getCities(regionId).subscribe(cities => {
             this.cities = cities || [];
+            this.helper.hideLoading(loader);
+        }, () => {
+            this.helper.hideLoading(loader);
+        });
+    }
+    onCityChange(cityId) {
+        console.log(cityId)
+        let loader = "USERINFO.getDistrict";
+        this.helper.showLoading(loader);
+
+        this.reqService.getDistricts(cityId).subscribe(districts => {
+            console.log(districts);
+            this.districts = districts || [];
             this.helper.hideLoading(loader);
         }, () => {
             this.helper.hideLoading(loader);

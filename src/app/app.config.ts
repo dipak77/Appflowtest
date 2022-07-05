@@ -73,8 +73,8 @@ export const config: AppConfigInterface = {
 
    
   crmBaseUrl: isMobileAppMode 
-  ? "http://104.46.43.15:8080/api"  
-    : "http://104.46.43.15:8080/api", 
+  ? "https://api.york.com.sa/api"  
+    : "https://api.york.com.sa/api", 
     
   developmentMode: false,
   NST_TOKEN:
