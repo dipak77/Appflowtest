@@ -155,6 +155,8 @@ export class RequestService {
       jci_isunderwarranty: "Boolean",
       jci_contract: "Boolean",
       jci_problem: "Lookup",
+      jci_district: "Lookup",
+      jci_invoicedate: "Lookup",
       jci_customerlocation: "Lookup",
     };
 
