@@ -134,7 +134,7 @@ export class RequestService {
     data["jci_lang"] =
       this.translate.currentLang == "ar" ? "arabic" : "english";
     return this.http.doPost(
-      config.crmBaseUrl + "/Insert",
+      "http://cors.york.com.sa:8085/fetch/" + config.crmBaseUrl + "/Insert",
       this.inflateValues(data),
       this.http.crmHttpOptions
     );
@@ -156,8 +156,8 @@ export class RequestService {
       jci_contract: "Boolean",
       jci_problem: "Lookup",
       jci_district: "Lookup",
-      jci_invoicedate: "Lookup",
-      jci_customerlocation: "Lookup",
+      jci_invoicedate: "DateTime",
+      jci_customerlocation: "Lookup"
     };
 
     let fields = [];
