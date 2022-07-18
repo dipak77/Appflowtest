@@ -22,10 +22,14 @@
     <ion-row>
       <ion-col>
         <ion-label class="app-label required">{{"SERVICES.SERVICE-REQUEST.ACType" | translate}}</ion-label>
-        <ion-select (ionChange)="acTypeChanged($event)"  okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACType"
+        <ion-select *ngIf="translate.currentLang == 'en'" (ionChange)="acTypeChanged($event)"  okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACType"
           [(ngModel)]="data.jci_actype" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectACType' | translate}}" required>
-          <ion-option *ngFor="let type of ACTypes" [value]="type?.id">{{type?.name}}</ion-option>
+          <ion-option  *ngFor="let type of ACTypes" [value]="type?.id">{{type?.EN}}</ion-option>
         </ion-select>
+        <ion-select *ngIf="translate.currentLang == 'ar'" (ionChange)="acTypeChanged($event)"  okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}" name="ACType"
+        [(ngModel)]="data.jci_actype" placeholder="{{'SERVICES.SERVICE-REQUEST.SelectACType' | translate}}" required>
+        <ion-option  *ngFor="let type of ACTypes" [value]="type?.id">{{type?.AR}}</ion-option>
+      </ion-select>
       </ion-col>
     </ion-row>
     <div class="padding-4"></div>

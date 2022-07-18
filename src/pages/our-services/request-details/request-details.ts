@@ -19,7 +19,7 @@ export class RequestDetailsComponent {
   requestId: string = "";
   referenceNumber: string = "";
   requestType: string = "";
-  requestData: any;
+  requestData: any = undefined;
 
   constructor(
     public navParams: NavParams,
@@ -30,17 +30,21 @@ export class RequestDetailsComponent {
     this.requestType = this.navParams.get("requestType");
     this.requestId = this.navParams.get("requestId");
     this.referenceNumber = this.navParams.get("referenceNumber");
+    this.requestData = this.navParams.get("requestData");
   }
 
   ionViewWillEnter() {
     this.helper.dismissAllLoaders().then(() => {
       this.fetchPageData();
+      console.log(this.requestData);
     });
   }
 
   fetchPageData() {
     this.helper.showLoading();
-    this.request
+    
+    if (this.requestData != undefined) {
+      this.request
       .getRequestDetails(
         this.requestType,
         this.requestId || this.referenceNumber,
@@ -70,5 +74,6 @@ export class RequestDetailsComponent {
             });
         }
       );
+    }
   }
 }

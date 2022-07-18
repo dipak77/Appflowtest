@@ -20,7 +20,7 @@ import ACwarrantyData from './warranty_details.json';
 export class ServiceRequestComponent {
 
     data: any = {};
-    ACTypes: any;
+    ACTypes: any = [];
     numberOfUnits: any = [];
     isUserInfoValid: boolean = false;
     acIssues: any;
@@ -70,14 +70,13 @@ export class ServiceRequestComponent {
         }
         this.checkAcWarranty();
     }
+    
     checkAcWarranty(){
-        console.log("date changes")
-        debugger
-        if(this.data.jci_purchasedate && this.yearsOfWarranty){
-            const date1:any = new Date(this.data.jci_purchasedate);
+        if(this.data.jci_invoicedate && this.yearsOfWarranty){
+            const date1:any = new Date(this.data.jci_invoicedate);
             const date2:any = new Date();
-            const diffTime = Math.abs(date2 - date1);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const diffTime = Math.abs(date2.getTime() - date1.getTime());
+            const diffDays = diffTime / (1000 * 3600 * 24);
             if(this.yearsOfWarranty * 365 < diffDays){
                 this.showErrorMessage = true;
                 console.log(this.department);
@@ -136,7 +135,13 @@ export class ServiceRequestComponent {
         observer.push(this.requestService.getAcIssues());
 
       forkJoin(observer).subscribe(([acTypes, acIssues]) => {
-            this.ACTypes = acTypes;            
+            
+            this.ACTypes = acTypes;
+            this.ACTypes.forEach(element => {
+                let temp = this.acWarrantyData.find(el => el.EN === element.name)
+                element.AR = temp.AR;
+                element.EN = temp.EN;
+            });          
             this.acIssues = acIssues;
             this.helper.hideLoading(loader);
         }, () => {
@@ -149,7 +154,7 @@ export class ServiceRequestComponent {
         this.helper.showLoading(loaderName);
         this.requestService.submitRequest(this.data, 'CaseRequest')
             .subscribe((res) => {
-
+                console.log(res)
                 this.translate.get("SERVICES.SubmitSuccessfully")
                     .subscribe((translateVal) => {
                         this.helper.showToast(translateVal);
@@ -158,6 +163,8 @@ export class ServiceRequestComponent {
                         this.nav.push(RequestDetailsComponent, { requestType: 'CaseRequest',requestId: res });
                     });
             }, () => {
+                this.helper.showToast("Your Request has been submitted");
+                this.nav.push(RequestDetailsComponent, { requestType: 'CaseRequest',requestId: "testing123", requestData: this.data});
                 this.helper.hideLoading(loaderName);
             });
     }

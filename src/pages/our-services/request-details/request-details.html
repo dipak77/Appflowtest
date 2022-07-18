@@ -222,53 +222,34 @@
   </div>
 
   <!-- Service Details-->
-  <div *ngIf="requestType == 'CaseRequest'">
+  <div *ngIf="requestType == 'CaseRequest' && requestData != undefined">
     <div class="personal-info">
       <div>{{"SERVICES.Name" | translate}}:</div>
-      <div>{{requestData?.jci_firstname}} {{requestData?.jci_lastname}}</div>
+      <div>{{requestData?.FirstName}} {{requestData?.LastName}}</div>
     </div>
     <div class="personal-info">
       <div>{{"SERVICES.Mobile" | translate}}:</div>
-      <div>{{requestData?.jci_mobile}}</div>
+      <div>{{requestData?.Mobile}}</div>
     </div>
     <div class="personal-info">
       <div>{{"SERVICES.Email" | translate}}:</div>
-      <div>{{requestData?.jci_email}}</div>
-    </div>
-    <div class="personal-info">
-      <div>{{"SERVICES.Region" | translate}}:</div>
-      <div>
-        {{requestData?.jci_region ? ( translate.currentLang == 'ar' ?
-        requestData?.jci_region?.name : requestData?.jci_region?.nameEn) : ''}}
-      </div>
-    </div>
-    <div class="personal-info">
-      <div>{{"SERVICES.City" | translate}}:</div>
-      <div>
-        {{requestData?.jci_city ? ( translate.currentLang == 'ar' ?
-        requestData?.jci_city?.name : requestData?.jci_city?.nameEn) : ''}}
-      </div>
-    </div>
-    <div class="personal-info">
-      <div>{{"SERVICES.SERVICE-REQUEST.UnitWarranty" | translate}}:</div>
-      <div>
-        {{requestData?.jci_isunderwarranty == 'True' ? ("SERVICES.yes" |
-        translate) : ("SERVICES.no" | translate)}}
-      </div>
-    </div>
-    <div class="personal-info">
-      <div>{{"SERVICES.SERVICE-REQUEST.ACType" | translate}}:</div>
-      <div>
-        {{requestData?.jci_actype ? requestData?.jci_actype?.name : ''}}
-      </div>
+      <div>{{requestData?.Email}}</div>
     </div>
     <div class="personal-info">
       <div>{{"SERVICES.SERVICE-REQUEST.Units" | translate}}:</div>
-      <div>{{requestData?.jci_unitscount}}</div>
+      <div>
+        {{requestData?.jci_unitscount}}
+      </div>
+    </div>
+    <div class="personal-info">
+      <div>{{"SERVICES.SERVICE-REQUEST.InvoiceNo" | translate}}:</div>
+      <div>
+        {{requestData?.jci_invoiceno}}
+      </div>
     </div>
     <div class="personal-info">
       <div>{{"SERVICES.SERVICE-REQUEST.InvoiceDate" | translate}}:</div>
-      <div>{{requestData?.createdon}}</div>
+      <div>{{requestData?.jci_invoicedate}}</div>
     </div>
     <div class="personal-info">
       <div>{{"SERVICES.issue" | translate}}:</div>
@@ -280,11 +261,6 @@
     <div class="personal-info">
       <div>{{"SERVICES.Description" | translate}}:</div>
       <div>{{requestData?.jci_comments}}</div>
-    </div>
-    <div class="padding-16"></div>
-    <div class="personal-info">
-      <div><b>{{"SERVICES.RequestStatus" | translate}}:</b></div>
-      <div>{{requestData?.jci_status}}</div>
     </div>
   </div>
 </ion-content>

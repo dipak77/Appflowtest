@@ -134,7 +134,7 @@ export class RequestService {
     data["jci_lang"] =
       this.translate.currentLang == "ar" ? "arabic" : "english";
     return this.http.doPost(
-      "http://cors.york.com.sa:8085/fetch/" + config.crmBaseUrl + "/Insert",
+      config.crmBaseUrl + "/Insert",
       this.inflateValues(data),
       this.http.crmHttpOptions
     );
