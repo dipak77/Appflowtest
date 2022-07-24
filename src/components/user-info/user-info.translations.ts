@@ -26,7 +26,7 @@
         },
         "District": {
             "en": "District",
-            "ar": "منطقة"
+            "ar": "الحي"
         },
         "Region": {
             "en": "Region",

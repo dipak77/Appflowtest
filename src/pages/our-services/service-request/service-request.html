@@ -57,8 +57,8 @@
       </ion-select>
       </ion-col>
     </ion-row>
-    <input type="hidden" name="jci_warranty" [(ngModel)]="data.jci_warranty">
-    <input type="hidden" name="jci_department" [(ngModel)]="data.jci_department">
+    <input type="hidden" name="jci_warranty" [(ngModel)]="data.jci_warranty" >
+    <input type="hidden" name="jci_department" [(ngModel)]="data.jci_department" >
     <!-- <ion-row>
       <ion-col>
         <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.NumberOfUnits" | translate}}</ion-label>
@@ -74,7 +74,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="enableSerialNumber">
+    <ion-row *ngIf="acTypeYork && department == 'ESG'">
       <ion-col>
         <ion-label class="app-label">{{"SERVICES.SERVICE-REQUEST.SerialNumber" | translate}}</ion-label>
           <input type="text" name="SerialNumber" [(ngModel)]="data.jci_serialno" class="input" >
@@ -103,12 +103,12 @@
     </div>
 
     <ion-row *ngIf="showErrorMessage">
-      <ion-col>
-        <div class="required-msg" *ngIf="showDPCErrorMsg">
+      <ion-col class="text-danger">
+        <div *ngIf="showDPCErrorMsg">
           <div *ngIf="translate.currentLang == 'en'">Please note that we only perform residential service visits for YORK branded air conditioners. If you own a different brand of air conditioners, please check out our preventative maintenance contracts that we provide for all brands from <a (click)="urlRedirect()">here.</a></div>
           <div *ngIf="translate.currentLang == 'ar'">برجاء العلماننا نقوم بزيارات الصيانة للمكيفات السكنية التي تحمل علامة يورك التجارية فقط, اذا كتت تمتلك وحدة مكيف منزلي من علامة تجارية اخرى يمكنك الاطلاع على عقود الصيانة الوقائية التي نوفرها لجميع العلامات التجارية من <a (click)="urlRedirect()"> هنا </a></div>
         </div>
-        <div class="required-msg" *ngIf="showErrorMessage && !showDPCErrorMsg">{{warrantyErrorMessage}}</div>
+        <div *ngIf="showErrorMessage && !showDPCErrorMsg">{{warrantyErrorMessage}}</div>
       </ion-col>
     </ion-row>
 

@@ -221,8 +221,8 @@
      "Department": "ESG",
      "Warranty": "1",
      "Fees if non warranty": "Depends",
-     "en_message": "No Message",
-     "ar_message": "لا توجد رسالة"
+     "en_message": "",
+     "ar_message": ""
     },
     {
      "EN": "Chiller-Water Cooled Centrifugal",
@@ -230,8 +230,8 @@
      "Department": "ESG",
      "Warranty": "1",
      "Fees if non warranty": "Depends",
-     "en_message": "No Message",
-     "ar_message": "لا توجد رسالة"
+     "en_message": "",
+     "ar_message": ""
     },
     {
      "EN": "AHU- Air Handling Unit",
@@ -239,8 +239,8 @@
      "Department": "ESG",
      "Warranty": "1",
      "Fees if non warranty": "Depends",
-     "en_message": "No Message",
-     "ar_message": "لا توجد رسالة"
+     "en_message": "",
+     "ar_message": ""
     },
     {
      "EN": "FCU - Fan Coil Unit",
@@ -248,8 +248,8 @@
      "Department": "ESG",
      "Warranty": "1",
      "Fees if non warranty": "Depends",
-     "en_message": "No Message",
-     "ar_message": "لا توجد رسالة"
+     "en_message": "",
+     "ar_message": ""
     },
     {
      "EN": "CRAC- Computer Room AC Unit",
@@ -257,8 +257,8 @@
      "Department": "ESG",
      "Warranty": "1",
      "Fees if non warranty": "Depends",
-     "en_message": "No Message",
-     "ar_message": "لا توجد رسالة"
+     "en_message": "",
+     "ar_message": ""
     },
     {
      "EN": "Condensing Unit",
@@ -266,8 +266,8 @@
      "Department": "ESG",
      "Warranty": "1",
      "Fees if non warranty": "Depends",
-     "en_message": "No Message",
-     "ar_message": "لا توجد رسالة"
+     "en_message": "",
+     "ar_message": ""
     },
     {
      "EN": "Surgical Hygienic",
@@ -275,8 +275,8 @@
      "Department": "ESG",
      "Warranty": "1",
      "Fees if non warranty": "Depends",
-     "en_message": "No Message",
-     "ar_message": "لا توجد رسالة"
+     "en_message": "",
+     "ar_message": ""
     },
     {
      "EN": "Air Curtain",

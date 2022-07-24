@@ -43,7 +43,7 @@ export class RequestDetailsComponent {
   fetchPageData() {
     this.helper.showLoading();
     
-    if (this.requestData != undefined) {
+    if (this.requestData == undefined) {
       this.request
       .getRequestDetails(
         this.requestType,
@@ -75,5 +75,6 @@ export class RequestDetailsComponent {
         }
       );
     }
+    this.helper.hideLoading();
   }
 }

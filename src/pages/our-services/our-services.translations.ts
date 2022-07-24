@@ -172,7 +172,7 @@ export default {
       },
       District: {
         en: "District",
-        ar: "المقاطعة",
+        ar: "الحي",
       },
       ACType: {
         en: "AC Type",

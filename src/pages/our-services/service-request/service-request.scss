@@ -1,5 +1,7 @@
 ﻿service-request {
-
+  .text-danger{
+    color:red;
+  }
   .scroll-content {
 
     @include horizontal-space();

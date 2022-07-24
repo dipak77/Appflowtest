@@ -58,8 +58,15 @@ export class ServiceRequestComponent {
         let ac = this.ACTypes.filter(el=>el.id == id)[0].name;
         
         this.acWarrantyInfo = this.acWarrantyData.filter(el=>el.EN == ac)[0];
-        this.yearsOfWarranty = parseInt(this.acWarrantyInfo.Warranty); 
+        this.yearsOfWarranty = parseInt(this.acWarrantyInfo.Warranty);
         this.department = this.acWarrantyInfo.Department;
+        if(this.department == "DP&amp;C"){
+            this.data.jci_department = "DP&C";   
+        }else{
+            this.data.jci_department = this.department;   
+        }
+        
+        this.data.jci_warranty = this.yearsOfWarranty;
         this.checkAcWarranty();
     }
     acTypeYorkChanged(val){
