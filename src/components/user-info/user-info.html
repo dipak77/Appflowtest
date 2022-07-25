@@ -52,10 +52,10 @@
 
     <ion-row *ngIf="showCityAndRegion">
       <ion-col class="state">
-        <ion-label class="app-label">{{"USERINFO.District" | translate}}</ion-label>
+        <ion-label class="app-label required">{{"USERINFO.District" | translate}}</ion-label>
         <ion-select [disabled]="!valueModel.City" okText="{{'COMMON.done'|translate}}" cancelText="{{'COMMON.cancel'|translate}}"
           placeholder="{{'USERINFO.CityPlaceholder' | translate}}" multiple="false" name="district"
-          [(ngModel)]="valueModel.jci_district">
+          [(ngModel)]="valueModel.jci_district" required>
           <ion-option *ngFor="let district of districts" [value]="district.id">
             {{translate.currentLang == 'ar' ? district.name : district.nameEn}}
           </ion-option>

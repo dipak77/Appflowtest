@@ -183,8 +183,8 @@ export default {
         ar: " اختر نوع المنتج",
       },
       SelectACTypeYork: {
-        en: "Please Select if AC Type is York",
-        ar: " اختر نوع المنتج",
+        en: "Is the AC brand YORK/Hitachi?",
+        ar: "هل نوع المكيف يورك/ هيتاشي؟",
       },
       ProjectCode: {
         en: "Project Code",
@@ -259,8 +259,8 @@ export default {
         ar: "رقم الفاتورة",
       },
       ACTypeYork: {
-        en: "Is AC type York?",
-        ar: "هو نوع AC يورك",
+        en: "Is the AC brand YORK/Hitachi?",
+        ar: "هل نوع المكيف يورك/ هيتاشي؟",
       },
       NumberOfUnits: {
         en: "Number of Units",

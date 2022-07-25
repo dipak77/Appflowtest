@@ -157,9 +157,7 @@ export class RequestService {
       jci_problem: "Lookup",
       jci_district: "Lookup",
       jci_invoicedate: "DateTime",
-      jci_customerlocation: "Lookup",
-      jci_department: "Lookup",
-      jci_warranty: "Lookup"
+      jci_customerlocation: "Lookup"
     };
 
     let fields = [];

@@ -65,8 +65,6 @@ export class ServiceRequestComponent {
         }else{
             this.data.jci_department = this.department;   
         }
-        
-        this.data.jci_warranty = this.yearsOfWarranty;
         this.checkAcWarranty();
     }
     acTypeYorkChanged(val){
@@ -86,8 +84,6 @@ export class ServiceRequestComponent {
             const diffDays = diffTime / (1000 * 3600 * 24);
             if(this.yearsOfWarranty * 365 < diffDays){
                 this.showErrorMessage = true;
-                console.log(this.department);
-                console.log(this.acTypeYork);
                 if(!this.acTypeYork && this.department == "DP&amp;C" ){
                    this.showDPCErrorMsg = true;
                    this.disableButton = true;
@@ -108,13 +104,15 @@ export class ServiceRequestComponent {
                     }
                     
                 }
-                
+                this.data.jci_warranty = "No";
                 
             }else{
                 console.log("In else condition")
                 this.showErrorMessage = false;
                 this.disableButton = false;
+                this.data.jci_warranty = "Yes";
             }
+            
         }
     }
 
